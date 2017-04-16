@@ -63,7 +63,7 @@ the API.
 **Objective:** Add infinite scroll to Notes Index
 
 ### Bonus Features (TBD)
-- [ ] Search notes by content
-- [ ] Set reminders on notes
-- [ ] Changelogs for Notes
+- [ ] Board settings
+- [ ] Hotkeys
+- [ ] Changelogs for Boards
 - [ ] Multiple sessions
