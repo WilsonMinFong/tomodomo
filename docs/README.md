@@ -1,11 +1,11 @@
-# Tomodomo (Trello clone - name subject to change)
+# Tomodomo
 
-[Heroku link][heroku] **Note:** This should be a link to your production site
+[Heroku link][heroku] 
 
 [Trello link][trello]
 
 [heroku]: http://www.herokuapp.com
-[trello]: https://trello.com/b/ALgfuX0Q/freshernote
+[trello]: https://trello.com/b/pw2XI5p3/tomodomo
 
 ## Minimum Viable Product
 
@@ -41,29 +41,26 @@ sufficient CSS styling:
 
 **Objective:** Functioning rails project with front-end Authentication
 
-### Phase 2: Notes Model, API, and components (2 days)
+### Phase 2: Boards Model, API, and components (1 day)
 
-**Objective:** Notes can be created, read, edited and destroyed through
+**Objective:** Boards can be created, read, edited and destroyed through
 the API.
 
-### Phase 3: Notebooks (2 days)
+### Phase 3: Lists and Cards (3 days)
 
-**Objective:** Notes belong to Notebooks that can be created, read, edited and destroyed through the API.
+**Objective:** Lists belong to Boards. Cards belong to Lists. Both can be created, read, edited and destroyed through the API.
 
-### Phase 4: Tags (1 day)
+### Phase 4: Sharing Boards (2 days)
 
-**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
+**Objective:** Allow boards to be made public and shared with other users to edit.
 
-### Phase 5: Allow Complex Styling in Notes (1 day, W2 Th 6pm)
+### Phase 5: Comments and Due Dates (1 day)
 
-**Objective:** Allow rich text editing of notes.
-
-### Phase 6: - Pagination / infinite scroll for Notes Index (1 day, W2 F 6pm)
-
-**Objective:** Add infinite scroll to Notes Index
+**Objective:** Allow cards to be commented on and assigned a due date.
 
 ### Bonus Features (TBD)
 - [ ] Board settings
 - [ ] Hotkeys
+- [ ] User profiles
 - [ ] Changelogs for Boards
 - [ ] Multiple sessions
