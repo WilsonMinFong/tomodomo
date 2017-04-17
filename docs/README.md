@@ -1,6 +1,6 @@
 # Tomodomo
 
-[Heroku link][heroku] 
+[Heroku link][heroku]
 
 [Trello link][trello]
 
@@ -20,7 +20,7 @@ sufficient CSS styling:
 - [ ] Lists and Cards
 - [ ] Sharing Boards
 - [ ] Comments and Due Dates
-- [ ] Production README [sample](docs/production_readme.md)
+- [ ] Production README
 
 ## Design Docs
 * [View Wireframes][wireframes]
