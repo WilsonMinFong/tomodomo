@@ -4,7 +4,7 @@
 
 [Trello link][trello]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://tomodomo.herokuapp.com
 [trello]: https://trello.com/b/pw2XI5p3/tomodomo
 
 ## Minimum Viable Product

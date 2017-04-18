@@ -25,7 +25,10 @@ class AuthForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    this.props.formAction(this.state).then(() => hashHistory.push('/'));
+    this.props.formAction(this.state).then(
+      () => hashHistory.push('/'),
+      () => this.setState({ full_name: '', email: '', password: '' })
+    );
   }
 
   render() {
