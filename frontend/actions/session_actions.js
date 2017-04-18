@@ -17,10 +17,20 @@ export const receiveErrors = (errors) => {
   };
 };
 
+export const clearErrors = () => {
+  return {
+    type: RECEIVE_ERRORS,
+    errors: []
+  };
+};
+
 export const signup = (user) => (dispatch) => {
   return SessionApiUtil.signup(user)
     .then(
-      (user) => dispatch(receiveCurrentUser(user)),
+      (user) => {
+        dispatch(clearErrors());
+        return dispatch(receiveCurrentUser(user));
+      },
       (errors) => dispatch(receiveErrors(errors.responseJSON))
     );
 };
@@ -28,7 +38,10 @@ export const signup = (user) => (dispatch) => {
 export const login = (user) => (dispatch) => {
   return SessionApiUtil.login(user)
     .then(
-      (user) => dispatch(receiveCurrentUser(user)),
+      (user) => {
+        dispatch(clearErrors());
+        return dispatch(receiveCurrentUser(user));
+      },
       (errors) => dispatch(receiveErrors(errors.responseJSON))
     );
 };
@@ -36,6 +49,6 @@ export const login = (user) => (dispatch) => {
 export const logout = () => (dispatch) => {
   return SessionApiUtil.logout()
     .then(
-      (user) => dispatch(receiveCurrentUser(user))
+      (user) => dispatch(receiveCurrentUser(null))
     );
 };
