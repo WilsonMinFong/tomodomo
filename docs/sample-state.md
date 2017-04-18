@@ -2,7 +2,8 @@
 {
   currentUser: {
     id: 1,
-    username: "me"
+    email: "me@example.com",
+    full_name: "Me"
   },
   forms: {
     signUp: {errors: []},
@@ -17,10 +18,10 @@
   },
   boardUsers: {
     1: {
-      username: "me"
+      full_name: "Me"
     },
     2: {
-      username: "friend",
+      full_name: "Friend",
       share_id: 1
     }
   },

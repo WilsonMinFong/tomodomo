@@ -46,15 +46,20 @@ sufficient CSS styling:
 **Objective:** Boards can be created, read, edited and destroyed through
 the API.
 
-### Phase 3: Lists and Cards (3 days)
+### Phase 3: Lists (1 day)
 
-**Objective:** Lists belong to Boards. Cards belong to Lists. Both can be created, read, edited and destroyed through the API.
+**Objective:** Lists belong to Boards, and can be created, read, edited and destroyed through
+the API.
 
-### Phase 4: Sharing Boards (2 days)
+### Phase 4: Cards (2 days)
+
+**Objective:** Cards belong to Lists, and can be created, read, edited and destroyed through the API.
+
+### Phase 5: Sharing Boards (2 days)
 
 **Objective:** Allow boards to be made public and shared with other users to edit.
 
-### Phase 5: Comments and Due Dates (1 day)
+### Phase 6: Comments and Due Dates (1 day)
 
 **Objective:** Allow cards to be commented on and assigned a due date.
 
