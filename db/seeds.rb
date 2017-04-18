@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# User seeds
+User.destroy_all
+
+User.create([
+  { full_name: 'Guest User',
+    email: 'guest@example.com',
+    password: 'password'
+  }
+]);

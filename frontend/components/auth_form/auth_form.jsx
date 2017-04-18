@@ -14,6 +14,7 @@ class AuthForm extends React.Component {
 
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleGuestLogin = this.handleGuestLogin.bind(this);
   }
 
   handleInput(field) {
@@ -31,6 +32,10 @@ class AuthForm extends React.Component {
     );
   }
 
+  handleGuestLogin() {
+    this.setState({ email: 'guest@example.com', password: 'password' });
+  }
+
   render() {
     const { formType, errors } = this.props;
 
@@ -38,6 +43,7 @@ class AuthForm extends React.Component {
     let nameInput = '';
     let submitText = '';
     let otherFormLink = '';
+    let guestLogin = '';
 
     if (formType === 'signup') {
       formTitle = "Create a Tomodomo Account";
@@ -61,6 +67,8 @@ class AuthForm extends React.Component {
       submitText = 'Log In';
 
       otherFormLink = <Link to='/signup'>Create a new Tomodomo account.</Link>;
+
+      guestLogin = <button onClick={ this.handleGuestLogin }>Guest Login</button>;
     }
 
     return (
@@ -86,6 +94,7 @@ class AuthForm extends React.Component {
           </label>
 
           <input type='submit' value={ submitText }/>
+          { guestLogin }
         </form>
         { errors ? <ErrorsList errors={ errors } /> : '' }
         { otherFormLink }
