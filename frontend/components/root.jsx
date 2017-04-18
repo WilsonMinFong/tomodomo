@@ -10,8 +10,11 @@ const Root = ({ store }) => {
     if (store.getState().session.currentUser) {
       replace('/');
     }
+  };
 
-    store.dispatch(clearErrors()); // TODO: move clearErrors out
+  const _handleAuthOnEnter = (nextState, replace) => {
+    _redirectIfLoggedIn(nextState, replace);
+    store.dispatch(clearErrors());
   };
 
   const _ensureCurrentUser = (nextState, replace) => {
@@ -27,12 +30,12 @@ const Root = ({ store }) => {
           <Route
             path="signup"
             component={ AuthFormContainer }
-            onEnter={ _redirectIfLoggedIn }
+            onEnter={ _handleAuthOnEnter }
           />
           <Route
             path="login"
             component={ AuthFormContainer }
-            onEnter={ _redirectIfLoggedIn }/>
+            onEnter={ _handleAuthOnEnter }/>
         </Route>
       </Router>
     </Provider>
