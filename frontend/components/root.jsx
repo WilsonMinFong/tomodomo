@@ -1,9 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+
 import App from './app';
+import Home from './home';
 import AuthFormContainer from './auth_form/auth_form_container';
-import SplashContainer from './splash/splash_container';
 import { clearErrors } from '../actions/session_actions';
 
 const Root = ({ store }) => {
@@ -28,7 +29,7 @@ const Root = ({ store }) => {
     <Provider store={ store }>
       <Router history={ hashHistory }>
         <Route path="/" component={ App }>
-          <IndexRoute component={ SplashContainer }/>
+          <IndexRoute component={ Home }/>
           <Route
             path="signup"
             component={ AuthFormContainer }

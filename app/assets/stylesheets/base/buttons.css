@@ -1,0 +1,27 @@
+.button {
+  background: #61bd4f;
+
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+
+  text-align: center;
+
+  width: 255px;
+
+  border: 0;
+  border-radius: 5px;
+  padding: 12px 10px;
+  margin: 10px 0;
+
+  box-shadow: 0 0 2px 0 gray;
+  border-bottom: 2px solid #3F6F21;
+}
+
+.button:hover {
+  background: #5aac44;
+}
+
+.button:active {
+  background: #519839;
+}

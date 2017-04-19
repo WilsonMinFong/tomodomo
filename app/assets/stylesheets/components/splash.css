@@ -1,0 +1,95 @@
+.splash-container {
+  font-size: 20px;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.splash-container header {
+  background: #0079BF;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 80px;
+}
+
+.splash-container .logo {
+  margin-left: 20px;
+  font-family: 'Caveat Brush', cursive;
+  font-size: 32px;
+}
+
+.splash-container .logo a:visited {
+  color: inherit;
+}
+
+.splash-container .button {
+  margin: 12px;
+}
+
+.splash-container main {
+  position: relative;
+  overflow: hidden;
+  height: 800px;
+}
+
+.splash-container .overlay {
+  height: 800px;
+  padding: 120px 33%;
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 121, 191, 0.85);
+  text-align: center;
+}
+
+.splash-container .hero {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+}
+
+.overlay-contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+}
+
+.headline {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 40px 0;
+}
+
+.subtitle {
+  margin-bottom: 20px;
+}
+
+.overlay-contents > a {
+  opacity: 1;
+}
+
+.login-text {
+  font-size: 16px;
+  margin-top: 30px
+}
+
+.splash-container footer {
+  background: #74776B;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.splash-container footer a {
+  cursor: pointer;
+  color: black;
+  margin-left: 10px;
+}
+
+.splash-container header a i {
+  margin-right: 10px;
+}

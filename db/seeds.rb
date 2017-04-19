@@ -10,8 +10,9 @@
 User.destroy_all
 
 User.create([
-  { name: 'Guest User',
+  {
+    name: 'Guest User',
     email: 'guest@example.com',
     password: 'password'
-  }
+  },
 ]);

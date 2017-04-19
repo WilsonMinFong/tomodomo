@@ -72,7 +72,7 @@ class AuthForm extends React.Component {
       otherFormLink = <Link to='/signup'>Create a Tomodomo account.</Link>;
       otherFormVerb = 'Don\'t';
 
-      guestLogin = <button onClick={ this.handleGuestLogin }>Guest Login</button>;
+      guestLogin = <button onClick={ this.handleGuestLogin } className='button'>Guest Login</button>;
     }
 
     return (
@@ -101,7 +101,7 @@ class AuthForm extends React.Component {
 
           { errors ? <ErrorsList errors={ errors } /> : '' }
 
-          <input type='submit' value={ submitText }/>
+          <input type='submit' value={ submitText } className='button'/>
           { guestLogin }
         </form>
         <span>{ otherFormVerb } have an account? { otherFormLink }</span>

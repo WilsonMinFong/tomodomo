@@ -27,10 +27,8 @@
   margin: 5px 0;
 }
 
-.auth-form input, button {
+.auth-form input:not(.button), button {
   background: #EDEFF0;
-  /*height: 48px;*/
-  /*width: 75%;*/
 
   font-size: 1em;
 
@@ -54,23 +52,6 @@
   color: #CCCCCC;
 }
 
-.auth-form input[type='submit'], .auth-form button {
-  background: #61bd4f;
-
+.auth-form .button {
   color: white;
-  font-weight: bold;
-
-  width: 255px;
-
-  border: 0;
-  border-radius: 5px;
-  box-shadow: 0 0 2px 0 gray;
-}
-
-.auth-form input[type='submit']:hover, .auth-form button:hover {
-  background: #5aac44;
-}
-
-.auth-form input[type='submit']:active, .auth-form button:active {
-  background: #519839;
 }
