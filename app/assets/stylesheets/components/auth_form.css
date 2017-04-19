@@ -1,0 +1,76 @@
+.auth-form {
+  color: #4D4D4D;
+  font-size: 20px;
+  font-family: 'Fira Sans', sans-serif;
+
+  margin: 100px 30%;
+}
+
+.auth-form h1 {
+  font-size: 1.8em;
+  font-weight: bold;
+
+  margin-bottom: 20px;
+}
+
+.auth-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-form label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin: 5px 0;
+}
+
+.auth-form input, button {
+  background: #EDEFF0;
+  /*height: 48px;*/
+  /*width: 75%;*/
+
+  font-size: 1em;
+
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  padding: 12px 10px;
+  margin: 10px 0;
+}
+
+.auth-form input[type='text']:hover, input[type='password']:hover {
+  border: 1px solid gray;
+}
+
+.auth-form input[type='text']:focus, input[type='password']:focus {
+  box-shadow: 0 0 5px #888888;
+}
+
+.auth-form input[type='text']:focus::placeholder,
+.auth-form input[type='password']:focus::placeholder
+{
+  color: #CCCCCC;
+}
+
+.auth-form input[type='submit'], .auth-form button {
+  background: #61bd4f;
+
+  color: white;
+  font-weight: bold;
+
+  width: 255px;
+
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 0 0 2px 0 gray;
+}
+
+.auth-form input[type='submit']:hover, .auth-form button:hover {
+  background: #5aac44;
+}
+
+.auth-form input[type='submit']:active, .auth-form button:active {
+  background: #519839;
+}

@@ -43,6 +43,7 @@ class AuthForm extends React.Component {
     let nameInput = '';
     let submitText = '';
     let otherFormLink = '';
+    let otherFormVerb = '';
     let guestLogin = '';
 
     if (formType === 'signup') {
@@ -54,6 +55,7 @@ class AuthForm extends React.Component {
           type='text'
           value={ this.state.full_name }
           onChange={ this.handleInput('full_name') }
+          placeholder='e.g. Hayao Miyazaki'
           />
         </label>
       );
@@ -61,12 +63,14 @@ class AuthForm extends React.Component {
       submitText = 'Create New Account';
 
       otherFormLink = <Link to='/login'>Log in.</Link>;
+      otherFormVerb = 'Already';
     } else {
       formTitle = 'Log in to Tomodomo';
 
       submitText = 'Log In';
 
-      otherFormLink = <Link to='/signup'>Create a new Tomodomo account.</Link>;
+      otherFormLink = <Link to='/signup'>Create a Tomodomo account.</Link>;
+      otherFormVerb = 'Don\'t';
 
       guestLogin = <button onClick={ this.handleGuestLogin }>Guest Login</button>;
     }
@@ -82,6 +86,7 @@ class AuthForm extends React.Component {
               type='text'
               value={ this.state.email }
               onChange={ this.handleInput('email') }
+              placeholder='e.g. hayao.miyazaki@ghibli.jp'
             />
           </label>
 
@@ -90,14 +95,16 @@ class AuthForm extends React.Component {
               type='password'
               value={ this.state.password }
               onChange={ this.handleInput('password') }
+              placeholder='e.g. ••••••••••'
             />
           </label>
+
+          { errors ? <ErrorsList errors={ errors } /> : '' }
 
           <input type='submit' value={ submitText }/>
           { guestLogin }
         </form>
-        { errors ? <ErrorsList errors={ errors } /> : '' }
-        { otherFormLink }
+        <span>{ otherFormVerb } have an account? { otherFormLink }</span>
       </div>
     );
   }

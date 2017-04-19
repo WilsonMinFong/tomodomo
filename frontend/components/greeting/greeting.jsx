@@ -12,7 +12,7 @@ const loggedOutGreeting = () => {
 
 const loggedInGreeting = (currentUser, logout) => {
   return (
-    <div>
+    <div className='greeting-container'>
       Welcome, { currentUser.full_name }!
       <button onClick={ () => logout() }>Log out</button>
     </div>
