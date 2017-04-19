@@ -1,13 +1,23 @@
 import React from 'react';
-import GreetingContainer from './greeting/greeting_container';
+import { connect } from 'react-redux';
+import HeaderContainer from './header/header_container';
 
-const App = ({ children }) => {
+const mapStateToProps = (state) => {
+  return {
+    loggedIn: Boolean(state.session.currentUser)
+  }
+};
+
+const App = ({ children, loggedIn }) => {
   return (
     <div className='app-container'>
-      <GreetingContainer />
+      { loggedIn ? <HeaderContainer /> : null }
       { children }
     </div>
   );
 };
 
-export default App;
+export default connect(
+  mapStateToProps,
+  null
+)(App);
