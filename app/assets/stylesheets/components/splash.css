@@ -71,7 +71,7 @@
 .splash-container footer {
   background: #74776B;
   text-align: center;
-  padding: 15px 0;
+  padding: 5px 0;
 }
 
 .splash-container footer a {
@@ -82,4 +82,8 @@
 
 .splash-container header a i {
   margin-right: 10px;
+}
+
+.login-text a:hover {
+  text-decoration: underline;
 }

@@ -55,3 +55,7 @@
 .auth-form .button {
   color: white;
 }
+
+.auth-form a:hover {
+  text-decoration: underline;
+}
