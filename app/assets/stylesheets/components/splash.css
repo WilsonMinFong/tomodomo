@@ -13,16 +13,6 @@
   height: 80px;
 }
 
-.splash-container .logo {
-  margin-left: 20px;
-  font-family: 'Caveat Brush', cursive;
-  font-size: 32px;
-}
-
-.splash-container .logo a:visited {
-  color: inherit;
-}
-
 .splash-container .button {
   margin: 12px;
 }

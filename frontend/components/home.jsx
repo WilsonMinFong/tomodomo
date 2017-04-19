@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 };
 
 const Home = ({ loggedIn }) => {
-  return loggedIn ? (<h1>BoardsIndexContainer</h1>) : <Splash />;
+  return loggedIn ? (<h1></h1>) : <Splash />;
 };
 
 export default connect(

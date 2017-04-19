@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import Logo from './shared/logo';
 
 const Splash = () => {
   const signupLink = (linkText) => {
@@ -17,12 +18,7 @@ const Splash = () => {
   return (
     <div className='splash-container'>
       <header>
-        <div className='logo' >
-          <Link to='/'>
-            <i className="fa fa-users" aria-hidden="true"></i>
-             Tomodomo
-          </Link>
-        </div>
+        <Logo />
         <nav>
           { loginLink('Log In', 'button') }
           { signupLink('Sign Up') }
