@@ -7,7 +7,7 @@ class AuthForm extends React.Component {
     super(props);
 
     this.state = {
-      full_name: '',
+      name: '',
       email: '',
       password: ''
     };
@@ -28,7 +28,7 @@ class AuthForm extends React.Component {
 
     this.props.formAction(this.state).then(
       () => hashHistory.push('/'),
-      () => this.setState({ full_name: '', email: '', password: '' })
+      () => this.setState({ name: '', email: '', password: '' })
     );
   }
 
@@ -53,8 +53,8 @@ class AuthForm extends React.Component {
         <label>Name
           <input
           type='text'
-          value={ this.state.full_name }
-          onChange={ this.handleInput('full_name') }
+          value={ this.state.name }
+          onChange={ this.handleInput('name') }
           placeholder='e.g. Hayao Miyazaki'
           />
         </label>
