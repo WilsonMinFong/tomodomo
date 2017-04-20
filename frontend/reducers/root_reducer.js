@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import sessionReducer from './session_reducer';
+import boardsReducer from './boards_reducer';
 
 export default combineReducers({
-  session: sessionReducer
+  session: sessionReducer,
+  boards: boardsReducer
 });
