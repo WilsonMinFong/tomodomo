@@ -5,6 +5,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import Home from './home';
 import AuthFormContainer from './auth_form/auth_form_container';
+import BoardContainer from './boards/board_container';
 import { clearErrors } from '../actions/session_actions';
 
 const Root = ({ store }) => {
@@ -39,6 +40,9 @@ const Root = ({ store }) => {
             path="login"
             component={ AuthFormContainer }
             onEnter={ _handleAuthOnEnter }/>
+          <Route
+            path="boards/:boardId"
+            component={ BoardContainer }/>
         </Route>
       </Router>
     </Provider>

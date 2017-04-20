@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const BoardsIndexItem = ({ board }) => {
   return (
     <li>
-      { board.name }
+      <Link to={ `/boards/${board.id}` }>
+        { board.name }
+      </Link>
     </li>
   );
 };
