@@ -5,7 +5,11 @@ const UserMenu = ({ currentUser, logout }) => {
     <div className='user-menu'>
       <span>{ currentUser.name }</span>
       <ul>
-        <li><a onClick={ () => logout() }>Log Out</a></li>
+        <li>
+          <a onClick={ () => logout() }>
+            <div>Log Out</div>
+          </a>
+        </li>
       </ul>
     </div>
   );
