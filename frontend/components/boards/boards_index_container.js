@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import BoardsIndex from './boards_index';
 import { fetchBoards, createBoard } from '../../actions/board_actions';
+import { receivePopover } from '../../actions/popover_actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -11,7 +12,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchBoards: () => dispatch(fetchBoards()),
-    createBoard: (board) => dispatch(createBoard(board))
+    createBoard: (board) => dispatch(createBoard(board)),
+    receivePopover: (popover) => dispatch(receivePopover(popover))
   };
 };
 
