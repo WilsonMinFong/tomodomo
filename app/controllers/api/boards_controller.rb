@@ -22,8 +22,11 @@ class Api::BoardsController < ApplicationController
 
   def update
     @board = current_user.boards.find(params[:id])
-
-    render :show
+    if @board.update(board_params)
+      render :show
+    else
+      render json: @board.errors.full_messages
+    end
   end
 
   def destroy
