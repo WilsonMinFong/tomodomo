@@ -5,7 +5,8 @@ import { removeAllPopovers } from '../../actions/popover_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    isOpened: state.popover === ownProps.name
+    isOpened: state.popover === ownProps.name,
+    name: ownProps.name
   };
 };
 
@@ -20,12 +21,12 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const Popover = ({ isOpened, removeAllPopovers, children }) => {
+const Popover = ({ isOpened, removeAllPopovers, name, children }) => {
   if (isOpened) {
     document.body.addEventListener('click', removeAllPopovers);
 
     return (
-      <div className='popover'>
+      <div className={ `popover ${ name }` }>
         { children }
       </div>
     );

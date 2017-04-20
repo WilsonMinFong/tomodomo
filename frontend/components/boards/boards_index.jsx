@@ -3,20 +3,6 @@ import Popover from '../shared/popover';
 import BoardsIndexItem from './board_index_item';
 import BoardFormContainer from './board_form_container';
 
-const customStyles = {
-  overlay : {
-    backgroundColor: 'rgba(255, 255, 255, 0)'
-  },
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
-};
-
 class BoardsIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -47,7 +33,7 @@ class BoardsIndex extends React.Component {
         </h1>
         <ul className='boards-list'>
           { lis }
-          <li>
+          <li className='col col-1-4 popover-container'>
             <button onClick={ this.togglePopover('index-board-form') }>Create a new board...</button>
             <Popover name='index-board-form'>
               <BoardFormContainer />
