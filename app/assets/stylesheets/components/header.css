@@ -57,6 +57,7 @@
 .user-menu li {
   margin: 10px 0;
   color: black;
+  padding-left: 10px;
 }
 
 .user-menu li:hover {
