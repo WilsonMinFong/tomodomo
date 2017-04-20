@@ -1,40 +1,22 @@
 import React from 'react';
-import Modal from 'react-modal';
 
 import Drawer from '../shared/drawer';
 import UserMenu from './user_menu';
 import Logo from '../shared/logo';
+import Popover from '../shared/popover';
 import BoardsIndexContainer from '../boards/boards_index_container';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      userMenuOpen: false,
-      boardsMenuOpen: false
+    this.togglePopover = this.togglePopover.bind(this);
+  }
+
+  togglePopover(name) {
+    return () => {
+      this.props.receivePopover(name);
     };
-
-    this.toggleUserDrawer = this.toggleUserDrawer.bind(this);
-    this.closeUserDrawer = this.closeUserDrawer.bind(this);
-    this.toggleBoardsDrawer = this.toggleBoardsDrawer.bind(this);
-    this.closeBoardsDrawer = this.closeBoardsDrawer.bind(this);
-  }
-
-  toggleUserDrawer() {
-    this.setState({ userMenuOpen: !this.state.userMenuOpen });
-  }
-
-  closeUserDrawer() {
-    this.setState({userMenuOpen: false});
-  }
-
-  toggleBoardsDrawer() {
-    this.setState({ boardsMenuOpen: !this.state.boardsMenuOpen });
-  }
-
-  closeBoardsDrawer() {
-    this.setState({boardsMenuOpen: false});
   }
 
   render() {
@@ -44,30 +26,35 @@ class Header extends React.Component {
       <div className='header-container'>
         <header>
           <nav>
-            <button onClick={ this.toggleBoardsDrawer }>
+            <button onClick={ this.togglePopover('boards-index-drawer')}>
               Boards
             </button>
+            <Popover name='boards-index-drawer'>
+              <BoardsIndexContainer />
+            </Popover>
           </nav>
+
           <Logo />
+
           <nav>
-            <button onClick={ this.toggleCreateDrawer }>
-              +
-            </button>
-            <button onClick={ this.toggleUserDrawer }>
-              { currentUser.name }
-            </button>
+            <div>
+              <button onClick={ this.togglePopover('create-drawer') }>
+                +
+              </button>
+              <Popover name='create-drawer'>
+                Popover content
+              </Popover>
+            </div>
+            <div>
+              <button onClick={ this.togglePopover('user-drawer') }>
+                { currentUser.name }
+              </button>
+              <Popover name='user-drawer'>
+                <UserMenu currentUser={ currentUser } logout={ logout }/>
+              </Popover>
+            </div>
           </nav>
-          <Drawer open={ this.state.userMenuOpen }>
-            <UserMenu currentUser={ currentUser } logout={ logout }/>
-          </Drawer>
         </header>
-        <Modal
-          isOpen={this.state.boardsMenuOpen}
-          onRequestClose={this.closeBoardsDrawer}
-          contentLabel="Boards Header Index"
-        >
-          <BoardsIndexContainer onSubmit={ this.closeModal }/>
-        </Modal>
       </div>
     );
   }

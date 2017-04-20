@@ -17,6 +17,7 @@
   margin: 0 10px;
   padding: 0 5px;
   border: 0;
+  position: relative;
 }
 
 .header-container .logo {
@@ -25,6 +26,10 @@
 
 .header-container .logo a:visited {
   color: inherit;
+}
+
+.header-container nav {
+  display: flex;
 }
 
 .drawer-open {

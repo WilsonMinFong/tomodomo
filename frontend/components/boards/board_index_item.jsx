@@ -3,9 +3,11 @@ import { Link } from 'react-router';
 
 const BoardsIndexItem = ({ board }) => {
   return (
-    <li>
+    <li className='col col-1-4'>
       <Link to={ `/boards/${board.id}` }>
-        { board.name }
+        <div>
+          { board.name }
+        </div>
       </Link>
     </li>
   );

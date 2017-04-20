@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from 'react-modal';
+import Popover from '../shared/popover';
 import BoardsIndexItem from './board_index_item';
 import BoardFormContainer from './board_form_container';
 
@@ -21,24 +21,17 @@ class BoardsIndex extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      modalOpen: false
-    };
-
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-  }
-
-  openModal() {
-    this.setState({ modalOpen: true });
-  }
-
-  closeModal() {
-    this.setState({ modalOpen: false });
+    this.togglePopover = this.togglePopover.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchBoards();
+  }
+
+  togglePopover(name) {
+    return () => {
+      this.props.receivePopover(name);
+    };
   }
 
   render() {
@@ -54,16 +47,13 @@ class BoardsIndex extends React.Component {
         </h1>
         <ul className='boards-list'>
           { lis }
-          <li><button onClick={ this.openModal }>Create a new board...</button></li>
+          <li>
+            <button onClick={ this.togglePopover('index-board-form') }>Create a new board...</button>
+            <Popover name='index-board-form'>
+              <BoardFormContainer />
+            </Popover>
+          </li>
         </ul>
-        <Modal
-          isOpen={this.state.modalOpen}
-          onRequestClose={this.closeModal}
-          contentLabel="Create Board"
-          style={customStyles}
-        >
-          <BoardFormContainer onSubmit={ this.closeModal }/>
-        </Modal>
       </div>
     );
   }
