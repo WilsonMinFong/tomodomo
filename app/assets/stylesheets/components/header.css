@@ -44,16 +44,6 @@
   padding: 5px;
 }
 
-.user-menu span {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-bottom: 1px solid gray;
-  text-align: center;
-  margin: 10px 0;
-}
-
 .user-menu li {
   margin: 10px 0;
   color: black;

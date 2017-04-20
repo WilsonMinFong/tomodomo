@@ -5,6 +5,7 @@ import UserMenu from './user_menu';
 import Logo from '../shared/logo';
 import Popover from '../shared/popover';
 import BoardsIndexContainer from '../boards/boards_index_container';
+import CreateMenu from './create_menu';
 
 class Header extends React.Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class Header extends React.Component {
                 +
               </button>
               <Popover name='create-drawer'>
-                Popover content
+                <CreateMenu />
               </Popover>
             </div>
             <div>
