@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Splash from './splash';
+import BoardsIndexContainer from './boards/boards_index_container';
 
 const mapStateToProps = (state) => {
   return {
@@ -10,7 +11,7 @@ const mapStateToProps = (state) => {
 };
 
 const Home = ({ loggedIn }) => {
-  return loggedIn ? (<h1></h1>) : <Splash />;
+  return loggedIn ? <BoardsIndexContainer /> : <Splash />;
 };
 
 export default connect(
