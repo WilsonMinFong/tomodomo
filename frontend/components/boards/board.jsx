@@ -1,14 +1,33 @@
 import React from 'react';
+import { hashHistory } from 'react-router';
 
 class Board extends React.Component {
-  componentsDidMount() {
+  constructor(props) {
+    super(props);
 
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+  componentDidMount() {
+    this.props.fetchBoard(this.props.params.boardId);
+  }
+
+  handleDelete() {
+    this.props.deleteBoard().then(() => {
+      hashHistory.push('/');
+    });
   }
 
   render() {
-    return (
-      <div>{ this.props.board.name }</div>
-    );
+    if (this.props.board === undefined) {
+      return null;
+    } else {
+      return (
+        <div className='board'>
+          <span>{ this.props.board.name }</span>
+          <button onClick={ this.handleDelete }>Delete board...</button>
+        </div>
+      );
+    }
   }
 }
 

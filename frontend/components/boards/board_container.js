@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Board from './board';
-import { fetchBoard } from '../../actions/board_actions';
+import { fetchBoard, deleteBoard } from '../../actions/board_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -8,9 +8,14 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
+  const boardId = ownProps.params.boardId;
+
   return {
-    fetchBoard: (boardId) => dispatch(fetchBoard(boardId))
+    fetchBoard: () => {
+      dispatch(fetchBoard(boardId));
+    },
+    deleteBoard: () => dispatch(deleteBoard(boardId))
   };
 };
 
