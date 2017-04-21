@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Board from './board';
 import { fetchBoard, deleteBoard } from '../../actions/board_actions';
+import { receivePopover } from '../../actions/popover_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -15,7 +16,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     fetchBoard: () => {
       dispatch(fetchBoard(boardId));
     },
-    deleteBoard: () => dispatch(deleteBoard(boardId))
+    deleteBoard: () => dispatch(deleteBoard(boardId)),
+    receivePopover: (name) => dispatch(receivePopover(name))
   };
 };
 

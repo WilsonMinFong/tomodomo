@@ -1,5 +1,7 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
+import Popover from '../shared/popover';
+import BoardFormContainer from './board_form_container';
 
 class Board extends React.Component {
   constructor(props) {
@@ -7,14 +9,27 @@ class Board extends React.Component {
 
     this.handleDelete = this.handleDelete.bind(this);
   }
+
   componentDidMount() {
     this.props.fetchBoard(this.props.params.boardId);
+  }
+
+  componentWillReceiveProps() {
+    if (this.props.board.id != this.props.params.boardId) {
+      this.props.fetchBoard(this.props.params.boardId);
+    }
   }
 
   handleDelete() {
     this.props.deleteBoard().then(() => {
       hashHistory.push('/');
     });
+  }
+
+  togglePopover(name) {
+    return () => {
+      this.props.receivePopover(name);
+    };
   }
 
   render() {
@@ -24,7 +39,14 @@ class Board extends React.Component {
       return (
         <div className='board'>
           <header>
-            <span>{ this.props.board.name }</span>
+            <div className='popover-container'>
+              <button onClick={ this.togglePopover('update-board') }>
+                { this.props.board.name }
+              </button>
+              <Popover name='update-board'>
+                <BoardFormContainer formType='update' board={ this.props.board }/>
+              </Popover>
+            </div>
             <button onClick={ this.handleDelete }>Delete board...</button>
           </header>
         </div>

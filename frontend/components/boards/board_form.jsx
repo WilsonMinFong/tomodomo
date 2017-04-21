@@ -5,7 +5,7 @@ class BoardForm extends React.Component {
     super(props);
 
     this.state = {
-      name: ''
+      name: props.board ? props.board.name : ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,19 +19,34 @@ class BoardForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    this.props.createBoard(this.state).then(
+
+    let board = Object.assign({}, this.state);
+
+    if (this.props.board) {
+      board = Object.assign(board, { id: this.props.board.id })
+    }
+
+    this.props.formAction(board).then(
       () => this.props.removeAllPopovers()
     );
   }
 
   render() {
+    const { formType } = this.props;
+
+    let action = 'Create';
+
+    if (formType !== 'new') {
+      action = 'Update';
+    }
+
     return (
       <div className='board-form popup'>
-        <span>Create Board</span>
+        <span>{ `${action} Board` }</span>
         <form onSubmit={ this.handleSubmit }>
           <input type='text' value={ this.state.name } onChange={ this.handleInput }/>
 
-          <input type='submit' value='Create' className='button'/>
+          <input type='submit' value={ action } className='button'/>
         </form>
       </div>
     );
