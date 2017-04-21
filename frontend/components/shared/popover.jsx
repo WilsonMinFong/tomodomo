@@ -10,10 +10,15 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
+  //  ||
+  // !e.path.includes(document.getElementById(ownProps.id))
+  // !e.path.includes(document.getElementsByClassName('popover')[0])
   return {
     removeAllPopovers: (e) => {
-      if (!e.path.includes(document.getElementsByClassName('popover')[0]))
+      const exceptionEls = Array.from(document.getElementsByClassName(ownProps.name));
+      // debugger
+      if (!exceptionEls.includes(e.target))
       {
         dispatch(removeAllPopovers());
       }

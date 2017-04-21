@@ -27,7 +27,7 @@ class Header extends React.Component {
       <div className='header-container'>
         <header>
           <nav>
-            <button onClick={ this.togglePopover('boards-index-drawer')}>
+            <button onClick={ this.togglePopover('boards-index-drawer')} className='boards-index-drawer'>
               Boards
             </button>
             <Popover name='boards-index-drawer'>
@@ -39,7 +39,7 @@ class Header extends React.Component {
 
           <nav>
             <div>
-              <button onClick={ this.togglePopover('create-drawer') }>
+              <button onClick={ this.togglePopover('create-drawer') } className='create-drawer'>
                 +
               </button>
               <Popover name='create-drawer'>
@@ -47,7 +47,7 @@ class Header extends React.Component {
               </Popover>
             </div>
             <div>
-              <button onClick={ this.togglePopover('user-drawer') }>
+              <button onClick={ this.togglePopover('user-drawer') } className='user-drawer'>
                 { currentUser.name }
               </button>
               <Popover name='user-drawer'>
