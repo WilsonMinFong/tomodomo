@@ -1,0 +1,59 @@
+.header-container {
+  header {
+    height: 40px;
+    background: #0067A3;
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+
+    button {
+      font-size: 14px;
+      font-weight: bold;
+      background: #4D96C1;
+      height: 30px;
+      margin: 0 10px;
+      padding: 0 5px;
+      border: 0;
+      position: relative;
+    }
+  }
+
+  .logo {
+    opacity: 0.8;
+    a:visited {
+      color: inherit;
+    }
+  }
+
+  nav {
+    display: flex;
+    position: relative;
+  }
+}
+
+.drawer-open {
+  position: absolute;
+  top: 40px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  color: gray;
+  right: 5px;
+
+  width: 300px;
+  padding: 5px;
+}
+
+.user-menu li {
+  margin: 10px 0;
+  color: black;
+  padding-left: 10px;
+}
+
+.user-menu li:hover {
+  background: #0067A3;
+  color: white;
+  cursor: pointer;
+}
