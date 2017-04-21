@@ -27,7 +27,8 @@ class Board extends React.Component {
   }
 
   togglePopover(name) {
-    return () => {
+    return (e) => {
+      e.stopPropagation();
       this.props.receivePopover(name);
     };
   }
