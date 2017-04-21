@@ -25,15 +25,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 const Popover = ({ isOpened, removeAllPopovers, name, children }) => {
   if (isOpened) {
-    document.body.addEventListener('click', removeAllPopovers);
-
     return (
       <div className={ `popover ${ name }` }>
         { children }
       </div>
     );
   } else {
-    document.body.removeEventListener('click', removeAllPopovers);
     return null;
   }
 };

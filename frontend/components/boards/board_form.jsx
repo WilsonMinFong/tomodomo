@@ -19,11 +19,10 @@ class BoardForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-
     let board = Object.assign({}, this.state);
 
     if (this.props.board) {
-      board = Object.assign(board, { id: this.props.board.id })
+      board = Object.assign(board, { id: this.props.board.id });
     }
 
     this.props.formAction(board).then(

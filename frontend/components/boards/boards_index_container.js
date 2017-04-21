@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchBoards: () => dispatch(fetchBoards()),
     createBoard: (board) => dispatch(createBoard(board)),
-    receivePopover: (popover) => dispatch(receivePopover(popover))
+    receivePopover: (name) => dispatch(receivePopover(name))
   };
 };
 
