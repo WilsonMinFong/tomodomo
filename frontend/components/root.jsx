@@ -7,6 +7,7 @@ import Home from './home';
 import AuthFormContainer from './auth_form/auth_form_container';
 import BoardContainer from './boards/board_container';
 import { clearErrors } from '../actions/session_actions';
+import { removeAllPopovers } from '../actions/popover_actions';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -15,16 +16,21 @@ const Root = ({ store }) => {
     }
   };
 
-  const _handleAuthOnEnter = (nextState, replace) => {
-    _redirectIfLoggedIn(nextState, replace);
-    store.dispatch(clearErrors());
-  };
-
   const _ensureCurrentUser = (nextState, replace) => {
     if (!store.getState().session.currentUser) {
       replace('/login');
     }
   };
+
+  const _handleAuthOnEnter = (nextState, replace) => {
+    _redirectIfLoggedIn(nextState, replace);
+    store.dispatch(clearErrors());
+  };
+
+  const _handleAppOnEnter = (nextState, replace) => {
+    _ensureCurrentUser(nextState, replace);
+    store.dispatch(removeAllPopovers());
+  }
 
   return (
     <Provider store={ store }>
@@ -43,7 +49,7 @@ const Root = ({ store }) => {
           <Route
             path="boards/:boardId"
             component={ BoardContainer }
-            onEnter={ _ensureCurrentUser }/>
+            onEnter={ _handleAppOnEnter }/>
         </Route>
       </Router>
     </Provider>
