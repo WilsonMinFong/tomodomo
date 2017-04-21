@@ -15,7 +15,7 @@ class Board extends React.Component {
   }
 
   componentWillReceiveProps() {
-    if (this.props.board.id != this.props.params.boardId) {
+    if (this.props.board && this.props.board.id != this.props.params.boardId) {
       this.props.fetchBoard(this.props.params.boardId);
     }
   }
