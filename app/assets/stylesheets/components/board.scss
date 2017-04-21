@@ -5,27 +5,20 @@
   background: #0079BF;
   padding: 6px;
 
-  // font-size: 16px;
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
 
   color: white;
 
   button {
-    padding: 0;
+    padding: 6px;
     margin: 0;
+    border: 0;
 
     background: none;
 
-    &:first-child {
-      font-size: 18px;
-      font-weight: bold;
-      border: 0;
-      padding: 6px;
-
-      &:hover {
-        background: $darker-blue;
-      }
+    &:hover {
+      background: $darker-blue;
     }
   }
 
@@ -33,5 +26,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    & > div {
+      font-size: 18px;
+      // font-weight: bold;
+    }
+
+    & > button {
+      font-size: 9pt;
+      text-decoration: underline;
+    }
+  }
+
+  .name {
+    font-weight: bold;
   }
 }

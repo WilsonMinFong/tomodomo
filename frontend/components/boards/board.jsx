@@ -40,7 +40,7 @@ class Board extends React.Component {
         <div className='board'>
           <header>
             <div className='popover-container'>
-              <button onClick={ this.togglePopover('update-board') }>
+              <button onClick={ this.togglePopover('update-board') } className='name update-board'>
                 { this.props.board.name }
               </button>
               <Popover name='update-board'>
