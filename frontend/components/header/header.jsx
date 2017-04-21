@@ -31,7 +31,7 @@ class Header extends React.Component {
               Boards
             </button>
             <Popover name='boards-index-drawer'>
-              <BoardsIndexContainer />
+              <BoardsIndexContainer menu={ true }/>
             </Popover>
           </nav>
 
