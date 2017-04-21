@@ -16,3 +16,18 @@ User.create([
     password: 'password'
   },
 ]);
+
+# Board seeds
+Board.destroy_all
+
+User.first.boards.create([
+  {
+    name: 'Travel to Japan'
+  },
+  {
+    name: 'Learn Japanese'
+  },
+  {
+    name: 'Full-Stack Project - Tomodomo'
+  }
+]);
