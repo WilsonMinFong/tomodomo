@@ -1,4 +1,5 @@
 import * as BoardApiUtil from '../util/board_api_util';
+import { hashHistory } from 'react-router';
 
 export const RECEIVE_BOARD = 'RECEIVE_BOARD';
 export const RECEIVE_BOARDS = 'RECEIVE_ALL_BOARDS';
@@ -39,7 +40,10 @@ export const fetchBoards = () => (dispatch) => {
 
 export const createBoard = (newBoard) => (dispatch) => {
   return BoardApiUtil.createBoard(newBoard).then(
-    (board) => dispatch(receiveBoard(board))
+    (board) => {
+      dispatch(receiveBoard(board));
+      hashHistory.push(`/boards/${board.id}`);
+    }
   );
 };
 
