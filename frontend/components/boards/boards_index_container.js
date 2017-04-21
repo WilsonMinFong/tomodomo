@@ -3,9 +3,10 @@ import BoardsIndex from './boards_index';
 import { fetchBoards, createBoard } from '../../actions/board_actions';
 import { receivePopover } from '../../actions/popover_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    boards: Object.keys(state.boards).map((boardId) => state.boards[boardId])
+    boards: Object.keys(state.boards).map((boardId) => state.boards[boardId]),
+    menu: ownProps.menu
   };
 };
 

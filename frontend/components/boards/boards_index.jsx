@@ -21,7 +21,20 @@ class BoardsIndex extends React.Component {
   }
 
   render() {
-    const { boards } = this.props;
+    const { boards, menu } = this.props;
+
+    let createBoardButton = (
+      <li className='col col-1-4 popover-container'>
+        <button onClick={ this.togglePopover('index-board-form') }>Create a new board...</button>
+        <Popover name='index-board-form'>
+          <BoardFormContainer />
+        </Popover>
+      </li>
+    );
+
+    if (menu) {
+      createBoardButton = null;
+    }
 
     const lis = boards.map((board) => <BoardsIndexItem key={ board.id } board={ board } />);
 
@@ -33,12 +46,7 @@ class BoardsIndex extends React.Component {
         </h1>
         <ul className='boards-list'>
           { lis }
-          <li className='col col-1-4 popover-container'>
-            <button onClick={ this.togglePopover('index-board-form') }>Create a new board...</button>
-            <Popover name='index-board-form'>
-              <BoardFormContainer />
-            </Popover>
-          </li>
+          { createBoardButton }
         </ul>
       </div>
     );
