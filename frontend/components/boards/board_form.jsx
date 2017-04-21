@@ -20,7 +20,7 @@ class BoardForm extends React.Component {
     e.preventDefault();
 
     this.props.createBoard(this.state).then(
-      () => this.props.onSubmit()
+      () => this.props.removeAllPopovers()
     );
   }
 
