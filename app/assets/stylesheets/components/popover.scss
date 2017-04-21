@@ -2,32 +2,34 @@
   z-index: 2;
   width: 300px;
   position: absolute;
-  border: 1px solid black;
+  border: 1px solid #D6DADC;
   background: white;
   color: black;
   box-shadow: 0px 0px 2px #888888;
   border-radius: 3px;
+
+  padding: 0 10px;
 
   span {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid #D6DADC;
     text-align: center;
-    margin: 10px 0;
+    padding: 10px 0;
   }
 
   &.boards-index-drawer {
     width: 300px;
     position: absolute;
-    border: 1px solid black;
+    border: 1px solid #D6DADC;
     border-left: 0;
     background: white;
     color: black;
     top: 42px;
     left: 0px;
-    box-shadow: 1px 2px 2px #888888;
+    // box-shadow: 1px 1px 2px #D6DADC;
     border-radius: 0 3px 3px 0;
     padding: 0 5px;
 
