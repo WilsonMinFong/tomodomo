@@ -15,7 +15,7 @@
       background: #4D96C1;
       height: 30px;
       margin: 0 10px;
-      padding: 0 5px;
+      padding: 0 15px;
       border: 0;
       position: relative;
     }
@@ -56,4 +56,8 @@
   background: #0067A3;
   color: white;
   cursor: pointer;
+}
+
+.header-container a {
+  color: inherit;
 }

@@ -1,0 +1,19 @@
+.board-form {
+  padding: 10px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input[type='text'] {
+    flex-grow: 1;
+    padding: 5px 3px;
+  }
+
+  input[type='submit'] {
+    width: 75px;
+    height: 40px;
+    color: white;
+  }
+}
