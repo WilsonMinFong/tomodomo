@@ -15,6 +15,8 @@ const mapDispatchToProps = (dispatch) => {
     removeAllPopovers: (popover) => (e) => {
       const exceptionEls = Array.from(document.getElementsByClassName(popover));
 
+      // prevent triggering of remove popovers when clicked el has class name
+      // matching popover name and when no popovers
       if (!e.nativeEvent.path.some((el) => exceptionEls.includes(el)) && popover)
       {
         dispatch(removeAllPopovers());
