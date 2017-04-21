@@ -1,9 +1,8 @@
 .board-form {
-  padding: 0 10px;
-
   form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 
     padding: 10px 0;
   }
@@ -17,6 +16,27 @@
     flex-grow: 1;
     padding: 5px 3px;
     margin: 5px 0;
+  }
+
+  input:not(.button) {
+    background: #EDEFF0;
+
+    font-size: 1em;
+
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    padding: 6px 8px;
+    margin: 10px 0;
+  }
+
+  input[type='text'] {
+    &:hover {
+      border: 1px solid gray;
+    }
+
+    &:focus {
+      box-shadow: 0 0 5px #888888;
+    }
   }
 
   input[type='submit'] {
