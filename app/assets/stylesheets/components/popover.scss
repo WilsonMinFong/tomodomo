@@ -18,12 +18,44 @@
     text-align: center;
     margin: 10px 0;
   }
+
+  &.boards-index-drawer {
+    width: 300px;
+    position: absolute;
+    border: 1px solid black;
+    border-left: 0;
+    background: white;
+    color: black;
+    top: 42px;
+    left: 0px;
+    box-shadow: 1px 2px 2px #888888;
+    border-radius: 0 3px 3px 0;
+    padding: 0 5px;
+
+    .boards-index, .boards-list {
+      width: 300px;
+    }
+
+    li {
+      width: 100%;
+      margin: 5px 0;
+    }
+
+    a {
+      height: 38px;
+    }
+
+    button {
+      margin: 0;
+    }
+  }
+
+  &.index-board-form {
+    top: 0;
+    right: 12px;
+  }
 }
 
-.popover.index-board-form {
-  top: 0;
-  right: 12px;
-}
 
 .popover-container {
   position: relative;
