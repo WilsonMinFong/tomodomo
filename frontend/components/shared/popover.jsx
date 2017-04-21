@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     removeAllPopovers: (e) => {
       const exceptionEls = Array.from(document.getElementsByClassName(ownProps.name));
       // debugger
-      if (!exceptionEls.includes(e.target))
+      if (!e.path.some((el) => exceptionEls.includes(el)))
       {
         dispatch(removeAllPopovers());
       }
