@@ -27,7 +27,7 @@ class BoardsIndex extends React.Component {
       <li className='col col-1-4 popover-container'>
         <button onClick={ this.togglePopover('index-board-form') }>Create a new board...</button>
         <Popover name='index-board-form'>
-          <BoardFormContainer />
+          <BoardFormContainer formType='new'/>
         </Popover>
       </li>
     );

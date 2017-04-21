@@ -42,7 +42,8 @@ const Root = ({ store }) => {
             onEnter={ _handleAuthOnEnter }/>
           <Route
             path="boards/:boardId"
-            component={ BoardContainer }/>
+            component={ BoardContainer }
+            onEnter={ _ensureCurrentUser }/>
         </Route>
       </Router>
     </Provider>

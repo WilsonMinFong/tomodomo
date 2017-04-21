@@ -4,7 +4,7 @@ import BoardFormContainer from '../boards/board_form_container';
 const CreateMenu = () => {
   return (
     <div className='create-menu'>
-      <BoardFormContainer/>
+      <BoardFormContainer formType='new'/>
     </div>
   );
 };

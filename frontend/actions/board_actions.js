@@ -28,7 +28,8 @@ export const removeBoard = (boardId) => {
 
 export const fetchBoard = (boardId) => (dispatch) => {
   return BoardApiUtil.fetchBoard(boardId).then(
-    (board) => dispatch(receiveBoard(board))
+    (board) => dispatch(receiveBoard(board)),
+    () => hashHistory.push('/')
   );
 };
 
