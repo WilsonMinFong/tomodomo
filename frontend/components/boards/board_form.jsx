@@ -37,7 +37,7 @@ class BoardForm extends React.Component {
     let action = 'Create';
 
     if (formType !== 'new') {
-      action = 'Update';
+      action = 'Rename';
     }
 
     return (
