@@ -31,7 +31,7 @@ class BoardForm extends React.Component {
         <form onSubmit={ this.handleSubmit }>
           <input type='text' value={ this.state.name } onChange={ this.handleInput }/>
 
-          <input type='submit' value='Create'/>
+          <input type='submit' value='Create' className='button'/>
         </form>
       </div>
     );
