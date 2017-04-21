@@ -16,12 +16,12 @@
 
   box-shadow: 0 0 2px 0 gray;
   border-bottom: 2px solid #3F6F21;
-}
 
-.button:hover {
-  background: #5aac44;
-}
+  &:hover {
+    background: #5aac44;
+  }
 
-.button:active {
-  background: #519839;
+  &:active {
+    background: #519839;
+  }
 }
