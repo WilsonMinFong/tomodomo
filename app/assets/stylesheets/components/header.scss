@@ -1,3 +1,5 @@
+@import '../base/colors';
+
 .header-container {
   header {
     height: 40px;
@@ -12,12 +14,16 @@
     button {
       font-size: 14px;
       font-weight: bold;
-      background: #4D96C1;
+      background: $light-blue;
       height: 30px;
       margin: 0 10px;
       padding: 0 15px;
       border: 0;
       position: relative;
+
+      &:hover {
+        background: $lightest-blue;
+      }
     }
   }
 
