@@ -1,4 +1,7 @@
 html, body, main, .app-container {
   height: 100%;
-  margin: 0
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
 }

@@ -23,8 +23,10 @@ class Board extends React.Component {
     } else {
       return (
         <div className='board'>
-          <span>{ this.props.board.name }</span>
-          <button onClick={ this.handleDelete }>Delete board...</button>
+          <header>
+            <span>{ this.props.board.name }</span>
+            <button onClick={ this.handleDelete }>Delete board...</button>
+          </header>
         </div>
       );
     }
