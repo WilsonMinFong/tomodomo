@@ -6,4 +6,6 @@ class Board < ApplicationRecord
     class_name: 'User',
     primary_key: :id,
     foreign_key: :creator_id
+
+  has_many :lists
 end
