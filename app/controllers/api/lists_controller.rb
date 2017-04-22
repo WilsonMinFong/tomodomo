@@ -1,6 +1,6 @@
 class Api::ListsController < ApplicationController
   def index
-    @lists = List.where(board_id: params[:board_id]).order(:order)
+    @lists = List.where(board_id: params[:board_id]).order(:ord)
 
     render :index
   end
@@ -34,6 +34,6 @@ class Api::ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:list).permit(:name, :board_id, :order)
+    params.require(:list).permit(:name, :board_id, :ord)
   end
 end
