@@ -14,6 +14,7 @@ class List < ApplicationRecord
   validates :name, :board, :ord, presence: true
 
   before_validation :ensure_ord
+  before_create :enforce_next_ord
   before_update :update_ords!
   after_destroy :shift_ords!
 
@@ -31,6 +32,10 @@ class List < ApplicationRecord
     if ord.nil? || ord < 0 || ord > next_ord
       self.ord = next_ord
     end
+  end
+
+  def enforce_next_ord
+    self.ord = List.where(board_id: board_id).count
   end
 
   # update other ords of other lists when reordering
@@ -56,7 +61,7 @@ class List < ApplicationRecord
     end
 
   end
-  
+
   # shift higher ords down to fill spot of deleted list
   def shift_ords!
     List.where(
