@@ -15,6 +15,7 @@ class List < ApplicationRecord
 
   before_validation :ensure_ord
   before_update :update_ords!
+  after_destroy :shift_ords!
 
   belongs_to :board
 
@@ -53,5 +54,15 @@ class List < ApplicationRecord
         ord
       ).update_all("ord = ord - 1")
     end
+
+  end
+  
+  # shift higher ords down to fill spot of deleted list
+  def shift_ords!
+    List.where(
+    "board_id = ? AND ord > ?",
+    board_id,
+    ord
+    ).update_all("ord = ord - 1")
   end
 end
