@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: boards
+#
+#  id         :integer          not null, primary key
+#  creator_id :integer          not null
+#  name       :string           not null
+#  private    :boolean          default("true")
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Board < ApplicationRecord
   validates :creator, :name, presence: true
   validates :private, inclusion: [true, false]
@@ -7,5 +19,5 @@ class Board < ApplicationRecord
     primary_key: :id,
     foreign_key: :creator_id
 
-  has_many :lists
+  has_many :lists, dependent: :destroy
 end
