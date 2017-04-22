@@ -22,6 +22,7 @@ class Api::BoardsController < ApplicationController
 
   def update
     @board = current_user.boards.find(params[:id])
+    
     if @board.update(board_params)
       render :show
     else
