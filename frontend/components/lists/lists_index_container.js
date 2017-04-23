@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import { selectSortedLists } from '../../reducers/selectors';
 import {
   fetchLists,
-  createList
+  createList,
+  updateList
 } from '../../actions/list_actions';
 import { receivePopover } from '../../actions/popover_actions';
 import ListsIndex from './lists_index';
@@ -18,6 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     fetchLists: (boardId) => dispatch(fetchLists(boardId)),
     createList: (list) => dispatch(createList(list)),
+    updateList: (list) => dispatch(updateList(list)),
     receivePopover: (popover) => dispatch(receivePopover(popover))
   };
 };
