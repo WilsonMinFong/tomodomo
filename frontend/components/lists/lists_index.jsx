@@ -26,13 +26,14 @@ class ListsIndex extends React.Component {
   }
 
   render() {
-    const { lists } = this.props;
+    const { lists, updateList } = this.props;
 
     const listLis = lists.map(
       (list, i) => <ListsIndexItem
         key={ list.id }
         list={ list }
         ord={ i }
+        updateList={ updateList }
       />
     );
 
@@ -53,10 +54,5 @@ class ListsIndex extends React.Component {
     );
   }
 }
-// <li className='list-create-li'>
-//   <Popover>
-//     <FormContainer formType='new'/>
-//   </Popover>
-// </li>
 
 export default ListsIndex;

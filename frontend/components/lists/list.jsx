@@ -8,7 +8,7 @@ import { DragSource } from 'react-dnd';
 const listSource = {
   beginDrag(props) {
     return {
-      listId: props.list.id
+      id: props.list.id
     };
   }
 };
