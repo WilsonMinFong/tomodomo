@@ -2,6 +2,7 @@ import React from 'react';
 import { hashHistory } from 'react-router';
 import Popover from '../shared/popover';
 import BoardFormContainer from './board_form_container';
+import ListsIndexContainer from '../lists/lists_index_container';
 
 class Board extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class Board extends React.Component {
   }
 
   componentWillReceiveProps() {
-    if (this.props.board && this.props.board.id != this.props.params.boardId) {
+    if (this.props.board && this.props.board.id !== this.props.params.boardId) {
       this.props.fetchBoard(this.props.params.boardId);
     }
   }
@@ -50,6 +51,10 @@ class Board extends React.Component {
             </div>
             <button onClick={ this.handleDelete }>Delete board...</button>
           </header>
+
+          <section className='lists-index'>
+            <ListsIndexContainer />
+          </section>
         </div>
       );
     }
