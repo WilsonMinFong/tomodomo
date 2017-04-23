@@ -1,14 +1,43 @@
 import React from 'react';
 import ListContainer from './list_container';
+import { findDOMNode } from 'react-dom';
 import { ItemTypes } from '../../util/constants';
 import { DropTarget } from 'react-dnd';
 
 // for react-dnd
 const listTarget = {
-  drop(props, monitor) {
+  hover(props, monitor, component) {
+    const dragOrd = monitor.getItem().ord;
+    const hoverOrd = props.ord;
+
+    if (dragOrd === hoverOrd) {
+      return;
+    }
+
+    const hoverBoundingRect = findDOMNode(component).getBoundingClientRect();
+    const hoverMiddleX = (hoverBoundingRect.right - hoverBoundingRect.left) / 2;
+    const clientOffset = monitor.getClientOffset();
+    const hoverClientX = hoverBoundingRect.right - clientOffset.x;
+
+    // Only perform the move when the mouse has crossed half of the items height
+    // When dragging downwards, only move when the cursor is below 50%
+    // When dragging upwards, only move when the cursor is above 50%
+
+    // Dragging right
+    if (dragOrd < hoverOrd && hoverClientX > hoverMiddleX) {
+      return;
+    }
+
+    // Dragging left
+    if (dragOrd > hoverOrd && hoverClientX < hoverMiddleX) {
+      return;
+    }
+
     const list = Object.assign({}, monitor.getItem(), { ord: props.ord });
     props.updateList(list);
-  }
+
+    monitor.getItem().ord = hoverOrd;
+  },
 };
 
 function collect(connect, monitor) {
