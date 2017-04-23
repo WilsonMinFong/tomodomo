@@ -21,6 +21,10 @@
     flex-shrink: 0;
   }
 
+  li {
+    background: $darker-blue;
+  }
+
   li:hover {
     cursor: pointer;
   }

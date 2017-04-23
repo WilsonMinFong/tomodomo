@@ -34,9 +34,10 @@ class List extends React.Component {
 
   render() {
     const { list, connectDragSource, isDragging } = this.props;
+    const className = isDragging ? 'list-container dragging' : 'list-container';
 
     return connectDragSource(
-      <div className='list-container'>
+      <div className={ className }>
         <ListFormContainer formType='update' list={ list }/>
         <button onClick={ this.handleDelete }>
           <i className="fa fa-times" aria-hidden="true"></i>
