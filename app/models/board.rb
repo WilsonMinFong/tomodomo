@@ -20,4 +20,8 @@ class Board < ApplicationRecord
     foreign_key: :creator_id
 
   has_many :lists, dependent: :destroy
+
+  has_many :cards,
+    through: :lists,
+    source: :cards
 end
