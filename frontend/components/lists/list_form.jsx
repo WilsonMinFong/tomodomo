@@ -10,6 +10,7 @@ class ListForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   handleInput(e) {
@@ -19,33 +20,55 @@ class ListForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    let list = Object.assign({}, this.state, { board_id: this.props.params.boardId});
+    let list = Object.assign(
+      {},
+      this.state,
+      { board_id: this.props.params.boardId }
+    );
 
     if (this.props.list) {
       list = Object.assign(list, { id: this.props.list.id });
     }
 
-    this.props.formAction(list);
+    this.props.formAction(list).then(
+      () => this.setState({ name: '' })
+    );
+  }
+
+  handleKeyDown(e) {
+    if (e.key === 'Enter') {
+      this.handleSubmit(e);
+    }
   }
 
   render() {
     const { formType } = this.props;
 
-    let action = 'Create';
+    const createForm = (
+      <form onSubmit={ this.handleSubmit }>
+        <label>Name
+          <input
+            type='text'
+            value={ this.state.name }
+            onChange={ this.handleInput }/>
+        </label>
 
-    if (formType !== 'new') {
-      action = 'Rename';
-    }
+        <input type='submit' value='Create' className='button'/>
+      </form>
+    );
+
+    const updateInput = (
+      <input
+        type='text'
+        value={ this.state.name}
+        onChange={ this.handleInput }
+        onBlur={ this.handleSubmit }
+        onKeyDown={ this.handleKeyDown } />
+    );
 
     return (
       <div className='list-form'>
-        <form onSubmit={ this.handleSubmit }>
-          <label>Name
-            <input type='text' value={ this.state.name } onChange={ this.handleInput }/>
-          </label>
-
-          <input type='submit' value={ action } className='button'/>
-        </form>
+        { formType === 'new' ? createForm : updateInput }
       </div>
     );
   }
