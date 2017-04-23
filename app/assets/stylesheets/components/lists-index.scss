@@ -20,4 +20,8 @@
     background: $lightest-gray;
     flex-shrink: 0;
   }
+
+  li:hover {
+    cursor: pointer;
+  }
 }
