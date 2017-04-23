@@ -2,6 +2,10 @@
 
 .lists-index {
   margin-top: 6px;
+  width: calc(100%);
+  overflow-x: auto;
+  padding: 0 6px 10px 6px;
+  box-sizing: border-box;
 
   ol {
     display: flex;
@@ -13,5 +17,6 @@
     margin: 0 5px;
     border-radius: 3px;
     background: $lightest-gray;
+    flex-shrink: 0;
   }
 }
