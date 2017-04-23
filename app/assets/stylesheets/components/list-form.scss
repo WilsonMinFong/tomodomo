@@ -30,4 +30,25 @@
 
 li > .list-form {
   background: $darker-blue;
+  border-radius: inherit;
+
+  input {
+    [type='text']::placeholder {
+      color: $lightest-gray;
+    }
+
+    &[type='text']:hover {
+      background: $darker-blue;
+    }
+
+    &[type='submit'] {
+      display: none;
+    }
+
+    &:focus {
+      & ~ input[type='submit'] {
+        display: block;
+      }
+    }
+  }
 }

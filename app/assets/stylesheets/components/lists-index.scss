@@ -1,7 +1,7 @@
 @import '../base/colors';
 
 .lists-index {
-  margin-top: 10px;
+  margin-top: 6px;
 
   ol {
     display: flex;
@@ -9,6 +9,7 @@
 
   li {
     width: 270px;
+    height: 100%;
     margin: 0 5px;
     border-radius: 3px;
     background: $lightest-gray;

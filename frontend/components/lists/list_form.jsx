@@ -50,13 +50,11 @@ class ListForm extends React.Component {
 
     const createForm = (
       <form onSubmit={ this.handleSubmit }>
-        <label>
-          <input
-            type='text'
-            value={ this.state.name }
-            onChange={ this.handleInput }
-            placeholder='Add a list...'/>
-        </label>
+        <input
+          type='text'
+          value={ this.state.name }
+          onChange={ this.handleInput }
+          placeholder='Add a list...'/>
 
         <input type='submit' value='Create' className='button'/>
       </form>
