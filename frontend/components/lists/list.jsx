@@ -8,7 +8,8 @@ import { DragSource } from 'react-dnd';
 const listSource = {
   beginDrag(props) {
     return {
-      id: props.list.id
+      id: props.list.id,
+      ord: props.list.ord
     };
   }
 };
@@ -35,7 +36,7 @@ class List extends React.Component {
     const { list, connectDragSource, isDragging } = this.props;
 
     return connectDragSource(
-      <div className='list-container' style={{opacity: isDragging ? 0.5 : 1}}>
+      <div className='list-container'>
         <ListFormContainer formType='update' list={ list }/>
         <button onClick={ this.handleDelete }>
           <i className="fa fa-times" aria-hidden="true"></i>
