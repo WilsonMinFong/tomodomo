@@ -25,6 +25,10 @@ class User < ApplicationRecord
     through: :boards,
     source: :lists
 
+  has_many :cards,
+    through: :lists,
+    source: :cards
+
   attr_reader :password
 
   after_initialize :ensure_session_token

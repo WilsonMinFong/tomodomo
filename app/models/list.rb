@@ -24,6 +24,8 @@ class List < ApplicationRecord
     through: :board,
     source: :creator
 
+  has_many :cards, dependent: :destroy
+
   private
 
   # add to end of list if not specified or outside range
