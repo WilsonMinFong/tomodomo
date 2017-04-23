@@ -6,6 +6,8 @@
   font-family: Arial, Helvetica, sans-serif;
   color: $dark-gray;
 
+  height: 100%;
+
   input[type="text"] {
     width: 90%;
     margin: 6px;
@@ -25,29 +27,50 @@
     &:focus {
       background: white;
     }
+
+    &::placeholder {
+      color: $gray;
+      font-weight: normal;
+    }
+  }
+}
+
+.lists-index li.list-create-li {
+  background: $darker-blue;
+
+  &:hover {
+    background: $darkest-blue;
   }
 }
 
 li > .list-form {
-  background: $darker-blue;
   border-radius: inherit;
 
-  input {
-    [type='text']::placeholder {
-      color: $lightest-gray;
-    }
+  &.focus {
+    background: $light-gray;
+  }
 
+  input {
     &[type='text']:hover {
-      background: $darker-blue;
+      background: inherit;
+      &:focus {
+        background: white;
+      }
     }
 
     &[type='submit'] {
       display: none;
+      margin: 6px;
     }
 
     &:focus {
       & ~ input[type='submit'] {
         display: block;
+        padding: 8px 10px;
+        width: 25%;
+        font-size: 16px;
+        color: white;
+        border-bottom: 1px solid #3F6F21;
       }
     }
   }

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { createList, updateList } from '../../actions/list_actions';
+import { removeAllPopovers } from '../../actions/popover_actions';
 import ListForm from './list_form';
 
 const mapStateToProps = (state, ownProps) => {
@@ -15,7 +16,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     ownProps.formType === 'new' ? createList : updateList;
 
   return {
-    formAction: (board) => dispatch(formAction(board))
+    formAction: (board) => dispatch(formAction(board)),
+    removeAllPopovers: () => dispatch(removeAllPopovers())
   };
 };
 
