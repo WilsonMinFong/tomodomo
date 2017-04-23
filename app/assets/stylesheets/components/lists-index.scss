@@ -1,0 +1,16 @@
+@import '../base/colors';
+
+.lists-index {
+  margin-top: 10px;
+
+  ol {
+    display: flex;
+  }
+
+  li {
+    width: 270px;
+    margin: 0 5px;
+    border-radius: 3px;
+    background: $lightest-gray;
+  }
+}
