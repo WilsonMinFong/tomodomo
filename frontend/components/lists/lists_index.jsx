@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ListsIndexItem from './lists_index_item';
+import ListFormContainer from './list_form_container';
 
 class ListsIndex extends React.Component {
   componentDidMount() {
@@ -21,6 +22,7 @@ class ListsIndex extends React.Component {
     return (
       <ol>
         { listLis }
+        <li><ListFormContainer formType='new'/></li>
       </ol>
     );
   }
