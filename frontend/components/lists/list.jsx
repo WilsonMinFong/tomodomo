@@ -1,6 +1,24 @@
 import React from 'react';
 
 import ListFormContainer from './list_form_container';
+import { ItemTypes } from '../../util/constants';
+import { DragSource } from 'react-dnd';
+
+// for react-dnd
+const listSource = {
+  beginDrag(props) {
+    return {
+      listId: props.list.id
+    };
+  }
+};
+
+function collect(connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging()
+  };
+}
 
 class List extends React.Component {
   constructor(props) {
@@ -14,10 +32,10 @@ class List extends React.Component {
   }
 
   render() {
-    const { list } = this.props;
+    const { list, connectDragSource, isDragging } = this.props;
 
-    return (
-      <div className='list-container'>
+    return connectDragSource(
+      <div className='list-container' style={{opacity: isDragging ? 0.5 : 1}}>
         <ListFormContainer formType='update' list={ list }/>
         <button onClick={ this.handleDelete }>
           <i className="fa fa-times" aria-hidden="true"></i>
@@ -27,4 +45,4 @@ class List extends React.Component {
   }
 }
 
-export default List;
+export default DragSource(ItemTypes.LIST, listSource, collect)(List);

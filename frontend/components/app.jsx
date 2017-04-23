@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import HeaderContainer from './header/header_container';
 import { removeAllPopovers } from '../actions/popover_actions';
 
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+
 const mapStateToProps = (state) => {
   return {
     loggedIn: Boolean(state.session.currentUser),
@@ -46,4 +49,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
   mergeProps
-)(App);
+)(DragDropContext(HTML5Backend)(App));
