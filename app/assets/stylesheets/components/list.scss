@@ -3,6 +3,8 @@
 .list-container {
   display: flex;
   justify-content: space-between;
+  background: $lightest-gray;
+  border-radius: 3px;
 
   button {
     color: $dark-gray;
@@ -14,5 +16,10 @@
     &:hover {
       background: $gray;
     }
+  }
+
+  &.dragging {
+    opacity: 0;
+    background: $darkest-blue;
   }
 }
