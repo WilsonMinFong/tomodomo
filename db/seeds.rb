@@ -31,3 +31,48 @@ User.first.boards.create([
     name: 'Full-Stack Project - Tomodomo'
   }
 ]);
+
+# List seeds
+List.destroy_all
+
+Board.find_by_name('Travel to Japan').lists.create([
+  {
+    name: 'Not Started'
+  },
+  {
+    name: 'In Progress'
+  },
+  {
+    name: 'Complete'
+  }
+]);
+
+Board.find_by_name('Learn Japanese').lists.create([
+  {
+    name: 'Vocab to Review'
+  },
+  {
+    name: 'Grammar to Review'
+  },
+  {
+    name: 'Reviewed'
+  }
+]);
+
+Board.find_by_name('Full-Stack Project - Tomodomo').lists.create([
+  {
+    name: 'Incomplete MVP Features'
+  },
+  {
+    name: 'MVP Features to Review'
+  },
+  {
+    name: 'Complete MVP Features'
+  },
+  {
+    name: 'Issues'
+  },
+  {
+    name: 'Completed Issues'
+  }
+]);
