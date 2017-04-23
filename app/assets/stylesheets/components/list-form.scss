@@ -1,5 +1,33 @@
+@import '../base/colors';
+
 .list-form {
-  input {
-    color: black;
+  flex-grow: 1;
+
+  font-family: Arial, Helvetica, sans-serif;
+  color: $dark-gray;
+
+  input[type="text"] {
+    width: 90%;
+    margin: 6px;
+    background: inherit;
+    border: 0;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: bold;
+
+    padding: 5px;
+
+    &:hover {
+      cursor: pointer;
+      background: $gray;
+    }
+
+    &:focus {
+      background: white;
+    }
   }
+}
+
+li > .list-form {
+  background: $darker-blue;
 }

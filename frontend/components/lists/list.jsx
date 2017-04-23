@@ -19,7 +19,9 @@ class List extends React.Component {
     return (
       <div className='list-container'>
         <ListFormContainer formType='update' list={ list }/>
-        <button onClick={ this.handleDelete }>Delete list...</button>
+        <button onClick={ this.handleDelete }>
+          <i className="fa fa-times" aria-hidden="true"></i>
+        </button>
       </div>
     );
   }

@@ -1,0 +1,18 @@
+@import '../base/colors';
+
+.list-container {
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    color: $dark-gray;
+
+    margin: 6px;
+    margin-left: 5px;
+    padding: 0 5px;
+
+    &:hover {
+      background: $gray;
+    }
+  }
+}

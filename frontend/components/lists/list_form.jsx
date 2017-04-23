@@ -31,7 +31,11 @@ class ListForm extends React.Component {
     }
 
     this.props.formAction(list).then(
-      () => this.setState({ name: '' })
+      () => {
+        if (this.props.formType === 'new') {
+          this.setState({ name: '' });
+        }
+      }
     );
   }
 
@@ -46,11 +50,12 @@ class ListForm extends React.Component {
 
     const createForm = (
       <form onSubmit={ this.handleSubmit }>
-        <label>Name
+        <label>
           <input
             type='text'
             value={ this.state.name }
-            onChange={ this.handleInput }/>
+            onChange={ this.handleInput }
+            placeholder='Add a list...'/>
         </label>
 
         <input type='submit' value='Create' className='button'/>
