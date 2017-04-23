@@ -5,12 +5,14 @@ class ListForm extends React.Component {
     super(props);
 
     this.state = {
-      name: props.list ? props.list.name : ''
+      name: props.list ? props.list.name : '',
+      focus: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.toggleFocus = this.toggleFocus.bind(this);
   }
 
   handleInput(e) {
@@ -45,6 +47,11 @@ class ListForm extends React.Component {
     }
   }
 
+  toggleFocus(e) {
+    const focus = this.state.focus === '' ? 'focus' : '';
+    this.setState({ focus });
+  }
+
   render() {
     const { formType } = this.props;
 
@@ -56,7 +63,7 @@ class ListForm extends React.Component {
           onChange={ this.handleInput }
           placeholder='Add a list...'/>
 
-        <input type='submit' value='Create' className='button'/>
+        <input type='submit' value='Save' className='button'/>
       </form>
     );
 
@@ -70,7 +77,7 @@ class ListForm extends React.Component {
     );
 
     return (
-      <div className='list-form'>
+      <div className={`list-form ${this.state.focus}`} onFocus={ this.toggleFocus } onBlur={ this.toggleFocus }>
         { formType === 'new' ? createForm : updateInput }
       </div>
     );
