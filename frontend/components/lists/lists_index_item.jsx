@@ -1,5 +1,5 @@
 import React from 'react';
-import List from './list';
+import ListContainer from './list_container';
 
 class ListsIndexItem extends React.Component {
   render() {
@@ -7,7 +7,7 @@ class ListsIndexItem extends React.Component {
 
     return (
       <li>
-        <List list={ list }/>
+        <ListContainer list={ list }/>
       </li>
     );
   }
