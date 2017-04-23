@@ -4,6 +4,7 @@ import {
   fetchLists,
   createList
 } from '../../actions/list_actions';
+import { receivePopover } from '../../actions/popover_actions';
 import ListsIndex from './lists_index';
 import { withRouter } from 'react-router';
 
@@ -16,7 +17,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     fetchLists: (boardId) => dispatch(fetchLists(boardId)),
-    createList: (list) => dispatch(createList(list))
+    createList: (list) => dispatch(createList(list)),
+    receivePopover: (popover) => dispatch(receivePopover(popover))
   };
 };
 

@@ -40,6 +40,23 @@
 
   &:hover {
     background: $darkest-blue;
+    cursor: pointer;
+  }
+
+  div.placeholder {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: normal;
+  }
+}
+
+li > button.lists-index-form {
+  border-radius: inherit;
+
+  &:hover {
+    &[type='text']:hover {
+      background: inherit;
+    }
   }
 }
 

@@ -2,10 +2,27 @@ import React from 'react';
 
 import ListsIndexItem from './lists_index_item';
 import ListFormContainer from './list_form_container';
+import Popover from '../shared/popover';
 
 class ListsIndex extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.togglePopover = this.togglePopover.bind(this);
+  }
+
   componentDidMount() {
     this.props.fetchLists(this.props.params.boardId);
+  }
+
+  togglePopover(name) {
+    return (e) => {
+      e.stopPropagation();
+
+      if (!e.nativeEvent.path.includes(document.getElementsByClassName('popover')[0])) {
+        this.props.receivePopover(name);
+      }
+    };
   }
 
   render() {
@@ -22,13 +39,24 @@ class ListsIndex extends React.Component {
     return (
       <ol>
         { listLis }
-        <li className='list-create-li'>
-          <ListFormContainer formType='new'/>
 
-          </li>
+        <li className='popover-container list-create-li lists-index-form' onClick={ this.togglePopover('lists-index-form') }>
+          <div className='placeholder'>
+            Add a list...
+          </div>
+          <Popover name='lists-index-form'>
+            <ListFormContainer formType='new'/>
+          </Popover>
+        </li>
+
       </ol>
     );
   }
 }
+// <li className='list-create-li'>
+//   <Popover>
+//     <FormContainer formType='new'/>
+//   </Popover>
+// </li>
 
 export default ListsIndex;
