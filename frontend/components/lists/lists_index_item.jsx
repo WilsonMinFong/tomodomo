@@ -15,21 +15,17 @@ const listTarget = {
     }
 
     const hoverBoundingRect = findDOMNode(component).getBoundingClientRect();
-    const hoverMiddleX = (hoverBoundingRect.right - hoverBoundingRect.left) / 2;
     const clientOffset = monitor.getClientOffset();
-    const hoverClientX = hoverBoundingRect.right - clientOffset.x;
 
-    // Only perform the move when the mouse has crossed half of the items height
-    // When dragging downwards, only move when the cursor is below 50%
-    // When dragging upwards, only move when the cursor is above 50%
+    // Perform the move when mouse over other element
 
     // Dragging right
-    if (dragOrd < hoverOrd && hoverClientX > hoverMiddleX) {
+    if (dragOrd < hoverOrd && clientOffset.x < hoverBoundingRect.left) {
       return;
     }
 
     // Dragging left
-    if (dragOrd > hoverOrd && hoverClientX < hoverMiddleX) {
+    if (dragOrd > hoverOrd && clientOffset.x > hoverBoundingRect.right) {
       return;
     }
 
