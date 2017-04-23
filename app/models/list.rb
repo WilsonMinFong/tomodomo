@@ -16,7 +16,7 @@ class List < ApplicationRecord
   before_validation :ensure_ord
   before_create :enforce_next_ord
   before_update :update_ords!
-  after_destroy :shift_ords!
+  after_destroy :shift_ords_down!
 
   belongs_to :board
 
@@ -28,6 +28,7 @@ class List < ApplicationRecord
 
   private
 
+  # TODO: refactor into Sortable/Orderable module
   # add to end of list if not specified or outside range
   def ensure_ord
     next_ord = List.where(board_id: board_id).count
@@ -65,7 +66,7 @@ class List < ApplicationRecord
   end
 
   # shift higher ords down to fill spot of deleted list
-  def shift_ords!
+  def shift_ords_down!
     List.where(
     "board_id = ? AND ord > ?",
     board_id,
