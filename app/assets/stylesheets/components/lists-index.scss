@@ -6,12 +6,13 @@
   overflow-x: auto;
   padding: 0 6px 10px 6px;
   box-sizing: border-box;
+  flex-grow: 1;
 
   ol {
     display: flex;
   }
 
-  li {
+  li, .popover {
     width: 270px;
     height: 100%;
     margin: 0 5px;

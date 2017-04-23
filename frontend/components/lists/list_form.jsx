@@ -5,14 +5,12 @@ class ListForm extends React.Component {
     super(props);
 
     this.state = {
-      name: props.list ? props.list.name : '',
-      focus: ''
+      name: props.list ? props.list.name : ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.toggleFocus = this.toggleFocus.bind(this);
   }
 
   handleInput(e) {
@@ -35,7 +33,7 @@ class ListForm extends React.Component {
     this.props.formAction(list).then(
       () => {
         if (this.props.formType === 'new') {
-          this.setState({ name: '' });
+          this.props.removeAllPopovers();
         }
       }
     );
@@ -45,11 +43,6 @@ class ListForm extends React.Component {
     if (e.key === 'Enter') {
       this.handleSubmit(e);
     }
-  }
-
-  toggleFocus(e) {
-    const focus = this.state.focus === '' ? 'focus' : '';
-    this.setState({ focus });
   }
 
   render() {
@@ -63,7 +56,7 @@ class ListForm extends React.Component {
           onChange={ this.handleInput }
           placeholder='Add a list...'/>
 
-        <input type='submit' value='Save' className='button'/>
+        <input type='submit' value='Save' className='button save-list'/>
       </form>
     );
 
@@ -77,7 +70,7 @@ class ListForm extends React.Component {
     );
 
     return (
-      <div className={`list-form ${this.state.focus}`} onFocus={ this.toggleFocus } onBlur={ this.toggleFocus }>
+      <div className='list-form'>
         { formType === 'new' ? createForm : updateInput }
       </div>
     );
