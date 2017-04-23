@@ -22,7 +22,10 @@ class ListsIndex extends React.Component {
     return (
       <ol>
         { listLis }
-        <li><ListFormContainer formType='new'/></li>
+        <li className='list-create-li'>
+          <ListFormContainer formType='new'/>
+
+          </li>
       </ol>
     );
   }
