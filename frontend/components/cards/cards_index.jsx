@@ -25,12 +25,17 @@ class CardsIndex extends React.Component {
   }
 
   render() {
-    const { cards, listId } = this.props;
+    const { cards, listId, updateCard } = this.props;
 
     return (
       <div className='cards-index-container'>
         <ul className='cards-index'>
-          { cards.map((card) => <CardsIndexItem key={ card.id } card={ card }/>)}
+          { cards.map((card) =>
+            <CardsIndexItem
+              key={ card.id }
+              card={ card }
+              updateCard={ updateCard }/>)
+          }
         </ul>
 
         <div className='popover-container'>
