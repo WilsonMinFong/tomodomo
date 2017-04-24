@@ -1,6 +1,6 @@
 class Api::CardsController < ApplicationController
   def index
-    @cards = Board.find(params[:board_id]).cards
+    @cards = List.find(params[:list_id]).cards
     render :index
   end
 

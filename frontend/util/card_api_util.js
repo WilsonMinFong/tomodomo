@@ -1,7 +1,7 @@
-export const fetchCards = (boardId) => {
+export const fetchCards = (listId) => {
   return $.ajax({
     method: 'get',
-    url: `/api/boards/${boardId}/cards`
+    url: `/api/lists/${listId}/cards`
   });
 };
 

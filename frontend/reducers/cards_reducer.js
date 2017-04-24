@@ -11,7 +11,7 @@ const cardsReducer = (oldState = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_CARDS:
-      return action.cards;
+      return merge(updatedState, action.cards);
     case RECEIVE_CARD:
       const card = pick(action.card, ['id', 'list_id', 'ord', 'name']);
 
