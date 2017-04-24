@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 
-import { fetchCards, createCard, updateCard, deleteCard } from './util/card_api_util';
+import { fetchCards, fetchCard, createCard, updateCard, deleteCard } from './actions/card_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -16,7 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
+  window.store = store;
+
   window.fetchCards = fetchCards;
+  window.fetchCard = fetchCard;
   window.createCard = createCard;
   window.updateCard = updateCard;
   window.deleteCard = deleteCard;

@@ -4,6 +4,11 @@ class Api::CardsController < ApplicationController
     render :index
   end
 
+  def show
+    @card = Card.find(params[:id])
+    render :show
+  end
+
   def create
     list = current_user.lists.find(card_params[:list_id])
     @card = list.cards.new(card_params)
