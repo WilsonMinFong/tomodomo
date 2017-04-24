@@ -43,9 +43,17 @@ export const createCard = (newCard) => (dispatch) => {
   );
 };
 
-export const updateCard = (updatedCard) => (dispatch) => {
+export const updateCard = (updatedCard) => (dispatch, getState) => {
   return CardApiUtil.updateCard(updatedCard).then(
-    (card) => dispatch(receiveCard(card))
+    (card) => {
+      const { cards } = getState();
+
+      if (card.ord !== cards[card.list_id][card.id].ord) {
+        dispatch(fetchCards(card.list_id));
+      } else {
+        dispatch(receiveCard(card));
+      }
+    }
   );
 };
 

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchCards } from '../../actions/card_actions';
+import { fetchCards, updateCard } from '../../actions/card_actions';
 import { receivePopover } from '../../actions/popover_actions';
 import { selectSortedListCards } from '../../reducers/selectors';
 import CardsIndex from './cards_index';
@@ -14,6 +14,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     fetchCards: () => dispatch(fetchCards(ownProps.listId)),
+    updateCard: (card) => dispatch(updateCard(card)),
     receivePopover: (popover) => dispatch(receivePopover(popover))
   };
 };
