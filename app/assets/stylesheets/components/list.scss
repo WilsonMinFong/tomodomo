@@ -2,21 +2,27 @@
 
 .list-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   background: $lightest-gray;
   border-radius: 3px;
 
-  button {
-    color: $dark-gray;
+  .header {
+    display: flex;
+    justify-content: space-between;
 
-    margin: 6px;
-    margin-left: 5px;
-    padding: 0 5px;
+    button {
+      color: $dark-gray;
 
-    &:hover {
-      background: $gray;
+      margin: 6px;
+      margin-left: 5px;
+      padding: 0 5px;
+
+      &:hover {
+        background: $gray;
+      }
     }
   }
+
 
   &.dragging {
     opacity: 0;

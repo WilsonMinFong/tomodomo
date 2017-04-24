@@ -4,6 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 import { fetchCards, fetchCard, createCard, updateCard, deleteCard } from './actions/card_actions';
+import { selectSortedListCards } from './reducers/selectors';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -23,6 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.createCard = createCard;
   window.updateCard = updateCard;
   window.deleteCard = deleteCard;
+
+  window.selectSortedListCards = selectSortedListCards;
 
   ReactDOM.render(<Root store={ store } />, root);
 });

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ListFormContainer from './list_form_container';
+import CardsIndexContainer from '../cards/cards_index_container';
 import { ItemTypes } from '../../util/constants';
 import { DragSource } from 'react-dnd';
 
@@ -38,10 +39,14 @@ class List extends React.Component {
 
     return connectDragSource(
       <div className={ className }>
-        <ListFormContainer formType='update' list={ list }/>
-        <button onClick={ this.handleDelete }>
-          <i className="fa fa-times" aria-hidden="true"></i>
-        </button>
+        <div className='header'>
+          <ListFormContainer formType='update' list={ list }/>
+          <button onClick={ this.handleDelete }>
+            <i className="fa fa-times" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <CardsIndexContainer listId={ list.id } />
       </div>
     );
   }
