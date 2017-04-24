@@ -5,6 +5,13 @@ export const fetchCards = (boardId) => {
   });
 };
 
+export const fetchCard = (cardId) => {
+  return $.ajax({
+    method: 'get',
+    url: `/api/cards/${cardId}`
+  });
+};
+
 export const createCard = (card) => {
   return $.ajax({
     method: 'post',
