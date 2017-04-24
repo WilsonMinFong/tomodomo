@@ -39,8 +39,8 @@
 
 ### Cards
 
-- `GET /api/lists/:id/cards`
-  - index of all cards for a list
+- `GET /api/boards/:id/cards`
+  - index of all cards for a board
 - `POST /api/cards`
 - `PATCH /api/cards/:id`
 - `DELETE /api/cards/:id`
