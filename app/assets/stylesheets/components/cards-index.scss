@@ -1,0 +1,26 @@
+@import '../base/colors';
+
+.cards-index-container {
+  display: flex;
+  flex-direction: column;
+  font-weight: normal;
+  font-size: 14px;
+  color: $dark-gray;
+
+  .cards-index {
+    display: flex;
+    flex-direction: column;
+
+    li {
+      background: white;
+      width: auto;
+      padding: 8px;
+      margin: 0 8px 6px 8px;
+      border-bottom: 1px solid $gray;
+
+      &:hover {
+        background: #EDEFF0;
+      }
+    }
+  }
+}
