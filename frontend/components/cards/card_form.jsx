@@ -50,10 +50,11 @@ class CardForm extends React.Component {
 
     const createForm = (
       <form onSubmit={ this.handleSubmit }>
-        <input
-          type='text'
+        <textarea
           value={ this.state.name }
-          onChange={ this.handleInput }/>
+          onChange={ this.handleInput }
+          onKeyDown={ this.handleKeyDown }
+        />
 
         <input type='submit' value='Add' className='button save-card'/>
       </form>

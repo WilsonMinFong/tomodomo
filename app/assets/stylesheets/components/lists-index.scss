@@ -14,8 +14,6 @@
 
   li, .popover {
     width: 270px;
-    height: 100%;
-    margin: 0 5px;
     border-radius: 3px;
     background: $lightest-gray;
     flex-shrink: 0;
@@ -23,6 +21,8 @@
 
   li {
     background: $darker-blue;
+    margin: 0 5px;
+    height: 100%;
   }
 
   li:hover {
