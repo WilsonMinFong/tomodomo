@@ -1,22 +1,22 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
-import { createList, updateList } from '../../actions/list_actions';
+import { createCard, updateCard } from '../../actions/card_actions';
 import { removeAllPopovers } from '../../actions/popover_actions';
-import ListForm from './list_form';
+import CardForm from './card_form';
 
 const mapStateToProps = (state, ownProps) => {
   return {
     formType: ownProps.formType,
-    list: ownProps.list
+    card: ownProps.card,
+    listId: ownProps.listId
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   const formAction =
-    ownProps.formType === 'new' ? createList : updateList;
+    ownProps.formType === 'new' ? createCard : updateCard;
 
   return {
-    formAction: (list) => dispatch(formAction(list)),
+    formAction: (card) => dispatch(formAction(card)),
     removeAllPopovers: () => dispatch(removeAllPopovers())
   };
 };
@@ -24,4 +24,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRouter(ListForm));
+)(CardForm);
