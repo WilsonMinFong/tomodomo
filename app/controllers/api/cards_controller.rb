@@ -1,7 +1,6 @@
 class Api::CardsController < ApplicationController
   def index
-    @cards = Card.where(list_id: params[:list_id]).order(:ord)
-
+    @cards = Board.find(params[:board_id]).cards
     render :index
   end
 
