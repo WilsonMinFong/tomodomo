@@ -23,4 +23,50 @@
       }
     }
   }
+
+  .create-card-button {
+    padding: 10px;
+    border-radius: 0 0 3px 3px;
+
+    &:hover {
+      background: $gray;
+      text-decoration: underline;
+    }
+  }
+}
+
+.popover[class*='create-card-form-'] {
+  margin: auto;
+  top: 0;
+  border: 0;
+  box-shadow: none;
+  height: auto;
+
+  input[type='text'], textarea {
+    border: 0;
+    background: white;
+    width: auto;
+    padding: 8px;
+    border-bottom: 1px solid $gray;
+    border-radius: 3px;
+    height: 50px;
+    font-weight: normal;
+    font-size: 14px;
+    color: $dark-gray;
+    vertical-align: top;
+  }
+
+  input[type='submit'] {
+    display: block;
+    padding: 8px 10px;
+    width: 25%;
+    font-size: 16px;
+    color: white;
+    border-bottom: 1px solid #3F6F21;
+  }
+
+  .card-form form {
+    display: flex;
+    flex-direction: column;
+  }
 }
