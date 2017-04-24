@@ -21,7 +21,13 @@
       &:hover {
         background: #EDEFF0;
       }
+
+      &.dragging {
+        opacity: 0;
+        background: $gray;
+      }
     }
+
   }
 
   .create-card-button {

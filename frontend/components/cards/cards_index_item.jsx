@@ -8,39 +8,67 @@ const cardSource = {
   beginDrag(props) {
     return {
       id: props.card.id,
-      ord: props.card.ord
+      ord: props.card.ord,
+      list_id: props.card.list_id
     };
   }
 };
 
 const cardTarget = {
   hover(props, monitor, component) {
-    const dragOrd = monitor.getItem().ord;
-    const hoverOrd = props.card.ord;
+    const dragCard = monitor.getItem();
+    const hoverCard = props.card;
 
-    if (dragOrd === hoverOrd) {
-      return;
+    if (dragCard.list_id === hoverCard.list_id) {
+      if (dragCard.ord === hoverCard.ord) {
+        return;
+      }
+
+      const hoverBoundingRect = findDOMNode(component).getBoundingClientRect();
+      const clientOffset = monitor.getClientOffset();
+
+      // Perform the move when mouse over other element
+
+      // Dragging up
+      if (dragCard.ord > hoverCard.ord && clientOffset.y < hoverBoundingRect.top) {
+        return;
+      }
+
+      // Dragging down
+      if (dragCard.ord < hoverCard.ord && clientOffset.y > hoverBoundingRect.bottom) {
+        return;
+      }
+
+      const card = Object.assign({}, monitor.getItem(), { ord: hoverCard.ord });
+      props.updateCard(card);
+
+      monitor.getItem().ord = hoverCard.ord;
+    } else {
+      // const hoverBoundingRect = findDOMNode(component).getBoundingClientRect();
+      // const clientOffset = monitor.getClientOffset();
+      //
+      // // Perform the move when mouse over other element
+      //
+      // // Dragging up
+      // if (dragCard.ord > hoverCard.ord && clientOffset.y < hoverBoundingRect.top) {
+      //   return;
+      // }
+      //
+      // // Dragging down
+      // if (dragCard.ord < hoverCard.ord && clientOffset.y > hoverBoundingRect.bottom) {
+      //   return;
+      // }
+      //
+      // const card = Object.assign(
+      //   {},
+      //   monitor.getItem(),
+      //   { ord: hoverCard.ord, list_id: hoverCard.list_id }
+      // );
+      //
+      // props.updateCard(card);
+      //
+      // monitor.getItem().ord = hoverCard.ord;
     }
-
-    const hoverBoundingRect = findDOMNode(component).getBoundingClientRect();
-    const clientOffset = monitor.getClientOffset();
-
-    // Perform the move when mouse over other element
-
-    // Dragging up
-    if (dragOrd > hoverOrd && clientOffset.y < hoverBoundingRect.top) {
-      return;
-    }
-
-    // Dragging down
-    if (dragOrd < hoverOrd && clientOffset.y > hoverBoundingRect.bottom) {
-      return;
-    }
-
-    const card = Object.assign({}, monitor.getItem(), { ord: hoverOrd });
-    props.updateCard(card);
-
-    monitor.getItem().ord = hoverOrd;
   },
 };
 
@@ -53,16 +81,17 @@ function collectSource(connect, monitor) {
 
 function collectTarget(connect, monitor) {
   return {
-    connectDropTarget: connect.dropTarget(),
-    isOver: monitor.isOver()
+    connectDropTarget: connect.dropTarget()
   };
 }
 
 const CardsIndexItem = (props) => {
   const { card, connectDragSource, connectDropTarget, isDragging } = props;
 
+  const className = isDragging ? 'dragging' : '';
+
   return connectDropTarget(connectDragSource(
-    <li>
+    <li className={ className }>
       {card.name}
     </li>
   ));
