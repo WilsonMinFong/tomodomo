@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 const BoardsIndexItem = ({ board }) => {
   return (
-    <li className='col col-1-4'>
+    <li>
       <Link to={ `/boards/${board.id}` }>
         <div>
           { board.name }
