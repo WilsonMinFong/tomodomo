@@ -9,7 +9,7 @@ class Api::SessionsController < ApplicationController
       login!(@user)
       render 'api/users/show'
     else
-      render json: ["Invalid email or password"], status: :unprocessable_entity
+      render json: ["Invalid email or password"], status: 422
     end
   end
 
