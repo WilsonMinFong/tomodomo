@@ -25,7 +25,7 @@ class BoardsIndex extends React.Component {
     const { boards, menu } = this.props;
 
     let createBoardButton = (
-      <li className='col col-1-4 popover-container'>
+      <li>
         <button onClick={ this.togglePopover('index-board-form') } className='index-board-form'>
           Create a new board...
         </button>
