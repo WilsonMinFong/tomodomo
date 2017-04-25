@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import List from './list';
 import { deleteList } from '../../actions/list_actions';
+import { receivePopover } from '../../actions/popover_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -10,7 +11,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteList: (listId) => dispatch(deleteList(listId))
+    deleteList: (listId) => dispatch(deleteList(listId)),
+    receivePopover: (popover) => dispatch(receivePopover(popover))
   };
 };
 

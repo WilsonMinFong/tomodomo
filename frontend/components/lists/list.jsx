@@ -4,6 +4,8 @@ import ListFormContainer from './list_form_container';
 import CardsIndexContainer from '../cards/cards_index_container';
 import { ItemTypes } from '../../util/constants';
 import { DragSource } from 'react-dnd';
+import Popover from '../shared/popover';
+import DeleteConfirmation from '../shared/delete_confirmation';
 
 // for react-dnd
 const listSource = {
@@ -27,10 +29,18 @@ class List extends React.Component {
     super(props);
 
     this.handleDelete = this.handleDelete.bind(this);
+    this.togglePopover = this.togglePopover.bind(this);
   }
 
   handleDelete() {
     this.props.deleteList(this.props.list.id);
+  }
+
+  togglePopover(name) {
+    return (e) => {
+      e.stopPropagation();
+      this.props.receivePopover(name);
+    };
   }
 
   render() {
@@ -41,9 +51,14 @@ class List extends React.Component {
       <div className={ className }>
         <div className='header'>
           <ListFormContainer formType='update' list={ list }/>
-          <button onClick={ this.handleDelete }>
-            <i className="fa fa-times" aria-hidden="true"></i>
-          </button>
+          <div className='popover-container'>
+            <button onClick={ this.togglePopover(`delete-list-${list.id}`) } className={`delete-list-${list.id}`}>
+              <i className="fa fa-times" aria-hidden="true"></i>
+            </button>
+            <Popover name={`delete-list-${list.id}`}>
+              <DeleteConfirmation objectName='list' deleteAction={ this.handleDelete }/>
+            </Popover>
+          </div>
         </div>
 
         <CardsIndexContainer listId={ list.id } />

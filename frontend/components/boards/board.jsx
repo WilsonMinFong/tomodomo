@@ -3,6 +3,7 @@ import { hashHistory } from 'react-router';
 import Popover from '../shared/popover';
 import BoardFormContainer from './board_form_container';
 import ListsIndexContainer from '../lists/lists_index_container';
+import DeleteConfirmation from '../shared/delete_confirmation';
 
 class Board extends React.Component {
   constructor(props) {
@@ -37,7 +38,6 @@ class Board extends React.Component {
   }
 
   render() {
-    debugger
     if (this.props.board === undefined) {
       return null;
     } else {
@@ -52,7 +52,14 @@ class Board extends React.Component {
                 <BoardFormContainer formType='update' board={ this.props.board }/>
               </Popover>
             </div>
-            <button onClick={ this.handleDelete }>Delete board...</button>
+            <div className='popover-container'>
+              <button onClick={ this.togglePopover('delete-board') } className='delete-board'>
+                Delete board...
+              </button>
+              <Popover name='delete-board'>
+                <DeleteConfirmation objectName='board' deleteAction={ this.handleDelete }/>
+              </Popover>
+            </div>
           </header>
 
           <section className='lists-index'>
@@ -65,5 +72,6 @@ class Board extends React.Component {
     }
   }
 }
+// <button onClick={ this.handleDelete }>Delete board...</button>
 
 export default Board;

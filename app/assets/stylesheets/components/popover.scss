@@ -67,6 +67,17 @@
     left: 0;
   }
 
+  &.delete-list {
+    top: 27px;
+  }
+
+  &.delete-board {
+    top: 25px;
+    right: -12px;
+
+    padding: 5px;
+  }
+
   &.lists-index-form {
     top: 0;
     margin: 0;
