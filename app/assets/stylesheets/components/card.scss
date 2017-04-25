@@ -140,3 +140,33 @@ button.close-modal {
     border-bottom: 1px solid #3F6F21;
   }
 }
+
+.popover.delete-card {
+  padding: 5px;
+  font-size: 16px;
+  text-decoration: none;
+
+  .delete-confirmation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    p {
+      text-align: center;
+    }
+
+    button {
+      background: #EB5A46;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+      border-bottom: 1px solid $gray;
+      padding: 6px;
+
+      &:hover {
+        background: #CF513D;
+      }
+    }
+  }
+}
