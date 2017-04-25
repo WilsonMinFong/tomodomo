@@ -6,6 +6,11 @@ button.close-modal {
   top: 0;
   padding: 10px;
   margin: 0;
+  border: 0;
+  color: #8C8C8C;
+  &:hover {
+    color: $dark-gray;
+  }
 }
 
 .card-main {
@@ -128,8 +133,8 @@ button.close-modal {
 
   input[type='submit'] {
     display: block;
-    padding: 8px 10px;
-    width: 25%;
+    padding: 8px 4px;
+    width: 15%;
     font-size: 16px;
     color: white;
     border-bottom: 1px solid #3F6F21;

@@ -37,6 +37,7 @@ class Board extends React.Component {
   }
 
   render() {
+    debugger
     if (this.props.board === undefined) {
       return null;
     } else {

@@ -12,6 +12,10 @@ class BoardForm extends React.Component {
     this.handleInput = this.handleInput.bind(this);
   }
 
+  componentDidMount() {
+    document.getElementById('board-name-input').focus();
+  }
+
   handleInput(e) {
     this.setState({ name: e.currentTarget.value });
   }
@@ -44,7 +48,7 @@ class BoardForm extends React.Component {
         <span>{ `${action} Board` }</span>
         <form onSubmit={ this.handleSubmit }>
           <label>Name
-            <input type='text' value={ this.state.name } onChange={ this.handleInput }/>
+            <input id='board-name-input' type='text' value={ this.state.name } onChange={ this.handleInput }/>
           </label>
 
           <input type='submit' value={ action } className='button'/>
