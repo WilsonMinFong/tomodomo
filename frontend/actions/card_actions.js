@@ -64,6 +64,9 @@ export const updateCard = (updatedCard) => (dispatch, getState) => {
 
 export const deleteCard = (cardId) => (dispatch) => {
   return CardApiUtil.deleteCard(cardId).then(
-    () => dispatch(removeCard(cardId))
+    (card) => {
+      dispatch(removeCard(cardId));
+      dispatch(fetchCards(card.list_id));
+    }
   );
 };

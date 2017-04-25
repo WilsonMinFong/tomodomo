@@ -7,7 +7,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     formType: ownProps.formType,
     card: ownProps.card,
-    listId: ownProps.listId
+    list: state.lists[ownProps.listId]
   };
 };
 
