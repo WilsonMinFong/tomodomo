@@ -5,7 +5,8 @@ import { receivePopover } from '../../actions/popover_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    board: state.boards[ownProps.params.boardId]
+    board: state.boards[ownProps.params.boardId],
+    children: ownProps.children
   };
 };
 

@@ -57,6 +57,8 @@ class Board extends React.Component {
           <section className='lists-index'>
             <ListsIndexContainer />
           </section>
+
+          {this.props.children}
         </div>
       );
     }
