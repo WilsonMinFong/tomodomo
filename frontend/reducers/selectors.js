@@ -5,13 +5,11 @@ export const selectSortedLists = ({ lists }) => {
 };
 
 export const selectSortedListCards = ({ cards }, listId) => {
-  const listCards = cards[listId];
+  const cardsArr = Object.keys(cards).map((cardId) => cards[cardId]);
 
-  if (listCards === undefined) {
-    return [];
-  }
+  const listCards = cardsArr.filter(
+    (card) => card.list_id === listId
+  );
 
-  const cardsArr = Object.keys(listCards).map((cardId) => listCards[cardId]);
-
-  return cardsArr.sort((cardA, cardB) => cardA.ord - cardB.ord);
+  return listCards.sort((cardA, cardB) => cardA.ord - cardB.ord);
 };

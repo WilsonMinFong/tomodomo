@@ -3,7 +3,7 @@ import {
   RECEIVE_CARD,
   REMOVE_CARD
 } from '../actions/card_actions';
-import { merge, pick } from 'lodash';
+import { merge } from 'lodash';
 
 const cardsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -13,21 +13,10 @@ const cardsReducer = (oldState = {}, action) => {
     case RECEIVE_CARDS:
       return merge(updatedState, action.cards);
     case RECEIVE_CARD:
-      const card = pick(action.card, ['id', 'list_id', 'ord', 'name']);
-
-      // remove card from previous list if moved to another list
-      if (!updatedState[card.list_id] || !updatedState[card.list_id][card.id]) {
-        Object.keys(updatedState).forEach((listId) => {
-          delete updatedState[listId][card.id];
-        });
-      }
-
-      return merge(
-        updatedState,
-        { [card.list_id]: { [card.id]: card } }
-      );
+      const card = action.card;
+      return merge(updatedState, { [card.id]: card});
     case REMOVE_CARD:
-      delete updatedState[action.card.list_id][action.card.id];
+      delete updatedState[action.cardId];
       return updatedState;
     default:
       return oldState;

@@ -5,7 +5,7 @@ class Api::CardsController < ApplicationController
   end
 
   def show
-    @card = Card.find(params[:id])
+    @cards = current_user.cards.find(params[:id])
     render :show
   end
 
