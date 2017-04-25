@@ -14,9 +14,14 @@
     li {
       background: white;
       width: auto;
-      padding: 8px;
       margin: 0 8px 6px 8px;
       border-bottom: 1px solid $gray;
+
+      a {
+        display: block;
+        padding: 8px;
+        color: inherit;
+      }
 
       &:hover {
         background: #EDEFF0;
