@@ -16,7 +16,7 @@ class Api::CardsController < ApplicationController
     if @card.save
       render :show
     else
-      render json: @card.errors.full_messages, status: :unprocessable_entity
+      render json: @card.errors.full_messages, status: 422
     end
   end
 
@@ -26,7 +26,7 @@ class Api::CardsController < ApplicationController
     if @card.update(card_params)
       render :show
     else
-      render json: @card.errors.full_messages, status: :unprocessable_entity
+      render json: @card.errors.full_messages, status: 422
     end
   end
 

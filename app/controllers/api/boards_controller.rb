@@ -10,7 +10,7 @@ class Api::BoardsController < ApplicationController
     if @board.save
       render :show
     else
-      render json: @board.errors.full_messages, status: :unprocessable_entity
+      render json: @board.errors.full_messages, status: 422
     end
   end
 
