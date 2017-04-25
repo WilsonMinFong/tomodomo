@@ -1,5 +1,4 @@
 import React from 'react';
-import { findDOMNode } from 'react-dom';
 import { ItemTypes } from '../../util/constants';
 import { DragSource, DropTarget } from 'react-dnd';
 

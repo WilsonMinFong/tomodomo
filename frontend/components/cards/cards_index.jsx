@@ -2,6 +2,29 @@ import React from 'react';
 import CardsIndexItem from './cards_index_item';
 import CardFormContainer from './card_form_container';
 import Popover from '../shared/popover';
+import { ItemTypes } from '../../util/constants';
+import { DragSource, DropTarget } from 'react-dnd';
+
+// for react-dnd
+const cardTarget = {
+  hover(props, monitor, component) {
+    const dragCard = monitor.getItem();
+    const hoverList = props.listId;
+
+    if (dragCard.list_id !== hoverList) {
+      const card = Object.assign({}, monitor.getItem(), { list_id: hoverList });
+      props.updateCard(card);
+
+      monitor.getItem().list_id = hoverList;
+    }
+  },
+};
+
+function collect(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget()
+  };
+}
 
 class CardsIndex extends React.Component {
   constructor(props) {
@@ -25,9 +48,9 @@ class CardsIndex extends React.Component {
   }
 
   render() {
-    const { cards, listId, updateCard } = this.props;
+    const { cards, listId, updateCard, connectDropTarget } = this.props;
 
-    return (
+    return connectDropTarget(
       <div className='cards-index-container'>
         <ul className='cards-index'>
           { cards.map((card) =>
@@ -54,4 +77,8 @@ class CardsIndex extends React.Component {
   }
 }
 
-export default CardsIndex;
+export default DropTarget(
+  ItemTypes.CARD,
+  cardTarget,
+  collect
+)(CardsIndex);

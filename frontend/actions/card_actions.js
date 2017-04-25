@@ -49,9 +49,9 @@ export const updateCard = (updatedCard) => (dispatch, getState) => {
       const { cards } = getState();
 
       if (card.ord !== cards[card.id].ord) {
-        // if a card's order changed, fetch cards from both old list
+        // if a card's order changed, fetch cards from old list
         if (card.list_id !== cards[card.id].list_id) {
-          dispatch(fetchCards(card[card.id].list_id));
+          dispatch(fetchCards(cards[card.id].list_id));
         }
         dispatch(fetchCards(card.list_id));
       } else {
