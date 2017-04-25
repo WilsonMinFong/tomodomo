@@ -1,6 +1,5 @@
 import React from 'react';
 import ListContainer from './list_container';
-import { findDOMNode } from 'react-dom';
 import { ItemTypes } from '../../util/constants';
 import { DropTarget } from 'react-dnd';
 
