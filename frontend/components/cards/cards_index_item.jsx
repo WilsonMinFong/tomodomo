@@ -1,6 +1,7 @@
 import React from 'react';
 import { ItemTypes } from '../../util/constants';
 import { DragSource, DropTarget } from 'react-dnd';
+import { Link, withRouter } from 'react-router';
 
 // for react-dnd
 const cardSource = {
@@ -46,12 +47,13 @@ function collectTarget(connect, monitor) {
 
 const CardsIndexItem = (props) => {
   const { card, connectDragSource, connectDropTarget, isDragging } = props;
-
   const className = isDragging ? 'dragging' : '';
 
   return connectDropTarget(connectDragSource(
     <li className={ className }>
-      {card.name}
+      <Link to={ `/boards/${props.params.boardId}/cards/${card.id}` }>
+        {card.name}
+      </Link>
     </li>
   ));
 };
@@ -64,4 +66,4 @@ export default DropTarget(
   ItemTypes.CARD,
   cardSource,
   collectSource
-)(CardsIndexItem));
+)(withRouter(CardsIndexItem)));

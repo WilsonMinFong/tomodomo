@@ -6,6 +6,7 @@ import App from './app';
 import Home from './home';
 import AuthFormContainer from './auth_form/auth_form_container';
 import BoardContainer from './boards/board_container';
+import CardContainer from './cards/card_container';
 import { clearErrors } from '../actions/session_actions';
 import { removeAllPopovers } from '../actions/popover_actions';
 
@@ -49,7 +50,13 @@ const Root = ({ store }) => {
           <Route
             path="boards/:boardId"
             component={ BoardContainer }
-            onEnter={ _handleAppOnEnter }/>
+            onEnter={ _handleAppOnEnter }
+          >
+            <Route
+              path="cards/:cardId"
+              component={ CardContainer }
+              onEnter={ _handleAppOnEnter }/>
+          </Route>
         </Route>
       </Router>
     </Provider>
