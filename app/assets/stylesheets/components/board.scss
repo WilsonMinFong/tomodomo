@@ -33,12 +33,40 @@
 
     & > div {
       font-size: 18px;
-      // font-weight: bold;
     }
 
-    & > button {
+    .delete-board {
       font-size: 9pt;
       text-decoration: underline;
+    }
+
+    .popover.delete-board {
+      padding: 5px;
+      font-size: 16px;
+      text-decoration: none;
+
+      .delete-confirmation {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        p {
+          text-align: center;
+        }
+
+        button {
+          background: #EB5A46;
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+          margin-top: 10px;
+          border-bottom: 1px solid $gray;
+
+          &:hover {
+            background: #CF513D;
+          }
+        }
+      }
     }
   }
 
