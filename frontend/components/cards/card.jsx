@@ -3,6 +3,20 @@ import Modal from 'react-modal';
 import { hashHistory } from 'react-router';
 import CardFormContainer from './card_form_container';
 
+const customStyles = {
+  overlay : {
+    backgroundColor   : 'rgba(0, 0, 0, 0.6)'
+  },
+  content : {
+    border                     : 'none',
+    background                 : '#EDEFF0',
+    borderRadius               : '3px',
+    margin: '0 auto',
+    maxWidth: '720px',
+    display: 'flex'
+  }
+};
+
 class Card extends React.Component {
   constructor(props) {
     super(props);
@@ -33,10 +47,19 @@ class Card extends React.Component {
           <Modal
             isOpen={ true }
             onRequestClose={this.closeModal}
+            style={ customStyles }
             contentLabel="Card Modal"
           >
-            <CardFormContainer formType='update' card={ card } listId={ list.id } />
-            <button onClick={ this.handleDelete }>Delete</button>
+            <div className='card-main'>
+              <button onClick={ this.closeModal } className='close-modal'>
+                <i className="fa fa-times" aria-hidden="true"></i>
+              </button>
+              <CardFormContainer formType='update' card={ card } listId={ list.id } />
+            </div>
+            <div className='card-sidebar'>
+              <h1>Actions</h1>
+              <button onClick={ this.handleDelete }>Delete</button>
+            </div>
           </Modal>
         </div>
       );

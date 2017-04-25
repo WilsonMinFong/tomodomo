@@ -85,7 +85,7 @@ class CardForm extends React.Component {
             className='name-input'
             />
           <div className='name-subtitle'>
-            in list { list.name }
+            in list <strong>{ list.name }</strong>
           </div>
         </div>
 
@@ -97,24 +97,21 @@ class CardForm extends React.Component {
         <label>
           Description
         </label>
-        <button
-          hidden={ this.state.activeDescription ? true : false }
-          onClick={ this.toggleDescription }
-          className={ this.state.description ? 'description' : 'edit-description' }
-        >
-          { this.state.description ?
-            this.state.description : 'Edit the description...' }
-        </button>
         <form
-          hidden={ this.state.activeDescription ? false : true }
+          className={ this.state.activeDescription ? 'shown' : 'hidden' }
           onSubmit={ this.handleDescriptionSubmit }
         >
           <textarea
+            onFocus={ this.toggleDescription }
             onChange={ this.handleInput('description') }
             value={ this.state.description }
+            placeholder='Add a description...'
           />
 
-        <input type='submit' value='Save'/>
+        <input
+          type='submit'
+          className={ this.state.activeDescription ? 'shown button' : 'hidden button' }
+        />
         </form>
       </div>
     );
