@@ -17,6 +17,12 @@ class CardForm extends React.Component {
     this.handleDescriptionSubmit = this.handleDescriptionSubmit.bind(this);
   }
 
+  componentDidMount() {
+    if (this.props.formType === 'new') {
+      document.getElementById('card-name-input').focus();
+    }
+  }
+
   handleInput(attr) {
     return (e) => this.setState({ [attr]: e.currentTarget.value });
   }
@@ -50,7 +56,9 @@ class CardForm extends React.Component {
   }
 
   toggleDescription(e) {
-    this.setState({ activeDescription: !this.state.activeDescription });
+    if (e.currentTarget.id !== 'update-description-form') {
+      this.setState({ activeDescription: !this.state.activeDescription });
+    }
   }
 
   handleDescriptionSubmit(e) {
@@ -64,6 +72,7 @@ class CardForm extends React.Component {
     const createForm = (
       <form onSubmit={ this.handleSubmit }>
         <textarea
+          id='card-name-input'
           value={ this.state.name }
           onChange={ this.handleInput('name') }
           onKeyDown={ this.handleKeyDown }
@@ -98,20 +107,16 @@ class CardForm extends React.Component {
           Description
         </label>
         <form
-          className={ this.state.activeDescription ? 'shown' : 'hidden' }
+          id='update-description-form'
           onSubmit={ this.handleDescriptionSubmit }
         >
           <textarea
-            onFocus={ this.toggleDescription }
             onChange={ this.handleInput('description') }
+            onFocus={ this.toggleDescription }
+            onBlur={ this.handleDescriptionSubmit }
             value={ this.state.description }
             placeholder='Add a description...'
           />
-
-        <input
-          type='submit'
-          className={ this.state.activeDescription ? 'shown button' : 'hidden button' }
-        />
         </form>
       </div>
     );

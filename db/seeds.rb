@@ -76,3 +76,54 @@ Board.find_by_name('Full-Stack Project - Tomodomo').lists.create([
     name: 'Completed Issues'
   }
 ]);
+
+# Card seeds
+Card.destroy_all
+
+List.find_by_name('Not Started').cards.create([
+  {
+    name: 'Transportation',
+    description: 'Airline? JR Rail Pass?'
+  },
+  {
+    name: 'Lodging',
+    description: 'How many days of ryokan vs hotels?'
+  }
+]);
+
+List.find_by_name('In Progress').cards.create([
+  {
+    name: 'Time',
+    description: 'When to go and how long?'
+  }
+])
+
+List.find_by_name('Incomplete MVP Features').cards.create([
+  {
+    name: 'Sharing Boards'
+  },
+  {
+    name: 'Comments and Due Dates'
+  },
+  {
+    name: 'Production README'
+  }
+]);
+
+List.find_by_name('MVP Features to Review').cards.create([
+  {
+    name: 'Cards'
+  }
+]);
+
+List.find_by_name('Complete MVP Features').cards.create([
+  {
+    name: 'User authentication'
+  },
+  {
+    name: 'Boards'
+  },
+  {
+    name: 'Lists'
+  }
+]);

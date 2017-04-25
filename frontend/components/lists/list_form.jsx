@@ -13,6 +13,12 @@ class ListForm extends React.Component {
     this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
+  componentDidMount() {
+    if (this.props.formType === 'new') {
+      document.getElementById('list-name-input').focus();
+    }
+  }
+
   handleInput(e) {
     this.setState({ name: e.currentTarget.value });
   }
@@ -51,6 +57,7 @@ class ListForm extends React.Component {
     const createForm = (
       <form onSubmit={ this.handleSubmit }>
         <input
+          id='list-name-input'
           type='text'
           value={ this.state.name }
           onChange={ this.handleInput }
