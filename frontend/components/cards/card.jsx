@@ -2,6 +2,8 @@ import React from 'react';
 import Modal from 'react-modal';
 import { hashHistory } from 'react-router';
 import CardFormContainer from './card_form_container';
+import Popover from '../shared/popover';
+import DeleteConfirmation from '../shared/delete_confirmation';
 
 const customStyles = {
   overlay : {
@@ -37,6 +39,13 @@ class Card extends React.Component {
       .then(() => hashHistory.push(`/boards/${this.props.boardId}`));
   }
 
+  togglePopover(popover) {
+    return (e) => {
+      e.stopPropagation();
+      this.props.receivePopover(popover);
+    };
+  }
+
   render() {
     const { card, list, deleteCard } = this.props;
     if (!card) {
@@ -58,7 +67,14 @@ class Card extends React.Component {
             </div>
             <div className='card-sidebar'>
               <h1>Actions</h1>
-              <button onClick={ this.handleDelete }>Delete</button>
+              <div className='popover-container'>
+                <button onClick={ this.togglePopover('delete-card') } className={'delete-card'}>
+                  Delete
+                </button>
+                <Popover name={'delete-card'}>
+                  <DeleteConfirmation objectName='card' deleteAction={ this.handleDelete }/>
+                </Popover>
+              </div>
             </div>
           </Modal>
         </div>

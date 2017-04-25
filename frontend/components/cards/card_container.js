@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Card from './card';
 import { updateCard, deleteCard } from '../../actions/card_actions';
+import { receivePopover } from '../../actions/popover_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const card = state.cards[ownProps.params.cardId];
@@ -14,7 +15,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     updateCard: (card) => dispatch(updateCard(card)),
-    deleteCard: (cardId) => dispatch(deleteCard(cardId))
+    deleteCard: (cardId) => dispatch(deleteCard(cardId)),
+    receivePopover: (popover) => dispatch(receivePopover(popover))
   };
 };
 
