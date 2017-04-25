@@ -18,10 +18,10 @@ export const receiveCard = (card) => {
   };
 };
 
-export const removeCard = (card) => {
+export const removeCard = (cardId) => {
   return {
     type: REMOVE_CARD,
-    card
+    cardId
   };
 };
 
@@ -48,7 +48,11 @@ export const updateCard = (updatedCard) => (dispatch, getState) => {
     (card) => {
       const { cards } = getState();
 
-      if (card.ord !== cards[card.list_id][card.id].ord) {
+      if (card.ord !== cards[card.id].ord) {
+        // if a card's order changed, fetch cards from both old list
+        if (card.list_id !== cards[card.id].list_id) {
+          dispatch(fetchCards(card[card.id].list_id));
+        }
         dispatch(fetchCards(card.list_id));
       } else {
         dispatch(receiveCard(card));
@@ -59,6 +63,6 @@ export const updateCard = (updatedCard) => (dispatch, getState) => {
 
 export const deleteCard = (cardId) => (dispatch) => {
   return CardApiUtil.deleteCard(cardId).then(
-    (card) => dispatch(removeCard(card))
+    () => dispatch(removeCard(cardId))
   );
 };
