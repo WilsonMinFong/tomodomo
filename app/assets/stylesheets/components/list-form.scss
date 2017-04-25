@@ -8,6 +8,10 @@
 
   height: 100%;
 
+  button:hidden {
+    display: none;
+  }
+
   input[type="text"] {
     width: 90%;
     margin: 6px;

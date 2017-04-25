@@ -1,0 +1,137 @@
+@import '../base/colors';
+
+button.close-modal {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px;
+  margin: 0;
+}
+
+.card-main {
+  flex-grow: 1;
+}
+
+.card-sidebar {
+  font-family: Arial, Helvetica, sans-serif;
+  color: $dark-gray;
+  margin: 52px 25px 0 25px;
+
+  h1 {
+    font-weight: bold;
+  }
+
+  button {
+    background: white;
+    padding: 8px 16px;
+  }
+}
+
+.card-form {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #8C8C8C;
+  font-size: 14px;
+
+  height: 100%;
+
+  .description {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+  }
+
+  i {
+    margin: 0 4px;
+  }
+
+  .edit-description {
+    border: none;
+    text-align: left;
+    padding: 5px;
+    margin: 10px 0;
+    text-decoration: underline;
+
+    &:hover {
+      background: $gray;
+      color: $dark-gray;
+    }
+  }
+
+  form {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+
+    input[type='submit'].hidden {
+      display: none;
+    }
+
+    textarea {
+      resize: none;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      height: auto;
+      padding: 0;
+      color: $dark-gray;
+      font-size: 14px;
+
+      &:focus {
+        border: 1px solid $gray;
+        border-radius: 3px;
+        height: 80px;
+        padding: 8px;
+        background: #E7E8E9;
+        box-shadow: inset 0px 0px 2px $gray;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:hover:focus {
+        cursor: text;
+      }
+
+      &:hover::placeholder {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  input[type="text"] {
+    color: $dark-gray;
+    width: 90%;
+    background: inherit;
+    border: 0;
+    border-radius: 3px;
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-left: -6px;
+    padding: 5px;
+
+    &:hover {
+      cursor: pointer;
+      background: $gray;
+    }
+
+    &:focus {
+      background: white;
+    }
+
+    &::placeholder {
+      color: $gray;
+      font-weight: normal;
+    }
+  }
+
+  input[type='submit'] {
+    display: block;
+    padding: 8px 10px;
+    width: 25%;
+    font-size: 16px;
+    color: white;
+    border-bottom: 1px solid #3F6F21;
+  }
+}
