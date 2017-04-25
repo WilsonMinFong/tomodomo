@@ -14,21 +14,6 @@ const listTarget = {
       return;
     }
 
-    const hoverBoundingRect = findDOMNode(component).getBoundingClientRect();
-    const clientOffset = monitor.getClientOffset();
-
-    // Perform the move when mouse over other element
-
-    // Dragging right
-    if (dragOrd < hoverOrd && clientOffset.x < hoverBoundingRect.left) {
-      return;
-    }
-
-    // Dragging left
-    if (dragOrd > hoverOrd && clientOffset.x > hoverBoundingRect.right) {
-      return;
-    }
-
     const list = Object.assign({}, monitor.getItem(), { ord: props.ord });
     props.updateList(list);
 

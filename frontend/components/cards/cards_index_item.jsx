@@ -24,50 +24,10 @@ const cardTarget = {
         return;
       }
 
-      const hoverBoundingRect = findDOMNode(component).getBoundingClientRect();
-      const clientOffset = monitor.getClientOffset();
-
-      // Perform the move when mouse over other element
-
-      // Dragging up
-      if (dragCard.ord > hoverCard.ord && clientOffset.y < hoverBoundingRect.top) {
-        return;
-      }
-
-      // Dragging down
-      if (dragCard.ord < hoverCard.ord && clientOffset.y > hoverBoundingRect.bottom) {
-        return;
-      }
-
       const card = Object.assign({}, monitor.getItem(), { ord: hoverCard.ord });
       props.updateCard(card);
 
       monitor.getItem().ord = hoverCard.ord;
-    } else {
-      // const hoverBoundingRect = findDOMNode(component).getBoundingClientRect();
-      // const clientOffset = monitor.getClientOffset();
-      //
-      // // Perform the move when mouse over other element
-      //
-      // // Dragging up
-      // if (dragCard.ord > hoverCard.ord && clientOffset.y < hoverBoundingRect.top) {
-      //   return;
-      // }
-      //
-      // // Dragging down
-      // if (dragCard.ord < hoverCard.ord && clientOffset.y > hoverBoundingRect.bottom) {
-      //   return;
-      // }
-      //
-      // const card = Object.assign(
-      //   {},
-      //   monitor.getItem(),
-      //   { ord: hoverCard.ord, list_id: hoverCard.list_id }
-      // );
-      //
-      // props.updateCard(card);
-      //
-      // monitor.getItem().ord = hoverCard.ord;
     }
   },
 };
