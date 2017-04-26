@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import BoardUsersIndexItem from './board_users_index_item';
+import BoardUsersSearchContainer from './board_users_search_container';
 
 class BoardUsersIndex extends React.Component {
   componentDidMount() {
@@ -22,6 +23,7 @@ class BoardUsersIndex extends React.Component {
         <ul>
           { userLis }
         </ul>
+        <BoardUsersSearchContainer />
       </section>
     );
   }
