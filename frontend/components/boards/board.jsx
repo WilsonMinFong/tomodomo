@@ -60,7 +60,7 @@ class Board extends React.Component {
                   Share board...
                 </button>
                 <Popover name='board-users-sidebar'>
-                  <BoardUsersIndexContainer />
+                  <BoardUsersIndexContainer boardCreatorId={ this.props.board.creator_id }/>
                 </Popover>
               </div>
 

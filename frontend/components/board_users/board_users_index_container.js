@@ -8,14 +8,16 @@ import {
 } from '../../actions/user_actions';
 import BoardUsersIndex from './board_users_index';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     users: Object.keys(state.boardUsers).map(
       (userId) => state.boardUsers[userId]
     ),
     boardShares: Object.keys(state.boardShares).map(
       (shareId) => state.boardShares[shareId]
-    )
+    ),
+    boardCreatorId: ownProps.boardCreatorId,
+    currentUserId: state.session.currentUser.id
   };
 };
 
