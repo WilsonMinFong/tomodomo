@@ -3,6 +3,7 @@ import { hashHistory } from 'react-router';
 import Popover from '../shared/popover';
 import BoardFormContainer from './board_form_container';
 import ListsIndexContainer from '../lists/lists_index_container';
+import BoardUsersIndexContainer from '../board_users/board_users_index_container';
 import DeleteConfirmation from '../shared/delete_confirmation';
 
 class Board extends React.Component {
@@ -52,13 +53,25 @@ class Board extends React.Component {
                 <BoardFormContainer formType='update' board={ this.props.board }/>
               </Popover>
             </div>
-            <div className='popover-container'>
-              <button onClick={ this.togglePopover('delete-board') } className='delete-board'>
-                Delete board...
-              </button>
-              <Popover name='delete-board'>
-                <DeleteConfirmation objectName='board' deleteAction={ this.handleDelete }/>
-              </Popover>
+
+            <div className='board-actions'>
+              <div className='popover-container'>
+                <button onClick={ this.togglePopover('board-users-sidebar') } className='board-users-sidebar'>
+                  Share board...
+                </button>
+                <Popover name='board-users-sidebar'>
+                  <BoardUsersIndexContainer />
+                </Popover>
+              </div>
+
+              <div className='popover-container'>
+                <button onClick={ this.togglePopover('delete-board') } className='delete-board'>
+                  Delete board...
+                </button>
+                <Popover name='delete-board'>
+                  <DeleteConfirmation objectName='board' deleteAction={ this.handleDelete }/>
+                </Popover>
+              </div>
             </div>
           </header>
 
@@ -72,6 +85,6 @@ class Board extends React.Component {
     }
   }
 }
-// <button onClick={ this.handleDelete }>Delete board...</button>
+
 
 export default Board;
