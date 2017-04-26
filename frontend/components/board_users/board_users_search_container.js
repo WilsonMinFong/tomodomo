@@ -11,7 +11,8 @@ const mapStateToProps = (state) => {
   return {
     searchUsers: Object.keys(state.searchUsers).map(
       (userId) => state.searchUsers[userId]
-    )
+    ),
+    boardUsers: state.boardUsers
   };
 };
 

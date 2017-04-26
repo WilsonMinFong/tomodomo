@@ -1,10 +1,10 @@
 import React from 'react';
 
 const BoardUsersSearchResult = (props) => {
-  const { user, onClick } = props;
+  const { user, onClick, alreadyBoardUser } = props;
 
   return (
-    <li onClick={ onClick }>
+    <li onClick={ onClick } className={ alreadyBoardUser ? 'disabled' : '' }>
       <div className='icon'>
         { user.name.split(' ').map(function (s) { return s.charAt(0); }).join('') }
       </div>

@@ -30,18 +30,21 @@ class BoardUsersSearch extends React.Component {
         user_id: userId,
         board_id: this.props.params.boardId
       };
-      this.props.createBoardShare(boardShare).then(
-        () => this.setState({ query: '' })
-      ).then(
-        () => this.props.removeAllSearchUsers()
-      ).then(
-        () => this.props.fetchBoardUsers(this.props.params.boardId)
-      );
+
+      if (!this.props.boardUsers[boardShare.user_id]) {
+        this.props.createBoardShare(boardShare).then(
+          () => this.setState({ query: '' })
+        ).then(
+          () => this.props.removeAllSearchUsers()
+        ).then(
+          () => this.props.fetchBoardUsers(this.props.params.boardId)
+        );
+      }
     };
   }
 
   render() {
-    const { searchUsers } = this.props;
+    const { searchUsers, boardUsers } = this.props;
 
     return (
       <section className='board-users-search'>
@@ -55,6 +58,7 @@ class BoardUsersSearch extends React.Component {
                 key={ user.id }
                 user={ user }
                 onClick={ this.handleResultClick(user.id) }
+                alreadyBoardUser={ Boolean(boardUsers[user.id]) }
               />
             );
           })}
