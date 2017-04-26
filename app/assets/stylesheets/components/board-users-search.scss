@@ -55,6 +55,14 @@
       flex-grow: 1;
       font-size: 14px;
     }
+
+    &.disabled {
+      color: $gray;
+      &:hover {
+        background: inherit;
+        cursor: default;
+      }
+    }
   }
 
 }
