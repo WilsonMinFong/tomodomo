@@ -1,13 +1,16 @@
 import React from 'react';
 
 const BoardUserDetails = (props) => {
-  const { user, handleUnshare } = props;
+  const { user, handleUnshare, isBoardCreator } = props;
+  const unshareButton = (
+    <button onClick={ handleUnshare }>Unshare Board</button>
+  );
 
   return (
     <div className='user-details'>
       <div>Name: { user.name }</div>
       <div>Email: { user.email }</div>
-      <button onClick={ handleUnshare }>Unshare with User</button>
+      { isBoardCreator ? <strong>Board Creator</strong> : unshareButton }
     </div>
   );
 };
