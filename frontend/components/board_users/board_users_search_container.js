@@ -2,19 +2,25 @@ import { connect } from 'react-redux';
 import BoardUsersSearch from './board_users_search';
 import {
   fetchSearchUsers,
-  removeAllSearchUsers
+  removeAllSearchUsers,
+  fetchBoardUsers
 } from '../../actions/user_actions';
+import { createBoardShare } from '../../actions/board_share_actions';
 
 const mapStateToProps = (state) => {
   return {
-    searchUsers: state.searchUsers
+    searchUsers: Object.keys(state.searchUsers).map(
+      (userId) => state.searchUsers[userId]
+    )
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchSearchUsers: (query) => dispatch(fetchSearchUsers(query)),
-    removeAllSearchUsers: () => dispatch(removeAllSearchUsers())
+    removeAllSearchUsers: () => dispatch(removeAllSearchUsers()),
+    createBoardShare: (boardShare) => dispatch(createBoardShare(boardShare)),
+    fetchBoardUsers: (boardId) => dispatch(fetchBoardUsers(boardId))
   };
 };
 
