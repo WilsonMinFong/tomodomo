@@ -1,4 +1,14 @@
 class Api::UsersController < ApplicationController
+  before_action :require_logged_in, only: :index
+
+  before_action only: :index do
+    require_board_access(Integer(params[:board_id]))
+  end
+
+  def index
+    @users = Board.find(params[:board_id]).users
+  end
+
   def create
     @user = User.new(user_params)
 
