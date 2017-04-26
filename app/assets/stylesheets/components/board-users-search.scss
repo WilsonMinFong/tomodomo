@@ -6,6 +6,22 @@
     flex-direction: column;
     margin: 8px;
   }
+
+  input {
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid $gray;
+    background: $light-gray;
+
+    &:hover {
+      border: 1px solid $dark-gray;
+    }
+
+    &:focus {
+      background: white;
+    }
+  }
 }
 
 .board-users-index {
