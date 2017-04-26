@@ -48,8 +48,11 @@ class BoardUsersSearch extends React.Component {
 
     return (
       <section className='board-users-search'>
-        <label>Search for users
-          <input onChange={ this.handleInput } value={ this.state.query }/>
+        <label>Search users
+          <input
+            onChange={ this.handleInput }
+            value={ this.state.query }
+            placeholder='e.g. "Billy Bob", "billy@example.com"'/>
         </label>
         <ul className='search-results'>
           { searchUsers.map((user) => {

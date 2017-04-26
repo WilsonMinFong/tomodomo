@@ -22,7 +22,7 @@ class BoardsIndex extends React.Component {
   }
 
   render() {
-    const { boards, menu } = this.props;
+    const { personalBoards, sharedBoards, menu } = this.props;
 
     let createBoardButton = (
       <li className='popover-container'>
@@ -39,7 +39,8 @@ class BoardsIndex extends React.Component {
       createBoardButton = null;
     }
 
-    const lis = boards.map((board) => <BoardsIndexItem key={ board.id } board={ board } />);
+    const personalBoardLis = personalBoards.map((board) => <BoardsIndexItem key={ board.id } board={ board } />);
+    const sharedBoardLis = sharedBoards.map((board) => <BoardsIndexItem key={ board.id } board={ board } />);
 
     return (
       <div className='boards-index'>
@@ -48,8 +49,15 @@ class BoardsIndex extends React.Component {
           Personal Boards
         </h1>
         <ul className='boards-list'>
-          { lis }
+          { personalBoardLis }
           { createBoardButton }
+        </ul>
+        <h1>
+          <i className="fa fa-users" aria-hidden="true"></i>
+          Shared Boards
+        </h1>
+        <ul className='boards-list'>
+          { sharedBoardLis }
         </ul>
       </div>
     );
