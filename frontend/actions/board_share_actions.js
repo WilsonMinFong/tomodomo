@@ -1,4 +1,5 @@
 import * as BoardShareApiUtil from '../util/board_share_api_util';
+import { fetchBoardUsers } from '../actions/user_actions';
 
 export const RECEIVE_BOARD_SHARES = 'RECEIVE_BOARD_SHARES';
 export const RECEIVE_BOARD_SHARE = 'RECEIVE_BOARD_SHARE';
@@ -28,6 +29,8 @@ export const removeBoardShare = (boardShareId) => {
 export const fetchBoardShares = (boardId) => (dispatch) => {
   return BoardShareApiUtil.fetchBoardShares(boardId).then(
     (boardShares) => dispatch(receiveBoardShares(boardShares))
+  ).then(
+    () => dispatch(fetchBoardUsers(boardId))
   );
 };
 

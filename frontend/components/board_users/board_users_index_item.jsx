@@ -1,10 +1,10 @@
 import React from 'react';
 
 const BoardUsersIndexItem = (props) => {
-  const { user } = props;
+  const { user, onClick } = props;
 
   return (
-    <li>
+    <li onClick={ onClick }>
       { user.name.split(' ').map(function (s) { return s.charAt(0); }).join('') }
     </li>
   );
