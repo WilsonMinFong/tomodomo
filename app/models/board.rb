@@ -30,4 +30,8 @@ class Board < ApplicationRecord
   has_many :shared_users,
     through: :board_shares,
     source: :user
+
+  def users
+    [creator] + shared_users.all
+  end
 end
