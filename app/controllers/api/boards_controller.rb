@@ -1,6 +1,12 @@
 class Api::BoardsController < ApplicationController
+  before_action :require_logged_in
+
+  before_action only: [:show, :update, :destroy] do
+    require_board_access(Integer(params[:id]))
+  end
+
   def index
-    @boards = current_user.boards
+    @boards = current_user.accessible_boards
     render :index
   end
 
@@ -15,14 +21,14 @@ class Api::BoardsController < ApplicationController
   end
 
   def show
-    @board = current_user.boards.find(params[:id])
+    @board = Board.find(params[:id])
 
     render :show
   end
 
   def update
-    @board = current_user.boards.find(params[:id])
-    
+    @board = Board.find(params[:id])
+
     if @board.update(board_params)
       render :show
     else

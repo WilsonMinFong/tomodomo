@@ -64,6 +64,16 @@ class User < ApplicationRecord
     BCrypt::Password.new(password_digest).is_password?(password)
   end
 
+  def find_accessible_board_by_id(board_id)
+    accessible_boards.find do |board|
+      board.id == board_id
+    end
+  end
+
+  def accessible_boards
+    boards.all + shared_boards.all
+  end
+
   private
 
   def ensure_session_token

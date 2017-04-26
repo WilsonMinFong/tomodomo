@@ -22,6 +22,15 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def ensure_logged_in
+  def require_logged_in
+    unless current_user
+      render json: ['Invalid credentials'], status: 401
+    end
+  end
+
+  def require_board_access(board_id)
+    if current_user.find_accessible_board_by_id(board_id).nil?
+      render json: ['Board not found'], status: 404
+    end
   end
 end
