@@ -24,4 +24,10 @@ class Board < ApplicationRecord
   has_many :cards,
     through: :lists,
     source: :cards
+
+  has_many :board_shares
+
+  has_many :shared_users,
+    through: :board_shares,
+    source: :user
 end

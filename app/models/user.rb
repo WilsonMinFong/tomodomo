@@ -29,6 +29,12 @@ class User < ApplicationRecord
     through: :lists,
     source: :cards
 
+  has_many :board_shares
+
+  has_many :shared_boards,
+    through: :board_shares,
+    source: :board
+
   attr_reader :password
 
   after_initialize :ensure_session_token
