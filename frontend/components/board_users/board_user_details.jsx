@@ -3,7 +3,9 @@ import React from 'react';
 const BoardUserDetails = (props) => {
   const { user, handleUnshare, isBoardCreator } = props;
   const unshareButton = (
-    <button onClick={ handleUnshare }>Unshare Board</button>
+    <button onClick={ handleUnshare } className='unshare-button'>
+      Unshare Board
+    </button>
   );
 
   return (
