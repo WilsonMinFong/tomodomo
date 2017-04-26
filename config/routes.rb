@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :boards, except: [:new, :edit] do
       resources :lists, only: :index
       resources :users, only: :index
+      resources :board_shares, only: :index
     end
 
     resources :lists, only: [:create, :update, :destroy] do

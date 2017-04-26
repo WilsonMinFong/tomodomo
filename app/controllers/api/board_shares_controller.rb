@@ -1,6 +1,10 @@
 class Api::BoardSharesController < ApplicationController
   before_action :require_logged_in
 
+  before_action only: :index do
+    require_board_access(Integer(params[:board_id]))
+  end
+
   before_action only: :create do
     require_board_access(Integer(board_share_params[:board_id]))
   end
@@ -8,6 +12,10 @@ class Api::BoardSharesController < ApplicationController
   before_action only: :destroy do
     board_share = BoardShare.find(Integer(params[:id]))
     require_board_access(board_share.board.id)
+  end
+
+  def index
+    @board_shares = Board.find(params[:board_id]).board_shares
   end
 
   def create
