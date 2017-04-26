@@ -10,6 +10,7 @@
 
 .board-users-index {
   padding: 0;
+  font-size: 16px;
 
   h1 {
     text-align: center;
@@ -25,6 +26,10 @@
       background: $gray;
       color: white;
       margin: 4px;
+
+      &:hover {
+        background: $dark-gray;
+      }
     }
   }
 
@@ -70,4 +75,16 @@
 button.board-users-sidebar {
   font-size: 12pt;
   text-decoration: underline;
+}
+
+.user-details {
+  margin: 0 5px;
+  font-weight: normal;
+
+  & > button.unshare-button {
+    background: $blue;
+    color: white;
+    border-bottom: 1px solid $darker-blue;
+    margin-top: 5px;
+  }
 }
