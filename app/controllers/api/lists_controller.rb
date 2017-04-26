@@ -1,4 +1,19 @@
 class Api::ListsController < ApplicationController
+  before_action :require_logged_in
+
+  before_action only: :index do
+    require_board_access(Integer(params[:board_id]))
+  end
+
+  before_action only: :create do
+    require_board_access(Integer(list_params[:board_id]))
+  end
+
+  before_action only: [:update, :destroy] do
+    list = List.find(params[:id])
+    require_board_access(list.board_id)
+  end
+
   def index
     @lists = List.where(board_id: params[:board_id])
 
@@ -16,7 +31,7 @@ class Api::ListsController < ApplicationController
   end
 
   def update
-    @list = current_user.lists.find(params[:id])
+    @list = List.find(params[:id])
 
     if @list.update(list_params)
       render :show
@@ -26,7 +41,7 @@ class Api::ListsController < ApplicationController
   end
 
   def destroy
-    @list = current_user.lists.find(params[:id])
+    @list = List.find(params[:id])
     @list.destroy!
     render :show
   end
