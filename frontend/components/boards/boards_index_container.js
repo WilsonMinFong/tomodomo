@@ -4,8 +4,17 @@ import { fetchBoards, createBoard } from '../../actions/board_actions';
 import { receivePopover } from '../../actions/popover_actions';
 
 const mapStateToProps = (state, ownProps) => {
+  let sharedBoards = [];
+  let personalBoards = [];
+
+  Object.keys(state.boards).forEach((boardId) => {
+    const board = state.boards[boardId];
+    return board.shared ? sharedBoards.push(board) : personalBoards.push(board);
+  });
+
   return {
-    boards: Object.keys(state.boards).map((boardId) => state.boards[boardId]),
+    sharedBoards,
+    personalBoards,
     menu: ownProps.menu
   };
 };
