@@ -5,8 +5,16 @@ class Api::UsersController < ApplicationController
     require_board_access(Integer(params[:board_id]))
   end
 
+  before_action only: :show do
+    require_board_access(Integer(params[:id]))
+  end
+
   def index
     @users = Board.find(params[:board_id]).users
+  end
+
+  def show
+    @users = User.find(params[:id])
   end
 
   def create
@@ -25,7 +33,7 @@ class Api::UsersController < ApplicationController
       @users = User.where(
         "lower(name) LIKE :query OR lower(email) LIKE :query",
         query: "%#{params[:query].downcase}%"
-      )
+      ).limit(5)
       render :index
     else
       render json: {}

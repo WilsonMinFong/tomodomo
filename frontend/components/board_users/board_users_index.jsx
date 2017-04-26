@@ -20,7 +20,7 @@ class BoardUsersIndex extends React.Component {
         <h1>
           Shared Users
         </h1>
-        <ul>
+        <ul className='board-users-list'>
           { userLis }
         </ul>
         <BoardUsersSearchContainer />

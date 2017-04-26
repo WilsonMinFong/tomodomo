@@ -1,0 +1,60 @@
+@import '../base/colors';
+
+.board-users-search {
+  label {
+    display: flex;
+    flex-direction: column;
+    margin: 8px;
+  }
+}
+
+.board-users-index {
+  padding: 0;
+
+  h1 {
+    text-align: center;
+    margin-top: 5px;
+  }
+
+  .board-users-list {
+    display: flex;
+
+    li {
+      padding: 5px;
+      border-radius: 5px;
+      background: $gray;
+      color: white;
+      margin: 4px;
+    }
+  }
+
+}
+
+.search-results {
+  font-weight: normal;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:hover {
+      background: $gray;
+      cursor: pointer;
+    }
+
+    .icon {
+      padding: 4px;
+      margin: 4px;
+      background: $gray;
+      color: white;
+      border-radius: 2px;
+    }
+
+    .user-info {
+      flex-grow: 1;
+      font-size: 14px;
+    }
+  }
+
+}
