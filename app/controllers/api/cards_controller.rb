@@ -1,16 +1,33 @@
 class Api::CardsController < ApplicationController
+  before_action :require_logged_in
+
+  before_action only: :index do
+    board_id = List.find(Integer(params[:list_id])).board.id
+    require_board_access(board_id)
+  end
+
+  before_action only: :create do
+    board_id = List.find(Integer(card_params[:list_id])).board.id
+    require_board_access(board_id)
+  end
+
+  before_action only: [:show, :update, :destroy] do
+    board_id = Card.find(Integer(params[:id])).board.id
+    require_board_access(board_id)
+  end
+
   def index
     @cards = List.find(params[:list_id]).cards
     render :index
   end
 
   def show
-    @cards = current_user.cards.find(params[:id])
+    @cards = Card.find(params[:id])
     render :show
   end
 
   def create
-    list = current_user.lists.find(card_params[:list_id])
+    list = List.find(card_params[:list_id])
     @card = list.cards.new(card_params)
 
     if @card.save
@@ -21,7 +38,7 @@ class Api::CardsController < ApplicationController
   end
 
   def update
-    @card = current_user.cards.find(params[:id])
+    @card = Card.find(params[:id])
 
     if @card.update(card_params)
       render :show
@@ -31,7 +48,7 @@ class Api::CardsController < ApplicationController
   end
 
   def destroy
-    @card = current_user.cards.find(params[:id])
+    @card = Card.find(params[:id])
     @card.destroy!
     render :show
   end
