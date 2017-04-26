@@ -18,7 +18,7 @@ class BoardUsersIndex extends React.Component {
     return (
       <section className='board-users-index'>
         <h1>
-          Shared Users
+          Board Users
         </h1>
         <ul className='board-users-list'>
           { userLis }
