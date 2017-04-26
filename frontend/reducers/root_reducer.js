@@ -5,7 +5,8 @@ import popoverReducer from './popover_reducer';
 import listsReducer from './lists_reducer';
 import cardsReducer from './cards_reducer';
 import boardSharesReducer from './board_shares_reducer';
-import usersReducer from './users_reducer';
+import boardUsersReducer from './board_users_reducer';
+import searchUsersReducer from './search_users_reducer';
 
 export default combineReducers({
   session: sessionReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
   lists: listsReducer,
   cards: cardsReducer,
   boardShares: boardSharesReducer,
-  users: usersReducer
+  boardUsers: boardUsersReducer,
+  searchUsers: searchUsersReducer
 });

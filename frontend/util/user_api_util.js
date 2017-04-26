@@ -4,3 +4,11 @@ export const fetchBoardUsers = (boardId) => {
     url: `/api/boards/${boardId}/users`
   });
 };
+
+export const fetchSearchUsers = (query) => {
+  return $.ajax({
+    method: 'get',
+    url: '/api/users/search',
+    data: { query }
+  });
+};

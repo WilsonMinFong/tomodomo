@@ -1,6 +1,6 @@
 import { RECEIVE_BOARD_USERS } from '../actions/user_actions';
 
-const usersReducer = (oldState = {}, action) => {
+const boardUsersReducer = (oldState = {}, action) => {
   switch (action.type) {
     case RECEIVE_BOARD_USERS:
       return action.users;
@@ -9,4 +9,4 @@ const usersReducer = (oldState = {}, action) => {
   }
 };
 
-export default usersReducer;
+export default boardUsersReducer;
