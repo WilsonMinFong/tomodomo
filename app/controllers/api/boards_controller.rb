@@ -41,7 +41,7 @@ class Api::BoardsController < ApplicationController
   end
 
   def destroy
-    @board = Board.find(params[:id])
+    @board = current_user.boards.find(params[:id])
 
     @board.destroy!
     render json: {}

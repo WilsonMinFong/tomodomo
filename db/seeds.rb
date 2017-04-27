@@ -15,7 +15,32 @@ User.create([
     email: 'guest@example.com',
     password: 'password'
   },
-]);
+  {
+    name: 'Hayao Miyazaki',
+    email: 'hayao.miyazaki@ghibli.jp',
+    password: 'animewasamistake'
+  },
+  {
+    name: 'Makoto Shinkai',
+    email: 'makoto.shinkai@comixwave.jp',
+    password: 'kiminonawa'
+  },
+  {
+    name: 'Mamoru Hosoda',
+    email: 'mamoru.hosoda@chizu.jp',
+    password: 'summerwars'
+  },
+  {
+    name: 'Gen Urobuchi',
+    email: 'urobutcher@noitamina.jp',
+    password: 'suffering'
+  },
+  {
+    name: 'Shinzo Abe',
+    email: 'shinzo.abe@japan.go.jp',
+    password: 'primeminister'
+  }
+])
 
 # Board seeds
 Board.destroy_all
@@ -28,9 +53,16 @@ User.first.boards.create([
     name: 'Learn Japanese'
   },
   {
-    name: 'Full-Stack Project - Tomodomo'
+    name: 'Full-Stack Project - Tomodomo',
+    private: false
   }
-]);
+])
+
+User.find_by_name('Hayao Miyazaki').boards.create([
+  {
+    name: 'Dream Collab'
+  }
+])
 
 # List seeds
 List.destroy_all
@@ -45,7 +77,7 @@ Board.find_by_name('Travel to Japan').lists.create([
   {
     name: 'Complete'
   }
-]);
+])
 
 Board.find_by_name('Learn Japanese').lists.create([
   {
@@ -57,7 +89,7 @@ Board.find_by_name('Learn Japanese').lists.create([
   {
     name: 'Reviewed'
   }
-]);
+])
 
 Board.find_by_name('Full-Stack Project - Tomodomo').lists.create([
   {
@@ -75,7 +107,19 @@ Board.find_by_name('Full-Stack Project - Tomodomo').lists.create([
   {
     name: 'Completed Issues'
   }
-]);
+])
+
+Board.find_by_name('Dream Collab').lists.create([
+  {
+    name: 'To Decide'
+  },
+  {
+    name: 'To Do'
+  },
+  {
+    name: 'Completed'
+  }
+])
 
 # Card seeds
 Card.destroy_all
@@ -89,7 +133,7 @@ List.find_by_name('Not Started').cards.create([
     name: 'Lodging',
     description: 'How many days of ryokan vs hotels?'
   }
-]);
+])
 
 List.find_by_name('In Progress').cards.create([
   {
@@ -108,13 +152,13 @@ List.find_by_name('Incomplete MVP Features').cards.create([
   {
     name: 'Production README'
   }
-]);
+])
 
 List.find_by_name('MVP Features to Review').cards.create([
   {
     name: 'Cards'
   }
-]);
+])
 
 List.find_by_name('Complete MVP Features').cards.create([
   {
@@ -126,4 +170,32 @@ List.find_by_name('Complete MVP Features').cards.create([
   {
     name: 'Lists'
   }
-]);
+])
+
+List.find_by_name('To Decide').cards.create([
+  {
+    name: 'Characters',
+    description: 'Gender? Age? Personality?'
+  },
+  {
+    name: 'Music'
+  },
+  {
+    name: 'Voice Actors',
+    description: 'New vs established VAs?  Ideas?'
+  }
+])
+
+List.find_by_name('To Do').cards.create([
+  {
+    name: 'Plot',
+    description: 'Romance of two childhood friends who grew up in a fantasy world at birth.  Thrown into modern times, they tackle hardships together.'
+  }
+])
+
+# BoardShare seeds
+BoardShare.destroy_all
+
+Board.find_by_name('Dream Collab').shared_users << User.find_by_name('Guest User')
+Board.find_by_name('Dream Collab').shared_users << User.find_by_name('Makoto Shinkai')
+Board.find_by_name('Dream Collab').shared_users << User.find_by_name('Mamoru Hosoda')
