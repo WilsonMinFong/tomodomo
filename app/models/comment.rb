@@ -19,4 +19,8 @@ class Comment < ApplicationRecord
     foreign_key: :author_id
 
   belongs_to :card
+
+  has_one :board,
+    through: :card,
+    source: :board
 end
