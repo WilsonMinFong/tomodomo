@@ -29,7 +29,7 @@ class Card < ApplicationRecord
     through: :board,
     source: :creator
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   private
 

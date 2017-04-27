@@ -22,7 +22,9 @@ class CommentForm extends React.Component {
 
     const cardId = this.props.params.cardId;
     const comment = Object.assign(this.state, { card_id: cardId });
-    this.props.createComment(comment);
+    this.props.createComment(comment).then(
+      () => this.setState({ body: '' })
+    );
   }
 
   render() {
