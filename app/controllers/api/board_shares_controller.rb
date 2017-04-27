@@ -1,8 +1,8 @@
 class Api::BoardSharesController < ApplicationController
-  before_action :require_logged_in
+  before_action :require_logged_in, only: [:create, :destroy]
 
   before_action only: :index do
-    require_board_access(Integer(params[:board_id]))
+    check_board_access(Integer(params[:board_id]))
   end
 
   before_action only: :create do

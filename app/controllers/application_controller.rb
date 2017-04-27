@@ -33,4 +33,10 @@ class ApplicationController < ActionController::Base
       render json: ['Board not found'], status: 404
     end
   end
+
+  def check_board_privacy(board_id)
+    if Board.find(board_id).private
+      require_board_access(board_id)
+    end
+  end
 end
