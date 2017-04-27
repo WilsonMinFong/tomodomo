@@ -7,7 +7,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     formType: ownProps.formType,
     card: ownProps.card,
-    list: state.lists[ownProps.listId]
+    list: state.lists[ownProps.listId],
+    readOnly: !state.session.currentUser
   };
 };
 

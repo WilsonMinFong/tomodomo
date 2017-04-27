@@ -7,7 +7,8 @@ import CardsIndex from './cards_index';
 const mapStateToProps = (state, ownProps) => {
   return {
     cards: selectSortedListCards(state, ownProps.listId),
-    listId: ownProps.listId
+    listId: ownProps.listId,
+    readOnly: !state.session.currentUser
   };
 };
 

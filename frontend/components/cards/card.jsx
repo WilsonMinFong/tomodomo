@@ -47,7 +47,22 @@ class Card extends React.Component {
   }
 
   render() {
-    const { card, list, deleteCard } = this.props;
+    const { card, list, deleteCard, readOnly } = this.props;
+
+    const cardSidebar = (
+      <div className='card-sidebar'>
+        <h1>Actions</h1>
+        <div className='popover-container'>
+          <button onClick={ this.togglePopover('delete-card') } className={'delete-card'}>
+            Delete
+          </button>
+          <Popover name={'delete-card'}>
+            <DeleteConfirmation objectName='card' deleteAction={ this.handleDelete }/>
+          </Popover>
+        </div>
+      </div>
+    );
+
     if (!card) {
       return null;
     } else {
@@ -65,17 +80,7 @@ class Card extends React.Component {
               </button>
               <CardFormContainer formType='update' card={ card } listId={ list.id } />
             </div>
-            <div className='card-sidebar'>
-              <h1>Actions</h1>
-              <div className='popover-container'>
-                <button onClick={ this.togglePopover('delete-card') } className={'delete-card'}>
-                  Delete
-                </button>
-                <Popover name={'delete-card'}>
-                  <DeleteConfirmation objectName='card' deleteAction={ this.handleDelete }/>
-                </Popover>
-              </div>
-            </div>
+            { readOnly ? '' : cardSidebar }
           </Modal>
         </div>
       );

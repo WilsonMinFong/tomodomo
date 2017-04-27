@@ -8,7 +8,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     card,
     list: card ? state.lists[card.list_id] : null,
-    boardId: ownProps.params.boardId
+    boardId: ownProps.params.boardId,
+    readOnly: !state.session.currentUser
   };
 };
 

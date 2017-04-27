@@ -67,7 +67,7 @@ class CardForm extends React.Component {
   }
 
   render() {
-    const { formType, list } = this.props;
+    const { formType, list, readOnly } = this.props;
 
     const createForm = (
       <form onSubmit={ this.handleSubmit }>
@@ -92,6 +92,7 @@ class CardForm extends React.Component {
             onBlur={ this.handleSubmit }
             onKeyDown={ this.handleKeyDown }
             className='name-input'
+            disabled={ readOnly }
             />
           <div className='name-subtitle'>
             in list <strong>{ list.name }</strong>
@@ -115,7 +116,8 @@ class CardForm extends React.Component {
             onFocus={ this.toggleDescription }
             onBlur={ this.handleDescriptionSubmit }
             value={ this.state.description }
-            placeholder='Add a description...'
+            placeholder={ readOnly ? '' : 'Add a description...' }
+            disabled={ readOnly }
           />
         </form>
       </div>

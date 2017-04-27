@@ -48,32 +48,43 @@ class CardsIndex extends React.Component {
   }
 
   render() {
-    const { cards, listId, updateCard, connectDropTarget } = this.props;
+    const {
+      cards,
+      listId,
+      updateCard,
+      connectDropTarget,
+      readOnly } = this.props;
 
-    return connectDropTarget(
+    const newCardButton = (
+      <div className='popover-container'>
+        <div
+          className='create-card-button popover-container'
+          onClick={ this.togglePopover(`create-card-form-${listId}`)}
+          >
+          Add a card...
+        </div>
+        <Popover name={`create-card-form-${listId}`}>
+          <CardFormContainer formType='new' listId={ listId }/>
+        </Popover>
+      </div>
+    );
+
+    const cardIndex = (
       <div className='cards-index-container'>
         <ul className='cards-index'>
           { cards.map((card) =>
             <CardsIndexItem
               key={ card.id }
               card={ card }
-              updateCard={ updateCard }/>)
+              updateCard={ updateCard }
+              readOnly={ readOnly }/>)
           }
         </ul>
-
-        <div className='popover-container'>
-          <div
-            className='create-card-button popover-container'
-            onClick={ this.togglePopover(`create-card-form-${listId}`)}
-          >
-            Add a card...
-          </div>
-          <Popover name={`create-card-form-${listId}`}>
-            <CardFormContainer formType='new' listId={ listId }/>
-          </Popover>
-        </div>
+        { readOnly ? null : newCardButton }
       </div>
     );
+
+    return connectDropTarget(cardIndex);
   }
 }
 

@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
   return {
     loggedIn: Boolean(state.session.currentUser),
     popover: state.popover
-  }
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -33,7 +33,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     removeAllPopovers: dispatchProps.removeAllPopovers(stateProps.popover),
     loggedIn: stateProps.loggedIn,
     children: ownProps.children
-  }
+  };
 };
 
 const App = ({ children, loggedIn, removeAllPopovers }) => {

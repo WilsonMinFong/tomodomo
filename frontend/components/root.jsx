@@ -17,19 +17,12 @@ const Root = ({ store }) => {
     }
   };
 
-  const _ensureCurrentUser = (nextState, replace) => {
-    if (!store.getState().session.currentUser) {
-      replace('/login');
-    }
-  };
-
   const _handleAuthOnEnter = (nextState, replace) => {
     _redirectIfLoggedIn(nextState, replace);
     store.dispatch(clearErrors());
   };
 
   const _handleAppOnEnter = (nextState, replace) => {
-    _ensureCurrentUser(nextState, replace);
     store.dispatch(removeAllPopovers());
   };
 
