@@ -15,7 +15,9 @@ const CommentsListItem = (props) => {
   return (
     <li className='comments-list-item'>
       <div className='user-icon'>
-        { author.name.split(' ').map((s) => s.charAt(0)).join('') }
+        <span className='initials'>
+          { author.name.split(' ').map((s) => s.charAt(0)).join('') }
+        </span>
       </div>
 
       <div className='comments-list-item-content'>

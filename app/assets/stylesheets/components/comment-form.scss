@@ -1,0 +1,33 @@
+@import '../base/colors';
+
+.comment-form {
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  textarea {
+    border: none;
+    border-radius: 3px;
+    padding: 12px 10px;
+    font-size: 14px;
+    box-shadow: 0px 1px 1px grey;
+    margin-bottom: 12px;
+    height: 76px;
+    resize: none;
+    color: $dark-gray;
+  }
+
+  .button {
+    margin: 0;
+    width: 14%;
+    border-bottom-width: 1px;
+    color: white;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
