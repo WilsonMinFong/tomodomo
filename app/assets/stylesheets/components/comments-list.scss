@@ -1,0 +1,49 @@
+@import '../base/colors';
+
+.comments-list {
+  margin-top: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  padding-top: 10px;
+
+  .comments-list-item {
+    display: flex;
+    padding-top: 10px;
+  }
+}
+
+.comments-list-item-content {
+  flex-grow: 1;
+  color: $dark-gray;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $gray;
+
+  h1 {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  p {
+    margin-top: 10px;
+    border: none;
+    border-radius: 3px;
+    padding: 12px 10px;
+    font-size: 14px;
+    box-shadow: 0px 1px 1px grey;
+    margin-bottom: 12px;
+    resize: none;
+    background: white;
+    display: block;
+  }
+}
+
+.comments-list-item-content-footer {
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+.delete-comment:hover {
+  text-decoration: underline;
+  color: $dark-gray;
+  cursor: pointer;
+}

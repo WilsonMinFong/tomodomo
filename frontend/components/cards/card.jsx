@@ -81,7 +81,7 @@ class Card extends React.Component {
                 <i className="fa fa-times" aria-hidden="true"></i>
               </button>
               <CardFormContainer formType='update' card={ card } listId={ list.id } />
-              <CommentFormContainer />
+              { readOnly ? null : <CommentFormContainer /> }
               <CommentsListContainer />
             </div>
             { readOnly ? '' : cardSidebar }

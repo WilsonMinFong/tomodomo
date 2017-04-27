@@ -1,8 +1,6 @@
 class Api::UsersController < ApplicationController
-  before_action :require_logged_in, only: :index
-
   before_action only: :index do
-    require_board_access(Integer(params[:board_id]))
+    check_board_privacy(Integer(params[:board_id]))
   end
 
   before_action only: :show do
