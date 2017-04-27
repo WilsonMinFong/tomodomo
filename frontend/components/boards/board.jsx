@@ -42,7 +42,7 @@ class Board extends React.Component {
   }
 
   render() {
-    const { board, readOnly } = this.props;
+    const { board, readOnly, currentUser } = this.props;
 
     if (board === undefined) {
       return null;
@@ -96,8 +96,7 @@ class Board extends React.Component {
                 </Popover>
               </div>
             </div>
-
-            { readOnly ? null : boardNav }
+            { readOnly || currentUser.id !== board.creator_id ? null : boardNav }
           </header>
 
           <section className='lists-index'>

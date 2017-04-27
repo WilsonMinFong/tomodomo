@@ -8,7 +8,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     board: state.boards[ownProps.params.boardId],
     children: ownProps.children,
-    readOnly: !state.session.currentUser
+    readOnly: !state.session.currentUser,
+    currentUser: state.session.currentUser
   };
 };
 
