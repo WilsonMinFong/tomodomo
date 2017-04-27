@@ -3,6 +3,7 @@ import Board from './board';
 import { fetchBoard, deleteBoard } from '../../actions/board_actions';
 import { receivePopover } from '../../actions/popover_actions';
 import { selectReadOnlyStatus } from '../../reducers/selectors';
+import { fetchBoardUsers } from '../../actions/user_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -21,7 +22,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(fetchBoard(boardId));
     },
     deleteBoard: () => dispatch(deleteBoard(boardId)),
-    receivePopover: (name) => dispatch(receivePopover(name))
+    receivePopover: (name) => dispatch(receivePopover(name)),
+    fetchBoardUsers: () => dispatch(fetchBoardUsers(boardId))
   };
 };
 

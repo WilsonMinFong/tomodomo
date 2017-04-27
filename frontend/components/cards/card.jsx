@@ -4,6 +4,8 @@ import { hashHistory } from 'react-router';
 import CardFormContainer from './card_form_container';
 import Popover from '../shared/popover';
 import DeleteConfirmation from '../shared/delete_confirmation';
+import CommentsListContainer from '../comments/comments_list_container';
+import CommentFormContainer from '../comments/comment_form_container';
 
 const customStyles = {
   overlay : {
@@ -79,6 +81,8 @@ class Card extends React.Component {
                 <i className="fa fa-times" aria-hidden="true"></i>
               </button>
               <CardFormContainer formType='update' card={ card } listId={ list.id } />
+              <CommentFormContainer />
+              <CommentsListContainer />
             </div>
             { readOnly ? '' : cardSidebar }
           </Modal>

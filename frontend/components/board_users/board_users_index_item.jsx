@@ -5,7 +5,7 @@ const BoardUsersIndexItem = (props) => {
 
   return (
     <li onClick={ onClick }>
-      { user.name.split(' ').map(function (s) { return s.charAt(0); }).join('') }
+      { user.name.split(' ').map((s) => s.charAt(0)).join('') }
     </li>
   );
 };

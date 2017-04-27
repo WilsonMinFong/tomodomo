@@ -13,3 +13,13 @@ export const selectSortedListCards = ({ cards }, listId) => {
 
   return listCards.sort((cardA, cardB) => cardA.ord - cardB.ord);
 };
+
+export const selectCommentsSortedByCreatedDate = ({ comments }) => {
+  const commentsArr = Object.keys(comments).map(
+    (commentId) => comments[commentId]
+  );
+
+  return commentsArr.sort(
+    (a, b) => new Date(a.created_at) < new Date(b.created_at)
+  );
+};
