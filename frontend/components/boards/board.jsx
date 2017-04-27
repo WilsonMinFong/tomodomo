@@ -32,47 +32,55 @@ class Board extends React.Component {
   }
 
   togglePopover(name) {
-    return (e) => {
-      e.stopPropagation();
-      this.props.receivePopover(name);
-    };
+    if (!this.props.readOnly) {
+      return (e) => {
+        e.stopPropagation();
+        this.props.receivePopover(name);
+      };
+    }
   }
 
   render() {
-    if (this.props.board === undefined) {
+    const { board, readOnly } = this.props;
+
+    if (board === undefined) {
       return null;
     } else {
+      const boardNav = (
+        <div className='board-actions'>
+          <div className='popover-container'>
+            <button onClick={ this.togglePopover('board-users-sidebar') } className='board-users-sidebar'>
+              Share board...
+            </button>
+            <Popover name='board-users-sidebar'>
+              <BoardUsersIndexContainer boardCreatorId={ board.creator_id }/>
+            </Popover>
+          </div>
+
+          <div className='popover-container'>
+            <button onClick={ this.togglePopover('delete-board') } className='delete-board'>
+              Delete board...
+            </button>
+            <Popover name='delete-board'>
+              <DeleteConfirmation objectName='board' deleteAction={ this.handleDelete }/>
+            </Popover>
+          </div>
+        </div>
+      );
+      
       return (
         <div className='board'>
           <header>
             <div className='popover-container'>
               <button onClick={ this.togglePopover('update-board') } className='name update-board'>
-                { this.props.board.name }
+                { board.name }
               </button>
               <Popover name='update-board'>
-                <BoardFormContainer formType='update' board={ this.props.board }/>
+                <BoardFormContainer formType='update' board={ board }/>
               </Popover>
             </div>
 
-            <div className='board-actions'>
-              <div className='popover-container'>
-                <button onClick={ this.togglePopover('board-users-sidebar') } className='board-users-sidebar'>
-                  Share board...
-                </button>
-                <Popover name='board-users-sidebar'>
-                  <BoardUsersIndexContainer boardCreatorId={ this.props.board.creator_id }/>
-                </Popover>
-              </div>
-
-              <div className='popover-container'>
-                <button onClick={ this.togglePopover('delete-board') } className='delete-board'>
-                  Delete board...
-                </button>
-                <Popover name='delete-board'>
-                  <DeleteConfirmation objectName='board' deleteAction={ this.handleDelete }/>
-                </Popover>
-              </div>
-            </div>
+            { readOnly ? null : boardNav }
           </header>
 
           <section className='lists-index'>

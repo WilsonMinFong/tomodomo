@@ -76,9 +76,18 @@ class ListForm extends React.Component {
         onKeyDown={ this.handleKeyDown } />
     );
 
+    const disabledInput = (
+      <input
+        type='text'
+        value={ this.state.name }
+        disabled />
+    );
+
     return (
       <div className='list-form'>
-        { formType === 'new' ? createForm : updateInput }
+        { formType === 'new' ? createForm : '' }
+        { formType === 'update' ? updateInput : '' }
+        { formType === 'disabled' ? disabledInput : ''}
       </div>
     );
   }

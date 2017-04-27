@@ -11,7 +11,8 @@ import { withRouter } from 'react-router';
 
 const mapStateToProps = (state) => {
   return {
-    lists: selectSortedLists(state)
+    lists: selectSortedLists(state),
+    readOnly: !state.session.currentUser
   };
 };
 

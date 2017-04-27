@@ -46,16 +46,18 @@ function collectTarget(connect, monitor) {
 }
 
 const CardsIndexItem = (props) => {
-  const { card, connectDragSource, connectDropTarget, isDragging } = props;
+  const { card, connectDragSource, connectDropTarget, isDragging, readOnly } = props;
   const className = isDragging ? 'dragging' : '';
 
-  return connectDropTarget(connectDragSource(
+  const cardIndexItem = (
     <li className={ className }>
       <Link to={ `/boards/${props.params.boardId}/cards/${card.id}` }>
         {card.name}
       </Link>
     </li>
-  ));
+  );
+
+  return readOnly ? cardIndexItem : connectDropTarget(connectDragSource(cardIndexItem));
 };
 
 export default DropTarget(

@@ -33,7 +33,7 @@ class ListsIndex extends React.Component {
   }
 
   render() {
-    const { lists, updateList } = this.props;
+    const { lists, updateList, readOnly } = this.props;
 
     const listLis = lists.map(
       (list, i) => <ListsIndexItem
@@ -44,19 +44,22 @@ class ListsIndex extends React.Component {
       />
     );
 
+    const listFormButton = (
+      <li className='popover-container list-create-li lists-index-form' onClick={ this.togglePopover('lists-index-form') }>
+        <div className='placeholder'>
+          Add a list...
+        </div>
+        <Popover name='lists-index-form'>
+          <ListFormContainer formType='new'/>
+        </Popover>
+      </li>
+    );
+
     return (
       <ol>
         { listLis }
 
-        <li className='popover-container list-create-li lists-index-form' onClick={ this.togglePopover('lists-index-form') }>
-          <div className='placeholder'>
-            Add a list...
-          </div>
-          <Popover name='lists-index-form'>
-            <ListFormContainer formType='new'/>
-          </Popover>
-        </li>
-
+        { readOnly ? null : listFormButton }
       </ol>
     );
   }

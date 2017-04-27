@@ -37,33 +37,47 @@ class List extends React.Component {
   }
 
   togglePopover(name) {
-    return (e) => {
-      e.stopPropagation();
-      this.props.receivePopover(name);
-    };
+    if (!this.props.readOnly) {
+      return (e) => {
+        e.stopPropagation();
+        this.props.receivePopover(name);
+      };
+    }
   }
 
   render() {
     const { list, connectDragSource, isDragging } = this.props;
     const className = isDragging ? 'list-container dragging' : 'list-container';
 
-    return connectDragSource(
-      <div className={ className }>
-        <div className='header'>
-          <ListFormContainer formType='update' list={ list }/>
-          <div className='popover-container'>
-            <button onClick={ this.togglePopover(`delete-list-${list.id}`) } className={`delete-list-${list.id}`}>
-              <i className="fa fa-times" aria-hidden="true"></i>
-            </button>
-            <Popover name={`delete-list-${list.id}`}>
-              <DeleteConfirmation objectName='list' deleteAction={ this.handleDelete }/>
-            </Popover>
+    if (this.props.readOnly) {
+      return (
+        <div className={ className }>
+          <div className='header'>
+            <ListFormContainer formType='disabled' list={ list }/>
           </div>
-        </div>
 
-        <CardsIndexContainer listId={ list.id } />
-      </div>
-    );
+          <CardsIndexContainer listId={ list.id } />
+        </div>
+      );
+    } else {
+      return connectDragSource(
+        <div className={ className }>
+          <div className='header'>
+            <ListFormContainer formType='update' list={ list }/>
+            <div className='popover-container'>
+              <button onClick={ this.togglePopover(`delete-list-${list.id}`) } className={`delete-list-${list.id}`}>
+                <i className="fa fa-times" aria-hidden="true"></i>
+              </button>
+              <Popover name={`delete-list-${list.id}`}>
+                <DeleteConfirmation objectName='list' deleteAction={ this.handleDelete }/>
+              </Popover>
+            </div>
+          </div>
+
+          <CardsIndexContainer listId={ list.id } />
+        </div>
+      );
+    }
   }
 }
 

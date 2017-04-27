@@ -5,7 +5,8 @@ import { receivePopover } from '../../actions/popover_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    list: ownProps.list
+    list: ownProps.list,
+    readOnly: !state.session.currentUser
   };
 };
 
