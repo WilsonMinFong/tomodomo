@@ -7,6 +7,7 @@ import cardsReducer from './cards_reducer';
 import boardSharesReducer from './board_shares_reducer';
 import boardUsersReducer from './board_users_reducer';
 import searchUsersReducer from './search_users_reducer';
+import commentsReducer from './comments_reducer';
 
 export default combineReducers({
   session: sessionReducer,
@@ -16,5 +17,6 @@ export default combineReducers({
   cards: cardsReducer,
   boardShares: boardSharesReducer,
   boardUsers: boardUsersReducer,
-  searchUsers: searchUsersReducer
+  searchUsers: searchUsersReducer,
+  comments: commentsReducer
 });
