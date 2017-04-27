@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "static_pages#root"
 
-  namespace :api, defaults: {format: :json} do
+  namespace :api, defaults: { format: :json } do
     resource :users, only: :create do
       get 'search', to: :collection
     end
@@ -19,8 +19,12 @@ Rails.application.routes.draw do
       resources :cards, only: :index
     end
 
-    resources :cards, only: [:show, :create, :update, :destroy]
+    resources :cards, only: [:show, :create, :update, :destroy] do
+      resources :comments, only: :index
+    end
 
     resources :board_shares, only: [:create, :destroy]
+
+    resources :comments, only: [:create, :update, :destroy]
   end
 end
