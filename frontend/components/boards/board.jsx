@@ -50,17 +50,6 @@ class Board extends React.Component {
       const boardNav = (
         <div className='board-actions'>
           <div className='popover-container'>
-            <button
-              onClick={ this.togglePopover('update-visibility') }
-              className='name update-visibility'>
-              { board.private ? 'Private' : 'Public' }
-            </button>
-            <Popover name='update-visibility'>
-              <VisibilityFormContainer formType='update' board={ board }/>
-            </Popover>
-          </div>
-
-          <div className='popover-container'>
             <button onClick={ this.togglePopover('board-users-sidebar') } className='board-users-sidebar'>
               Share board...
             </button>
@@ -83,13 +72,29 @@ class Board extends React.Component {
       return (
         <div className='board'>
           <header>
-            <div className='popover-container'>
-              <button onClick={ this.togglePopover('update-board') } className='name update-board'>
-                { board.name }
-              </button>
-              <Popover name='update-board'>
-                <BoardFormContainer formType='update' board={ board }/>
-              </Popover>
+            <div className='left-nav'>
+              <div className='popover-container'>
+                <button onClick={ this.togglePopover('update-board') } className='name update-board'>
+                  { board.name }
+                </button>
+                <Popover name='update-board'>
+                  <BoardFormContainer formType='update' board={ board }/>
+                </Popover>
+              </div>
+
+              <div className='popover-container'>
+                <button
+                  onClick={ this.togglePopover('update-visibility') }
+                  className='name update-visibility'>
+                  { board.private ?
+                    <i className="fa fa-lock" aria-hidden="true"/> :
+                    <i className="fa fa-globe" aria-hidden="true"/> }
+                  { board.private ? 'Private' : 'Public' }
+                </button>
+                <Popover name='update-visibility'>
+                  <VisibilityFormContainer formType='update' board={ board }/>
+                </Popover>
+              </div>
             </div>
 
             { readOnly ? null : boardNav }

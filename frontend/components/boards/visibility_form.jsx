@@ -29,10 +29,11 @@ class VisibilityForm extends React.Component {
 
     return (
       <div className='visibility-form'>
+        <h1>Update Visibility</h1>
         <ul>
           <li onClick={ this.handlePrivacyChange(true) }>
             <div className='visibility-item-header'>
-              <i className="fa fa-lock" aria-hidden="true"></i>
+              <i className="fa fa-lock" aria-hidden="true"/>
               Private
               { this.state.private ? checkIcon : '' }
             </div>
@@ -44,7 +45,7 @@ class VisibilityForm extends React.Component {
 
           <li onClick={ this.handlePrivacyChange(false) }>
             <div className='visibility-item-header'>
-              <i className="fa fa-globe" aria-hidden="true"></i>
+              <i className="fa fa-globe" aria-hidden="true"/>
               Public
               { this.state.private ? '' : checkIcon }
             </div>
