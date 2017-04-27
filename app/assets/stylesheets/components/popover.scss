@@ -92,6 +92,16 @@
     width: 322px;
   }
 
+  &.due-date {
+    right: 0;
+    width: auto;
+    padding: 0;
+
+    span {
+      border: 0;
+    }
+  }
+
   &.lists-index-form {
     top: 0;
     margin: 0;
