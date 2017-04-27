@@ -16,6 +16,7 @@ class Board extends React.Component {
 
   componentDidMount() {
     this.props.fetchBoard(this.props.params.boardId);
+    this.props.fetchBoardUsers(this.props.params.boardId);
   }
 
   componentWillReceiveProps() {
