@@ -5,6 +5,7 @@ import BoardFormContainer from './board_form_container';
 import ListsIndexContainer from '../lists/lists_index_container';
 import BoardUsersIndexContainer from '../board_users/board_users_index_container';
 import DeleteConfirmation from '../shared/delete_confirmation';
+import VisibilityFormContainer from './visibility_form_container';
 
 class Board extends React.Component {
   constructor(props) {
@@ -49,6 +50,17 @@ class Board extends React.Component {
       const boardNav = (
         <div className='board-actions'>
           <div className='popover-container'>
+            <button
+              onClick={ this.togglePopover('update-visibility') }
+              className='name update-visibility'>
+              { board.private ? 'Private' : 'Public' }
+            </button>
+            <Popover name='update-visibility'>
+              <VisibilityFormContainer formType='update' board={ board }/>
+            </Popover>
+          </div>
+
+          <div className='popover-container'>
             <button onClick={ this.togglePopover('board-users-sidebar') } className='board-users-sidebar'>
               Share board...
             </button>
@@ -67,7 +79,7 @@ class Board extends React.Component {
           </div>
         </div>
       );
-      
+
       return (
         <div className='board'>
           <header>
