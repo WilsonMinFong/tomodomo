@@ -36,7 +36,11 @@ class ApplicationController < ActionController::Base
 
   def check_board_privacy(board_id)
     if Board.find(board_id).private
-      require_board_access(board_id)
+      if logged_in?
+        require_board_access(board_id)
+      else
+        require_logged_in
+      end
     end
   end
 end

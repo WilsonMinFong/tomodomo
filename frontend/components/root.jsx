@@ -31,7 +31,7 @@ const Root = ({ store }) => {
   const _handleAppOnEnter = (nextState, replace) => {
     _ensureCurrentUser(nextState, replace);
     store.dispatch(removeAllPopovers());
-  }
+  };
 
   return (
     <Provider store={ store }>
