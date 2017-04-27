@@ -1,17 +1,17 @@
 class Api::CardsController < ApplicationController
-  before_action :require_logged_in
+  before_action :require_logged_in, only: [:create, :update, :destroy]
 
   before_action only: :index do
     board_id = List.find(Integer(params[:list_id])).board.id
-    require_board_access(board_id)
+    check_board_privacy(board_id)
   end
 
-  before_action only: :create do
+  before_action only: [:create, :show] do
     board_id = List.find(Integer(card_params[:list_id])).board.id
     require_board_access(board_id)
   end
 
-  before_action only: [:show, :update, :destroy] do
+  before_action only: [:update, :destroy] do
     board_id = Card.find(Integer(params[:id])).board.id
     require_board_access(board_id)
   end
