@@ -29,6 +29,8 @@ class Card < ApplicationRecord
     through: :board,
     source: :creator
 
+  has_many :comments
+
   private
 
   # TODO: refactor into Sortable/Orderable module
