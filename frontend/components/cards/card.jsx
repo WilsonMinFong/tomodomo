@@ -6,6 +6,7 @@ import Popover from '../shared/popover';
 import DeleteConfirmation from '../shared/delete_confirmation';
 import CommentsListContainer from '../comments/comments_list_container';
 import CommentFormContainer from '../comments/comment_form_container';
+import DueDateFormContainer from './due_date_form';
 
 const customStyles = {
   overlay : {
@@ -54,6 +55,16 @@ class Card extends React.Component {
     const cardSidebar = (
       <div className='card-sidebar'>
         <h1>Actions</h1>
+
+        <div className='popover-container'>
+          <button onClick={ this.togglePopover('due-date') } className={'due-date'}>
+            Due Date
+          </button>
+          <Popover name={'due-date'}>
+            <DueDateFormContainer />
+          </Popover>
+        </div>
+
         <div className='popover-container'>
           <button onClick={ this.togglePopover('delete-card') } className={'delete-card'}>
             Delete
