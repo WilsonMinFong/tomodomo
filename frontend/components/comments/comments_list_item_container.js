@@ -5,7 +5,8 @@ import { deleteComment } from '../../actions/comment_actions';
 const mapStateToProps = (state, ownProps) => {
   return {
     comment: ownProps.comment,
-    author: state.boardUsers[ownProps.comment.author_id]
+    author: state.boardUsers[ownProps.comment.author_id],
+    currentUser: state.session.currentUser
   };
 };
 
