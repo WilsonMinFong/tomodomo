@@ -2,10 +2,6 @@ import { connect } from 'react-redux';
 import CommentForm from './comment_form';
 import { createComment } from '../../actions/comment_actions';
 
-const mapStateToProps = (state) => {
-
-};
-
 const mapDispatchToProps = (dispatch) => {
   return {
     createComment: (comment) => dispatch(createComment(comment))
@@ -13,6 +9,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(CommentForm);

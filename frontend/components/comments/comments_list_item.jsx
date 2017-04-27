@@ -1,8 +1,16 @@
 import React from 'react';
 
 const CommentsListItem = (props) => {
-  const { comment, author, deleteComment } = props;
+  const { comment, author, currentUser, deleteComment } = props;
   const date = new Date(comment.created_at);
+
+  const handleDelete = (e) => {
+    props.deleteComment(comment.id);
+  };
+
+  const deleteButton = (
+    <button onClick={ handleDelete }>Delete</button>
+  );
 
   return (
     <li className='comments-list-item'>
@@ -16,6 +24,7 @@ const CommentsListItem = (props) => {
         <div>
           { date.toLocaleDateString() } at { date.toLocaleTimeString() }
         </div>
+        { currentUser.id === author.id ? deleteButton : null }
       </div>
     </li>
   );
