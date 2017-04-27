@@ -19,21 +19,31 @@ class CommentForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    
+
     const cardId = this.props.params.cardId;
     const comment = Object.assign(this.state, { card_id: cardId });
     this.props.createComment(comment);
   }
 
   render() {
+    const { currentUser } = this.props;
+
     return (
-      <form onSubmit={ this.handleSubmit }>
-        <textarea
-          value={ this.state.body }
-          onChange= { this.handleInput }
-          placeholder='Write a comment...' />
-        <input type='submit' value='Send' />
-      </form>
+      <section className='comment-form'>
+        <div className='user-icon'>
+          <span className='initials'>
+            { currentUser.name.split(' ').map((s) => s.charAt(0)).join('') }
+          </span>
+        </div>
+
+        <form onSubmit={ this.handleSubmit }>
+          <textarea
+            value={ this.state.body }
+            onChange= { this.handleInput }
+            placeholder='Write a comment...' />
+          <input type='submit' value='Send' className='button' />
+        </form>
+      </section>
     );
   }
 }
