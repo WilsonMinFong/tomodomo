@@ -35,6 +35,11 @@ class User < ApplicationRecord
     through: :board_shares,
     source: :board
 
+  has_many :comments,
+    class_name: 'Comment',
+    primary_key: :id,
+    foreign_key: :author_id
+
   attr_reader :password
 
   after_initialize :ensure_session_token
