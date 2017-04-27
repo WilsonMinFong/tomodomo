@@ -8,8 +8,8 @@ const CommentsListItem = (props) => {
     props.deleteComment(comment.id);
   };
 
-  const deleteButton = (
-    <button onClick={ handleDelete }>Delete</button>
+  const deleteLink = (
+    <span> - <a onClick={ handleDelete } className='delete-comment'>Delete</a></span>
   );
 
   return (
@@ -23,10 +23,10 @@ const CommentsListItem = (props) => {
       <div className='comments-list-item-content'>
         <h1>{ author.name }</h1>
         <p>{ comment.body }</p>
-        <div>
-          { date.toLocaleDateString() } at { date.toLocaleTimeString() }
+        <div className='comments-list-item-content-footer'>
+            { date.toLocaleDateString() } at { date.toLocaleTimeString() }
+            { currentUser && currentUser.id === author.id ? deleteLink : null }
         </div>
-        { currentUser.id === author.id ? deleteButton : null }
       </div>
     </li>
   );
