@@ -31,6 +31,61 @@
     align-items: center;
     margin: 0 11px;
 
+    i {
+      margin-right: 5px;
+    }
+
+    .left-nav {
+      display: flex;
+      align-items: center;
+
+      button.update-visibility {
+        font-size: 14px;
+        font-weight: normal;
+      }
+
+      .visibility-form {
+        color: $dark-gray;
+        font-weight: normal;
+
+        .fa-lock {
+          color: #F08374;
+        }
+
+        .fa-globe {
+          color: #7CC86D;
+        }
+
+        h1 {
+          text-align: center;
+          display: block;
+          margin: 0 8px;
+          padding: 8px;
+          border-bottom: 1px solid $dark-gray;
+        }
+
+        li {
+          padding: 12px;
+          font-size: 14px;
+
+          &:hover {
+            background: $blue;
+            color: white;
+            cursor: pointer;
+          }
+        }
+
+        .visibility-item-header {
+          margin-bottom: 5px;
+          font-weight: bold;
+        }
+
+        .fa-check {
+          margin-left: 5px;
+        }
+      }
+    }
+
     & > div {
       font-size: 18px;
     }
