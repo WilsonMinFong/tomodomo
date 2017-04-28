@@ -105,7 +105,7 @@ class CardForm extends React.Component {
 
     let dueDateButton;
 
-    if (card.due_date) {
+    if (card && card.due_date) {
       const dateTime = moment(card.due_date);
 
       dueDateButton = (
