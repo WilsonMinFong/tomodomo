@@ -51,25 +51,33 @@ class Board extends React.Component {
     if (board === undefined) {
       return null;
     } else {
+      const shareButton = (
+        <div className='popover-container'>
+          <button onClick={ this.togglePopover('board-users-sidebar') } className='board-users-sidebar'>
+            Share board...
+          </button>
+          <Popover name='board-users-sidebar'>
+            <BoardUsersIndexContainer boardCreatorId={ board.creator_id }/>
+          </Popover>
+        </div>
+      );
+
+      const deleteButton = (
+        <div className='popover-container'>
+          <button onClick={ this.togglePopover('delete-board') } className='delete-board'>
+            Delete board...
+          </button>
+          <Popover name='delete-board'>
+            <DeleteConfirmation objectName='board' deleteAction={ this.handleDelete }/>
+          </Popover>
+        </div>
+      );
+
       const boardNav = (
         <div className='board-actions'>
-          <div className='popover-container'>
-            <button onClick={ this.togglePopover('board-users-sidebar') } className='board-users-sidebar'>
-              Share board...
-            </button>
-            <Popover name='board-users-sidebar'>
-              <BoardUsersIndexContainer boardCreatorId={ board.creator_id }/>
-            </Popover>
-          </div>
+          { shareButton }
 
-          <div className='popover-container'>
-            <button onClick={ this.togglePopover('delete-board') } className='delete-board'>
-              Delete board...
-            </button>
-            <Popover name='delete-board'>
-              <DeleteConfirmation objectName='board' deleteAction={ this.handleDelete }/>
-            </Popover>
-          </div>
+          { readOnly || currentUser.id !== board.creator_id ? null : deleteButton }
         </div>
       );
 
@@ -100,7 +108,7 @@ class Board extends React.Component {
                 </Popover>
               </div>
             </div>
-            { readOnly || currentUser.id !== board.creator_id ? null : boardNav }
+            { boardNav }
           </header>
 
           <section className='lists-index'>
