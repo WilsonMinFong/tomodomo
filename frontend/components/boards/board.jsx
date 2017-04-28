@@ -24,6 +24,7 @@ class Board extends React.Component {
       this.props.board.id !== parseInt(this.props.params.boardId))
     {
       this.props.fetchBoard(this.props.params.boardId);
+      this.props.fetchBoardUsers(this.props.params.boardId);
     }
   }
 
