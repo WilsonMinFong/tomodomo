@@ -28,8 +28,8 @@
       }
 
       &.dragging {
-        opacity: 0;
         background: $gray;
+        color: $gray;
       }
     }
 
