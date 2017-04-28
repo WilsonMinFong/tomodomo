@@ -1,0 +1,98 @@
+@import '../base/colors';
+
+.due-date-checkbox {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+
+  button {
+    max-width: 200px;
+    margin: 10px 0 0 0;
+    padding: 6px;
+    background: $light-gray;
+    text-decoration: underline;
+
+    // TODO: Comment back in when checked status is implemented
+    &:hover {
+      // background: $gray;
+      // color: $dark-gray;
+      cursor: default;
+    }
+  }
+
+  i {
+    margin-right: 4px;
+  }
+}
+
+button.due-date i {
+  margin-right: 5px;
+}
+
+.due-date-form {
+  font-family: Arial, Helvetica, sans-serif;
+
+  h1 {
+    text-align: center;
+    display: block;
+    margin: 0 8px;
+    padding: 8px;
+    border-bottom: 1px solid $dark-gray;
+    font-weight: normal;
+  }
+
+  input[type="date"], input[type="time"] {
+    padding: 8px 6px;
+    border-radius: 3px;
+    border: 1px solid $gray;
+    font-family: Arial;
+    font-size: 14px;
+    margin-top: 4px;
+    background: $lightest-gray;
+    color: $dark-gray;
+
+    &:focus {
+      background: white;
+    }
+  }
+
+  input[type="submit"] {
+    margin: 0;
+    width: 20%;
+    border-bottom-width: 1px;
+    color: white;
+    font-size: 14px;
+  }
+
+  input[type="button"] {
+    margin: 0;
+    width: 25%;
+    border-bottom-width: 1px;
+    color: #C44D39;
+    font-size: 14px;
+    background: #D3D7D9;
+    cursor: pointer;
+
+    &:hover {
+      background: #C44D39;
+      color: white;
+    }
+  }
+}
+
+.due-date-form-input {
+  display: flex;
+  justify-content: space-around;
+  margin: 6px 0;
+
+  label {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.due-date-form-actions {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-around;
+}

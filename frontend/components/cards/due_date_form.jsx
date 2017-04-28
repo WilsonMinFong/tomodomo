@@ -67,24 +67,32 @@ class DueDateForm extends React.Component {
       <div className='due-date-form'>
         <h1>Change Due Date</h1>
         <form onSubmit={ this.handleSubmit }>
-          <input
-            type='date'
-            value={ this.state.date }
-            onChange={ this.updateInput('date') } />
+          <div className='due-date-form-input'>
+            <label>Date
+              <input
+                type='date'
+                value={ this.state.date }
+                onChange={ this.updateInput('date') } />
+            </label>
 
-          <input
-            type='time'
-            value={ this.state.time }
-            onChange={ this.updateInput('time') } />
+            <label>Time
+              <input
+                type='time'
+                value={ this.state.time }
+                onChange={ this.updateInput('time') } />
+            </label>
+          </div>
 
           <div className='due-date-form-actions'>
             <input
               type='submit'
-              value='Save' />
+              value='Save'
+              className='button' />
             <input
               type='button'
               onClick={ this.handleRemoveDueDate }
-              value='Remove' />
+              value='Remove'
+              className='button' />
           </div>
         </form>
       </div>
