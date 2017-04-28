@@ -36,9 +36,24 @@ User.create([
     password: 'suffering'
   },
   {
+    name: 'George Martin',
+    email: 'grrm@kingslanding.com',
+    password: 'everyonedies'
+  },
+  {
     name: 'Shinzo Abe',
     email: 'shinzo.abe@japan.go.jp',
     password: 'primeminister'
+  },
+  {
+    name: 'Zach Rivera',
+    email: 'zrivera@gmail.com',
+    password: 'otakutoostrong'
+  },
+  {
+    name: 'Daniel Fulson',
+    email: 'dfulson@appacademy.io',
+    password: 'soothingvoice'
   }
 ])
 
@@ -47,14 +62,14 @@ Board.destroy_all
 
 User.first.boards.create([
   {
-    name: 'Travel to Japan'
-  },
-  {
-    name: 'Learn Japanese'
+    name: 'Japan Vacation'
   },
   {
     name: 'Full-Stack Project - Tomodomo',
     private: false
+  },
+  {
+    name: 'Personal and Work Goals'
   }
 ])
 
@@ -67,27 +82,30 @@ User.find_by_name('Hayao Miyazaki').boards.create([
 # List seeds
 List.destroy_all
 
-Board.find_by_name('Travel to Japan').lists.create([
+Board.find_by_name('Japan Vacation').lists.create([
   {
-    name: 'Not Started'
+    name: 'To Do Before Trip'
   },
   {
-    name: 'In Progress'
+    name: 'Done'
   },
   {
-    name: 'Complete'
+    name: 'To Eat And Drink'
+  },
+  {
+    name: 'Places to See'
   }
 ])
 
-Board.find_by_name('Learn Japanese').lists.create([
+Board.find_by_name('Personal and Work Goals').lists.create([
   {
-    name: 'Vocab to Review'
+    name: 'Personal'
   },
   {
-    name: 'Grammar to Review'
+    name: 'Work'
   },
   {
-    name: 'Reviewed'
+    name: 'Achieved!'
   }
 ])
 
@@ -124,28 +142,97 @@ Board.find_by_name('Dream Collab').lists.create([
 # Card seeds
 Card.destroy_all
 
-List.find_by_name('Not Started').cards.create([
+List.find_by_name('Personal').cards.create([
   {
-    name: 'Transportation',
-    description: 'Airline? JR Rail Pass?'
+    name: 'Cook one new recipe a week'
   },
   {
-    name: 'Lodging',
-    description: 'How many days of ryokan vs hotels?'
+    name: 'Sleep at least 7 hours a night'
+  },
+  {
+    name: 'Reconnect with college buddies'
+  },
+  {
+    name: '100% complete Zelda: BoTW'
+  }
+]);
+
+List.find_by_name('Work').cards.create([
+  {
+    name: 'Add checklists feature to cards'
+  },
+  {
+    name: 'Refactor popup component'
+  },
+  {
+    name: 'Prepare presentation for staff meeting'
+  }
+]);
+
+List.find_by_name('Achieved!').cards.create([
+  {
+    name: 'Start my software development career'
+  }
+]);
+
+List.find_by_name('To Do Before Trip').cards.create([
+  {
+    name: 'Book airline tickets',
+    description: 'JFK to Narita International Airport (NRT)'
+  },
+  {
+    name: 'Buy JR Rail Pass',
+    description: 'Get the two week pass'
+  },
+  {
+    name: 'Book hotel',
+    description: 'Mostly regular hotels, but consider traditional ryokan for a night or two'
   }
 ])
 
-List.find_by_name('In Progress').cards.create([
+List.find_by_name('Done').cards.create([
   {
-    name: 'Time',
+    name: 'Decide on dates',
     description: 'When to go and how long?'
   }
 ])
 
-List.find_by_name('Incomplete MVP Features').cards.create([
+List.find_by_name('To Eat And Drink').cards.create([
   {
-    name: 'Sharing Boards'
+    name: 'Conveyor belt sushi'
   },
+  {
+    name: 'Curry rice'
+  },
+  {
+    name: 'Yakitori'
+  },
+  {
+    name: 'Authentic ramen',
+    description: 'Not cup ramen'
+  },
+  {
+    name: 'Japanese sweet potato'
+  }
+])
+
+List.find_by_name('Places to See').cards.create([
+  {
+    name: 'Ghibli Museum'
+  },
+  {
+    name: 'Mount Fuji'
+  },
+  {
+    name: 'Akihabara'
+  },
+  {
+    name: 'Nara',
+    description: 'Deer on the streets!!!'
+  }
+])
+
+List.find_by_name('Incomplete MVP Features').cards.create([
   {
     name: 'Comments and Due Dates'
   },
@@ -156,7 +243,7 @@ List.find_by_name('Incomplete MVP Features').cards.create([
 
 List.find_by_name('MVP Features to Review').cards.create([
   {
-    name: 'Cards'
+    name: 'Sharing Boards'
   }
 ])
 
@@ -169,6 +256,24 @@ List.find_by_name('Complete MVP Features').cards.create([
   },
   {
     name: 'Lists'
+  },
+  {
+    name: 'Cards'
+  }
+])
+
+List.find_by_name('Issues').cards.create([
+  {
+    name: 'Add confirmations before deleting anything'
+  },
+])
+
+List.find_by_name('Completed Issues').cards.create([
+  {
+    name: 'Add hover styling for links'
+  },
+  {
+    name: 'Boards are not visible when the window gets too narrow'
   }
 ])
 
@@ -199,3 +304,42 @@ BoardShare.destroy_all
 Board.find_by_name('Dream Collab').shared_users << User.find_by_name('Guest User')
 Board.find_by_name('Dream Collab').shared_users << User.find_by_name('Makoto Shinkai')
 Board.find_by_name('Dream Collab').shared_users << User.find_by_name('Mamoru Hosoda')
+Board.find_by_name('Japan Vacation').shared_users << User.find_by_name('Zach Rivera')
+Board.find_by_name('Full-Stack Project - Tomodomo').shared_users << User.find_by_name('Daniel Fulson')
+
+
+# Comment seeds
+Comment.destroy_all
+
+guest_id = User.find_by_name('Guest User').id
+zach_id = User.find_by_name('Zach Rivera').id
+
+Card.find_by_name('Decide on dates').comments.create([
+  {
+    author_id: guest_id,
+    body: 'I hear the cherry blossoms are beautiful during the spring'
+  },
+  {
+    author_id: zach_id,
+    body: 'But airline tickets should be cheaper during winter/fall'
+  },
+  {
+    author_id: guest_id,
+    body: 'In that case, let\'s do fall.  How about the first two weeks of December?'
+  },
+  {
+    author_id: zach_id,
+    body: 'Let\'s do that!'
+  }
+])
+
+Card.find_by_name('Book airline tickets').comments.create([
+  {
+    author_id: zach_id,
+    body: 'Does airline matter?'
+  },
+  {
+    author_id: guest_id,
+    body: 'Let\'s find the cheapest.'
+  }
+])
