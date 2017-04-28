@@ -75,7 +75,7 @@ class Board extends React.Component {
 
       const boardNav = (
         <div className='board-actions'>
-          { shareButton }
+          { readOnly ? null : shareButton }
 
           { readOnly || currentUser.id !== board.creator_id ? null : deleteButton }
         </div>
