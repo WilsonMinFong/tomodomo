@@ -12,6 +12,8 @@ const CommentsListItem = (props) => {
     <span> - <a onClick={ handleDelete } className='delete-comment'>Delete</a></span>
   );
 
+  if (!author) { return null; }
+
   return (
     <li className='comments-list-item'>
       <div className='user-icon'>
