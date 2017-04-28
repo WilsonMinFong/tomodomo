@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDateTime from 'react-datetime';
 
 class DueDateForm extends React.Component {
   constructor(props) {
@@ -13,7 +12,7 @@ class DueDateForm extends React.Component {
   render() {
     return (
       <div className='due-date-form'>
-        <ReactDateTime open={ true } input={ false }/>
+        
       </div>
     );
   }
