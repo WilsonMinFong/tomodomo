@@ -6,7 +6,7 @@ import Popover from '../shared/popover';
 import DeleteConfirmation from '../shared/delete_confirmation';
 import CommentsListContainer from '../comments/comments_list_container';
 import CommentFormContainer from '../comments/comment_form_container';
-import DueDateFormContainer from './due_date_form';
+import DueDateFormContainer from './due_date_form_container';
 
 const customStyles = {
   overlay : {
@@ -58,6 +58,7 @@ class Card extends React.Component {
 
         <div className='popover-container'>
           <button onClick={ this.togglePopover('due-date') } className={'due-date'}>
+            <i className="fa fa-clock-o" aria-hidden="true"></i>
             Due Date
           </button>
           <Popover name={'due-date'}>

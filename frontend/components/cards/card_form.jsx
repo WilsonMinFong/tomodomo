@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 class CardForm extends React.Component {
   constructor(props) {
@@ -67,7 +68,7 @@ class CardForm extends React.Component {
   }
 
   render() {
-    const { formType, list, readOnly } = this.props;
+    const { formType, list, readOnly, card } = this.props;
 
     const createForm = (
       <form onSubmit={ this.handleSubmit }>
@@ -102,6 +103,25 @@ class CardForm extends React.Component {
       </header>
     );
 
+    let dueDateButton;
+
+    if (card.due_date) {
+      const dateTime = moment(card.due_date);
+
+      dueDateButton = (
+        <div className='due-date-checkbox'>
+          <label>
+            Due Date
+          </label>
+          <button>
+            <i className="fa fa-calendar-check-o" aria-hidden="true" />
+            { dateTime.format("MMM D [at] h:mm A") }
+          </button>
+        </div>
+      );
+    }
+
+
     const updateDescription = (
       <div className='description'>
         <label>
@@ -126,6 +146,7 @@ class CardForm extends React.Component {
     const updateInput = (
       <div className='update-card'>
         { updateHeader }
+        { dueDateButton ? dueDateButton : null }
         { updateDescription }
       </div>
     );
