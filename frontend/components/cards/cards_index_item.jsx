@@ -11,6 +11,9 @@ const cardSource = {
       ord: props.card.ord,
       list_id: props.card.list_id
     };
+  },
+  isDragging(props, monitor) {
+    return props.card.id === monitor.getItem().id;
   }
 };
 
