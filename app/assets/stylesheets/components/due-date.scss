@@ -12,11 +12,19 @@
     background: $light-gray;
     text-decoration: underline;
 
-    // TODO: Comment back in when checked status is implemented
     &:hover {
-      // background: $gray;
-      // color: $dark-gray;
-      cursor: default;
+      background: $gray;
+      color: $dark-gray;
+      cursor: pointer;
+    }
+
+    &.completed {
+      background: #5AAC44;
+      color: white;
+
+      &:hover {
+        background: #519839;
+      }
     }
   }
 
