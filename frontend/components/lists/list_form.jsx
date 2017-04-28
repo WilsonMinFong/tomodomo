@@ -48,6 +48,7 @@ class ListForm extends React.Component {
   handleKeyDown(e) {
     if (e.key === 'Enter') {
       this.handleSubmit(e);
+      e.currentTarget.blur();
     }
   }
 

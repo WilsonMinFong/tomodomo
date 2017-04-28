@@ -55,6 +55,7 @@ class CardForm extends React.Component {
   handleKeyDown(e) {
     if (e.key === 'Enter') {
       this.handleSubmit(e);
+      e.currentTarget.blur();
     }
   }
 
@@ -69,7 +70,7 @@ class CardForm extends React.Component {
       const card = {
         id: this.props.card.id
       };
-      
+
       this.props.formAction(Object.assign(card, this.state));
     });
   }
