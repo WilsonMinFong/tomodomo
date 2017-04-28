@@ -8,7 +8,8 @@ class CardForm extends React.Component {
     this.state = {
       name: props.card ? props.card.name : '',
       description: props.card ? props.card.description : '',
-      activeDescription: false
+      activeDescription: false,
+      completed: props.card ? props.card.completed : false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,6 +17,7 @@ class CardForm extends React.Component {
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.toggleDescription = this.toggleDescription.bind(this);
     this.handleDescriptionSubmit = this.handleDescriptionSubmit.bind(this);
+    this.toggleCompleted = this.toggleCompleted.bind(this);
   }
 
   componentDidMount() {
@@ -60,6 +62,16 @@ class CardForm extends React.Component {
     if (e.currentTarget.id !== 'update-description-form') {
       this.setState({ activeDescription: !this.state.activeDescription });
     }
+  }
+
+  toggleCompleted(e) {
+    this.setState({ completed: !this.state.completed }, () => {
+      const card = {
+        id: this.props.card.id
+      };
+      
+      this.props.formAction(Object.assign(card, this.state));
+    });
   }
 
   handleDescriptionSubmit(e) {
@@ -113,7 +125,9 @@ class CardForm extends React.Component {
           <label>
             Due Date
           </label>
-          <button>
+          <button
+            onClick={ this.toggleCompleted }
+            className={ this.state.completed ? 'completed' : null }>
             <i className="fa fa-calendar-check-o" aria-hidden="true" />
             { dateTime.format("MMM D [at] h:mm A") }
           </button>

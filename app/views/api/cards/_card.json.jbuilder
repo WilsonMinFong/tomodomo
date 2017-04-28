@@ -1,1 +1,1 @@
-json.extract! card, :id, :name, :description, :ord, :list_id, :due_date
+json.extract! card, :id, :name, :description, :ord, :list_id, :due_date, :completed
