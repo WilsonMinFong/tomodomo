@@ -93,9 +93,10 @@
   }
 
   &.due-date {
-    right: 0;
-    width: auto;
+    right: -40px;
+    top: 38px;
     padding: 0;
+    width: 350px;
 
     span {
       border: 0;
