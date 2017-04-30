@@ -127,7 +127,7 @@ class CardForm extends React.Component {
             Due Date
           </label>
           <button
-            onClick={ this.toggleCompleted }
+            onClick={ readOnly ? null : this.toggleCompleted }
             className={ this.state.completed ? 'completed' : null }>
             <i className="fa fa-calendar-check-o" aria-hidden="true" />
             { dateTime.format("MMM D [at] h:mm A") }

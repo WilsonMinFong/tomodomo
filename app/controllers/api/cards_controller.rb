@@ -6,7 +6,7 @@ class Api::CardsController < ApplicationController
     check_board_privacy(board_id)
   end
 
-  before_action only: [:create, :show] do
+  before_action only: :create do
     board_id = List.find(Integer(card_params[:list_id])).board.id
     require_board_access(board_id)
   end
@@ -19,11 +19,6 @@ class Api::CardsController < ApplicationController
   def index
     @cards = List.find(params[:list_id]).cards
     render :index
-  end
-
-  def show
-    @cards = Card.find(params[:id])
-    render :show
   end
 
   def create
