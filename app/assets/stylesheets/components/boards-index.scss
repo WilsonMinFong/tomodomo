@@ -1,18 +1,30 @@
 @import '../base/colors.scss';
 
 .boards-index {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
   font-weight: bold;
+  max-width: 1270px;
+  margin: 0 auto;
+  padding: 0 15px;
 
   h1 {
-    padding: 10px;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    color: $darkest-gray;
+
+    i {
+      font-size: 22px;
+      margin-right: 12px;
+      color: #999999;
+    }
   }
 
   li {
-    margin: 15px 20px 15px 0;
+    margin: 16px 16px 0 0;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
   li a, li button {
@@ -49,10 +61,8 @@
   }
 
   .boards-list {
-    max-width: 1350px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
   }
 
   .index-board-form {

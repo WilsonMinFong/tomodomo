@@ -13,7 +13,7 @@
 
 .comments-list-item-content {
   flex-grow: 1;
-  color: $dark-gray;
+  color: $darkest-gray;
   padding-bottom: 10px;
   border-bottom: 1px solid $gray;
 
@@ -43,6 +43,6 @@
 
 .delete-comment:hover {
   text-decoration: underline;
-  color: $dark-gray;
+  color: $darkest-gray;
   cursor: pointer;
 }
