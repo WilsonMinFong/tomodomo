@@ -9,7 +9,7 @@ button.close-modal {
   border: 0;
   color: #8C8C8C;
   &:hover {
-    color: $dark-gray;
+    color: $darkest-gray;
   }
 }
 
@@ -18,7 +18,7 @@ button.close-modal {
 }
 
 .card-sidebar {
-  color: $dark-gray;
+  color: $darkest-gray;
   margin: 52px 25px 0 25px;
 
   h1 {
@@ -57,7 +57,7 @@ button.close-modal {
 
     &:hover {
       background: $gray;
-      color: $dark-gray;
+      color: $darkest-gray;
     }
   }
 
@@ -77,7 +77,7 @@ button.close-modal {
       box-shadow: none;
       height: auto;
       padding: 0;
-      color: $dark-gray;
+      color: $darkest-gray;
       font-size: 14px;
 
       &:focus {
@@ -104,7 +104,7 @@ button.close-modal {
   }
 
   input[type="text"] {
-    color: $dark-gray;
+    color: $darkest-gray;
     width: 90%;
     background: inherit;
     border: 0;

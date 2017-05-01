@@ -24,6 +24,35 @@
         background: $lightest-blue;
       }
     }
+
+    .boards-index {
+      padding: 0;
+
+      h1 {
+        margin: 0 0 4px 0;
+        font-size: 14px;
+        font-weight: normal;
+
+        i {
+          font-size: 14px;
+          margin-right: 8px;
+        }
+      }
+
+      ul {
+        margin-bottom: 8px;
+
+        a {
+          display: flex;
+
+          div {
+            margin: auto 0;
+            padding: 0;
+            padding-left: 12px;
+          }
+        }
+      }
+    }
   }
 
   .logo {

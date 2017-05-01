@@ -15,7 +15,7 @@
     background: $light-gray;
 
     &:hover {
-      border: 1px solid $dark-gray;
+      border: 1px solid $darkest-gray;
     }
 
     &:focus {
@@ -44,7 +44,7 @@
       margin: 4px;
 
       &:hover {
-        background: $dark-gray;
+        background: $darkest-gray;
       }
     }
   }

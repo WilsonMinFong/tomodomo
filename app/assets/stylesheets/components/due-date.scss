@@ -14,7 +14,7 @@
 
     &:hover {
       background: $gray;
-      color: $dark-gray;
+      color: $darkest-gray;
       cursor: pointer;
     }
 
@@ -43,7 +43,7 @@ button.due-date i {
     display: block;
     margin: 0 8px;
     padding: 8px;
-    border-bottom: 1px solid $dark-gray;
+    border-bottom: 1px solid $darkest-gray;
     font-weight: normal;
   }
 
@@ -54,7 +54,7 @@ button.due-date i {
     font-size: 14px;
     margin-top: 4px;
     background: $lightest-gray;
-    color: $dark-gray;
+    color: $darkest-gray;
 
     &:focus {
       background: white;
