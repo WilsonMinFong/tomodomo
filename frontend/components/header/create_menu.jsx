@@ -10,7 +10,3 @@ const CreateMenu = () => {
 };
 
 export default CreateMenu;
-
-// For expansion of menu
-// <span>Create a board...</span>
-// <div className='description'>Use a board to track a project or manage anything.</div>
