@@ -8,7 +8,7 @@ manage projects together with other users.  In the kanban framework,
 boards (projects) contain lists (task lists), and lists contain cards
 (tasks).
 
-[heroku]: https://tomodomo.herokuapp.com
+[heroku]: https://www.mytomodomo.com
 Visit [Tomodomo][heroku] to create a board.
 
 Tomodomo stack:
