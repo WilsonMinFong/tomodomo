@@ -38,8 +38,6 @@ button.due-date i {
 }
 
 .due-date-form {
-  font-family: Arial, Helvetica, sans-serif;
-
   h1 {
     text-align: center;
     display: block;
@@ -53,7 +51,6 @@ button.due-date i {
     padding: 8px 6px;
     border-radius: 3px;
     border: 1px solid $gray;
-    font-family: Arial;
     font-size: 14px;
     margin-top: 4px;
     background: $lightest-gray;
