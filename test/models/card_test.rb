@@ -9,6 +9,8 @@
 #  description :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  due_date    :datetime
+#  completed   :boolean          default("false")
 #
 
 require 'test_helper'

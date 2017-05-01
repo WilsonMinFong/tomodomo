@@ -1,62 +1,73 @@
 # Tomodomo
 
-[heroku]: https://tomodomo.herokuapp.com
-[Tomodomo live][heroku]
+[kanban]: https://en.wikipedia.org/wiki/Kanban_(development)
 
 Tomodomo is a full-stack web application inspired by Trello.  The app
-gives users the ability to track information together with other users.
-Information is structured in a natural hierarchy with boards containing
-lists and lists containing cards.
+utilizes the [kanban framework][kanban] to give users the ability to
+manage projects together with other users.  In the kanban framework,
+boards (projects) contain lists (task lists), and lists contain cards
+(tasks).
 
-Tomodomo's stack consists of a Ruby on Rails backend, a PostgreSQL
-database, and React.js with Redux state management on the frontend.
+[heroku]: https://tomodomo.herokuapp.com
+Visit [Tomodomo][heroku] to create a board.
 
-## Features & Implementation
+Tomodomo stack:
+* Backend: Ruby on Rails
+* Database: PostgreSQL
+* Frontend: React.js with Redux state management
 
-### Boards
+## Features
 
-The `boards` database table consists of columns for `id`, `name`,
-`creator_id`, and `private`.  By default, boards are private.  Creators
-of a board can change a board's visibility to public to allow public
-viewers to see the board with the board's URL.  Board information is
-protected by backend restrictions on the API routes along with
-restrictions to frontend paths.
+* Create, read, update, and delete boards, lists, and cards
+* Reorder lists and cards within a board
+* Share boards with other users
+* Provide a read-only board view for non-authenticated users
+* Add comments to cards
+* Give cards a due date and completion status
 
-A separate table, `board_shares`, is used to implement board sharing.  
-This table consists of columns for `id`, `board_id` and `user_id`.  The
-latter two link entries in the `boards` and `users` table, respectively.
-Shared users have the ability to view and edit information in shared
-boards.  
+## Technical Highlights / Implementation
 
-### Lists & Cards
+### Board Sharing and Read-Only Access
 
-Lists are stored in a single database table consisting of columns for
-`id`, `ord`, `name`, and `board_id`.  The `board_id` column links lists to
-boards.
+Tomodomo implements board sharing using a `board_shares` database table.
+The `board_shares` table contains columns for `id`, `board_id`, and
+`user_id`.  `board_id` and `user_id` are foreign keys pointing to
+rows in the `boards` and `users` tables, respectively.  Backend routes
+to read, update, and destroy resources within a board validate that the
+current user is either the board creator or has a board share before
+generating the response.  Users redirect to their homepage when
+attempting to access resources they don't have access to.
 
-Additionally, cards are stored in another database table consisting of
-columns for `id`, `ord`, `name`, `list_id`, `description`, `due_date`,
-and `completed`.  `list_id` connects a card with a list.
+The `private` column of the `boards` database table determines whether
+or not a board and its nested resources are viewable by unauthenticated
+users.  Backend routes to read resources within a board check this
+column before validating current user access to a board.  Read-only
+users are presented with a view without any edit functionality.
 
-One of the core aspects of lists and cards are their ability to be
-dragged to be reordered.  Tomodomo accomplishes this by using
+### Orderable Lists and Cards
+
+Using the kanban framework, the core aspect of lists and cards is their
+ability to be reordered.  Lists can be reordered within a board.  Cards
+can be reordered within their list and moved between different lists.  
+
+Both `lists` and `cards` database tables contain an `ord` column,
+indicating its order in its containing item.  The frontend uses `ord`
+to determine what order to render lists and cards in.
+
+Users drag and drop to reorder items.  Tomodomo implements drag and drop
+using the `react-dnd` library.  The table below identifies the React
+components involved in the drag and drop and their roles within
 `react-dnd`.
+
+Item        | `DragSource`    | `DragTarget`
+----------- | --------------- | ---------------------------
+lists       | `List`          | `ListIndexItem`
+cards       | `CardIndexItem` | `CardIndexItem`, `CardIndex`
 
 ## Features to Implement
 
-Currently, Tomodomo implements the core features of Trello.  I plan to
-continue adding features to the project to provide a better user
-experience.
-
-### Hotkeys
-
-Hotkeys allow end users to escape the shackles of their mouse and
-unlock better productivity.  I plan on using the Mousetrap library to
-create a set of keyboard shortcuts.
-
-### User Profiles & Board Settings
-
-While not essential to the utility of the app, user and board
-customization provide a better user experience.  Users will have the
-ability to add a bio and profile picture to their profile.  The
-background color or picture will be able to be customized.
+- [ ] Hotkeys (using Mousetrap library)
+- [ ] Board settings
+- [ ] User profiles
+- [ ] Changelogs
+- [ ] Multiple sessions
