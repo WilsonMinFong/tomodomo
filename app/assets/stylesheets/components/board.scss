@@ -44,8 +44,10 @@
       }
 
       .visibility-form {
-        color: $darkest-gray;
+        color: $darker-gray;
         font-weight: normal;
+
+        font-size: 14px;
 
         .fa-lock {
           color: #F08374;
@@ -60,23 +62,27 @@
           display: block;
           margin: 0 8px;
           padding: 8px;
-          border-bottom: 1px solid $darkest-gray;
-        }
-
-        li {
-          padding: 12px;
-          font-size: 14px;
-
-          &:hover {
-            background: $blue;
-            color: white;
-            cursor: pointer;
-          }
+          border-bottom: 1px solid $gray;
         }
 
         .visibility-item-header {
           margin-bottom: 5px;
           font-weight: bold;
+          color: $darkest-gray;
+        }
+
+        li {
+          padding: 12px;
+
+          &:hover {
+            background: $blue;
+            color: white;
+            cursor: pointer;
+
+            .visibility-item-header {
+              color: white;
+            }
+          }
         }
 
         .fa-check {
@@ -106,6 +112,7 @@
 
         p {
           text-align: center;
+          color: $darkest-gray;
         }
 
         button {

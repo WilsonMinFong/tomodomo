@@ -29,7 +29,7 @@ class VisibilityForm extends React.Component {
 
     return (
       <div className='visibility-form'>
-        <h1>Update Visibility</h1>
+        <h1>Change Visibility</h1>
         <ul>
           <li onClick={ this.handlePrivacyChange(true) }>
             <div className='visibility-item-header'>

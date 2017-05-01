@@ -1,6 +1,8 @@
 @import '../base/colors';
 
 .board-users-search {
+  color: $darkest-gray;
+
   label {
     display: flex;
     flex-direction: column;
@@ -37,11 +39,9 @@
     display: flex;
 
     li {
-      padding: 5px;
-      border-radius: 5px;
-      background: $gray;
+      background: $darker-gray;
       color: white;
-      margin: 4px;
+      margin: 4px 8px;
 
       &:hover {
         background: $darkest-gray;
@@ -58,18 +58,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 4px;
 
     &:hover {
       background: $gray;
       cursor: pointer;
-    }
-
-    .icon {
-      padding: 4px;
-      margin: 4px;
-      background: $gray;
-      color: white;
-      border-radius: 2px;
     }
 
     .user-info {
@@ -94,8 +87,9 @@ button.board-users-sidebar {
 }
 
 .user-details {
-  margin: 0 5px;
+  margin: 0 8px;
   font-weight: normal;
+  color: $darkest-gray;
 
   & > button.unshare-button {
     background: $blue;

@@ -29,6 +29,11 @@ button.close-modal {
     background: white;
     padding: 8px 16px;
     width: 100%;
+
+    &:hover {
+      background: $blue;
+      color: white;
+    }
   }
 }
 
@@ -168,4 +173,8 @@ button.close-modal {
       }
     }
   }
+}
+
+div[class*="popover create-card-form-"] {
+  padding: 0 8px;
 }
