@@ -68,6 +68,7 @@ class Card extends React.Component {
 
         <div className='popover-container'>
           <button onClick={ this.togglePopover('delete-card') } className={'delete-card'}>
+            <i className="fa fa-trash-o" aria-hidden="true"></i>
             Delete
           </button>
           <Popover name={'delete-card'}>

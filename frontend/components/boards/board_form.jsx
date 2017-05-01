@@ -45,7 +45,7 @@ class BoardForm extends React.Component {
 
     return (
       <div className='board-form popup'>
-        <span>{ `${action} Board` }</span>
+        <h1>{ `${action} Board` }</h1>
         <form onSubmit={ this.handleSubmit }>
           <label>Name
             <input id='board-name-input' type='text' value={ this.state.name } onChange={ this.handleInput }/>

@@ -1,15 +1,19 @@
+@import '../base/colors';
+
 .board-form {
   form {
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    padding: 10px 0;
+    padding: 8px;
   }
 
   label {
     display: flex;
     flex-direction: column;
+    color: $darkest-gray;
+    font-weight: bold;
   }
 
   input[type='text'] {
@@ -26,7 +30,6 @@
     border: 1px solid lightgray;
     border-radius: 3px;
     padding: 6px 8px;
-    margin: 10px 0;
   }
 
   input[type='text'] {
@@ -41,7 +44,7 @@
 
   input[type='submit'] {
     width: 35%;
-    height: 40px;
     color: white;
+    border-width: 1px;
   }
 }

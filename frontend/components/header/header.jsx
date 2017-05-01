@@ -41,7 +41,7 @@ class Header extends React.Component {
           <nav>
             <div>
               <button onClick={ this.togglePopover('create-drawer') } className='create-drawer'>
-                +
+                <i className="fa fa-plus" aria-hidden="true"></i>
               </button>
               <Popover name='create-drawer'>
                 <CreateMenu />
