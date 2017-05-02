@@ -1,3 +1,5 @@
+@import "../base/colors";
+
 .splash-container {
   font-size: 20px;
   height: 100%;
@@ -27,10 +29,14 @@
   }
 
   footer {
-    background: #74776B;
-    text-align: center;
-    padding: 5px 0;
-    flex: 0 1 40px;
+    background: #42548E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 0;
+    flex: 0 1 46px;
+    font-size: 16px;
+    color: white;
   }
 
   .overlay {
@@ -52,16 +58,32 @@
 
   footer a {
     cursor: pointer;
-    color: black;
-    margin-left: 10px;
+    color: white;
+    margin-right: 12px;
+    display: flex;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    i {
+      margin-right: 4px;
+      color: white;
+    }
   }
 
   header a i {
-    margin-right: 10px;
+    margin-right: 12px;
+    color: white;
   }
 
   .button {
     margin: 12px;
+  }
+
+  .personal-links {
+    display: flex;
+    margin-bottom: 4px;
   }
 }
 

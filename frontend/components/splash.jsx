@@ -45,16 +45,29 @@ const Splash = () => {
       </main>
 
       <footer>
-        <span>Project by Wilson Fong</span>
-        <a href='https://github.com/WilsonMinFong'>
-          <i className="fa fa-github" aria-hidden="true"></i>
-        </a>
-        <a href='https://www.linkedin.com/in/wilsonmfong'>
-          <i className="fa fa-linkedin" aria-hidden="true"></i>
-        </a>
+
+        <nav className='personal-links'>
+          <a href='https://github.com/WilsonMinFong'>
+            <i className="fa fa-github" aria-hidden="true"></i>
+            Github
+          </a>
+          <a href='https://www.linkedin.com/in/wilsonmfong'>
+            <i className="fa fa-linkedin-square" aria-hidden="true"></i>
+            LinkedIn
+          </a>
+        </nav>
+
+        <div className='copyright'>
+          &copy; Copyleft 2017, Wilson Fong, Inc.  All lefts reserved.
+        </div>
       </footer>
     </div>
   );
 };
 
 export default Splash;
+
+// <div className='blurb'>
+//   What are you waiting for? <br/>
+// Become one of the hundreds of people around the world who have fallen in love with Wilson Fong.
+// </div>
