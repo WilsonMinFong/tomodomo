@@ -106,6 +106,7 @@
     margin: 0;
     height: initial;
     padding: 0;
+    background: $light-gray;
 
     input[type='text'] {
       &::placeholder {
