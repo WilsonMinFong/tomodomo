@@ -21,6 +21,34 @@
     border-bottom: 1px solid $gray;
   }
 
+  h2 {
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  p {
+    color: $darkest-gray;
+    margin: 5px 0;
+    text-align: center;
+  }
+
+  .app-info-contents {
+    margin: 0 8px 8px 8px;
+
+    a {
+      text-decoration: underline;
+
+      &:hover {
+        color: $darker-gray;
+        text-decoration: none;
+      }
+    }
+
+    i {
+      margin-right: 4px;
+    }
+  }
+
   &.update-visibility {
     padding: 0;
   }
@@ -55,7 +83,7 @@
     }
   }
 
-  &.user-drawer, &.create-drawer {
+  &.user-drawer, &.create-drawer, &.info-drawer {
     top: 42px;
     right: 2px;
   }
@@ -133,4 +161,10 @@
 
 .popover-container {
   position: relative;
+}
+
+.app-info .personal-links {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5px;
 }

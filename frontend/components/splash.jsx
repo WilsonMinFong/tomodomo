@@ -44,8 +44,11 @@ const Splash = () => {
       </main>
 
       <footer>
-
         <nav className='personal-links'>
+          <a href='http://wilsonfong.me/'>
+            <i className="fa fa-globe" aria-hidden="true"></i>
+            Personal
+          </a>
           <a href='https://github.com/WilsonMinFong'>
             <i className="fa fa-github" aria-hidden="true"></i>
             Github
@@ -65,8 +68,3 @@ const Splash = () => {
 };
 
 export default Splash;
-
-// <div className='blurb'>
-//   What are you waiting for? <br/>
-// Become one of the hundreds of people around the world who have fallen in love with Wilson Fong.
-// </div>

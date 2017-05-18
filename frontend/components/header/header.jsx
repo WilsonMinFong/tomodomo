@@ -6,6 +6,7 @@ import Logo from '../shared/logo';
 import Popover from '../shared/popover';
 import BoardsIndexContainer from '../boards/boards_index_container';
 import CreateMenu from './create_menu';
+import AppInfo from './app_info';
 
 class Header extends React.Component {
   constructor(props) {
@@ -53,6 +54,14 @@ class Header extends React.Component {
               </button>
               <Popover name='user-drawer'>
                 <UserMenu currentUser={ currentUser } logout={ logout }/>
+              </Popover>
+            </div>
+            <div>
+              <button onClick={ this.togglePopover('info-drawer') } className='info-drawer'>
+                <i className="fa fa-info-circle" aria-hidden="true"></i>
+              </button>
+              <Popover name='info-drawer'>
+                <AppInfo />
               </Popover>
             </div>
           </nav>
