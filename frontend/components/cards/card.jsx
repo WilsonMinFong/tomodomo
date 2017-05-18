@@ -53,7 +53,7 @@ class Card extends React.Component {
     const { card, list, deleteCard, readOnly } = this.props;
 
     const cardSidebar = (
-      <div className='card-sidebar'>
+      <div className='card-sidebar' onClick={ this.props.removeAllPopovers }>
         <h1>Actions</h1>
 
         <div className='popover-container'>
@@ -89,7 +89,7 @@ class Card extends React.Component {
             style={ customStyles }
             contentLabel="Card Modal"
           >
-            <div className='card-main'>
+            <div className='card-main' onClick={ this.props.removeAllPopovers }>
               <button onClick={ this.closeModal } className='close-modal'>
                 <i className="fa fa-times" aria-hidden="true"></i>
               </button>
