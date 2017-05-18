@@ -26,7 +26,6 @@ const Splash = () => {
       </header>
 
       <main>
-        <img className='hero' src="https://static.pexels.com/photos/7097/people-coffee-tea-meeting.jpg" />
         <div className='overlay'>
           <div className='overlay-contents'>
             <p className='headline'>
