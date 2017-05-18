@@ -87,6 +87,7 @@ class CardForm extends React.Component {
       <form onSubmit={ this.handleSubmit }>
         <textarea
           id='card-name-input'
+          type='text'
           value={ this.state.name }
           onChange={ this.handleInput('name') }
           onKeyDown={ this.handleKeyDown }
