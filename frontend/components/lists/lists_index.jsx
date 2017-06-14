@@ -18,7 +18,7 @@ class ListsIndex extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.params.boardId !== nextProps.params.boardId)
     {
-      this.props.fetchLists(this.props.params.boardId);
+      this.props.fetchLists(nextProps.params.boardId);
     }
   }
 
